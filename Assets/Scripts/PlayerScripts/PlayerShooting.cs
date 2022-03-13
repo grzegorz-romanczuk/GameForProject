@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform gunPoint;
-    public float speed = 10f;
+    public float speed = 100f;
     public float cooldown = 1f;
     float nextShot = 0;
 
@@ -17,7 +17,7 @@ public class PlayerShooting : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, gunPoint);
             bullet.transform.parent = null;
-            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * speed * 100);
+            bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * speed * 100);
             nextShot = Time.time + cooldown;
         }
 
