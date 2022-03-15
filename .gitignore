@@ -58,4 +58,6 @@ Thumbs.db.meta
 *.DS_Store
 
 # VS Code
-*.vscode 
+
+*.vscode
+
