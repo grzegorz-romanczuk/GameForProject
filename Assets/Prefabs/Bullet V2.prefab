@@ -138,7 +138,7 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.2
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!54 &5165523586456247577
@@ -183,4 +183,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifeTime: 1
-  bulletDamage: 1
