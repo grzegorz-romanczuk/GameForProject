@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public float bulletLifeTime = 2f;
-    public int bulletDamage = 1;
+    private int bulletDamage = 1;
     
     void Start()
     {
@@ -23,6 +23,10 @@ public class PlayerBullet : MonoBehaviour
         DestroyBullet();
     }
 
+    public void setBulletDamage(int damage)
+    {
+        bulletDamage = damage;
+    }
     private void DestroyBullet()
     {
         gameObject.GetComponent<SphereCollider>().enabled = false;

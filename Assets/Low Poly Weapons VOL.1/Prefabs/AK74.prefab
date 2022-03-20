@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452442627303592}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.014220075, z: -0.04938767}
+  m_LocalPosition: {x: -0, y: 0.014220075, z: 0.04938767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4519716788627816}
@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 4519716788627816}
   - component: {fileID: 33705837635148522}
   - component: {fileID: 23860282398207496}
+  - component: {fileID: 4946943229780023560}
   m_Layer: 0
   m_Name: AK74
   m_TagString: Untagged
@@ -247,6 +248,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4946943229780023560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487774384131766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd9a27c1e8ecf14f99a29a93f51b98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4097970436253111838, guid: df58d650c5c0e8c48a6d7820edf9fe4e, type: 3}
+  gunPoint: {fileID: 6072408948039334493}
+  bulletSpeed: 400
+  fireRate: 0.2
+  maxAmmo: 100
+  ammoIsInfinite: 1
+  isFullAuto: 1
+  bulletDamage: 1
 --- !u!1 &1927369336514790
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6072408948039334493}
   m_Layer: 0
-  m_Name: BulletSpawn
+  m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,10 +372,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2645397825578294777}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4519716788627816}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
