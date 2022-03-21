@@ -12,10 +12,10 @@ public class PlayerBullet : MonoBehaviour
         Invoke("DestroyBullet", bulletLifeTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         //damage Enemy
-        if (collision.gameObject.tag.Contains("Enemy"))
+        if (other.gameObject.tag.Contains("Enemy"))
         {
             //trigger enemy damage
         }
