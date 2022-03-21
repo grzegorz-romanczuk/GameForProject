@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4097970436253111838, guid: df58d650c5c0e8c48a6d7820edf9fe4e, type: 3}
   gunPoint: {fileID: 6072408948039334493}
-  bulletSpeed: 400
+  bulletSpeed: 10
   fireRate: 0.2
   maxAmmo: 100
   ammoIsInfinite: 1
