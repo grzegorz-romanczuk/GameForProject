@@ -23,7 +23,7 @@ public class PlayerBullet : MonoBehaviour
         DestroyBullet();
     }
 
-    public void setBulletDamage(int damage)
+    public void SetBulletDamage(int damage)
     {
         bulletDamage = damage;
     }
