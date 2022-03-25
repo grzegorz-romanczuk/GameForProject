@@ -86,13 +86,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914407457841819524}
-  m_LocalRotation: {x: 0.48296294, y: 0.22414392, z: -0.12940955, w: 0.8365163}
-  m_LocalPosition: {x: -5, y: 20, z: -10}
+  m_LocalRotation: {x: 0.36964378, y: 0.23911767, z: -0.09904577, w: 0.89239913}
+  m_LocalPosition: {x: -7.5, y: 20, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3914407456454356540}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 30, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 30, z: 0}
 --- !u!20 &3914407457841819522
 Camera:
   m_ObjectHideFlags: 0
@@ -241,6 +241,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: maxAmmo
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: isUnlocked
       value: 1
       objectReference: {fileID: 0}
@@ -312,13 +316,13 @@ MonoBehaviour:
   bulletSpeed: 10
   fireRate: 0.5
   recoil: 1
-  maxAmmo: 100
+  maxAmmo: 1000
   Ammo: 0
   magazineSize: 12
   ammoIsInfinite: 1
   isFullAuto: 0
   bulletDamage: 1
-  currentAmmo: 50
+  reloadTime: 2
 --- !u!114 &8570137294860983396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,13 +341,13 @@ MonoBehaviour:
   bulletSpeed: 10
   fireRate: 0.25
   recoil: 3
-  maxAmmo: 360
+  maxAmmo: 375
   Ammo: 0
   magazineSize: 25
   ammoIsInfinite: 0
   isFullAuto: 1
   bulletDamage: 1
-  currentAmmo: 50
+  reloadTime: 2
 --- !u!114 &3054914392958030223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,13 +366,13 @@ MonoBehaviour:
   bulletSpeed: 10
   fireRate: 0.15
   recoil: 3
-  maxAmmo: 100
+  maxAmmo: 675
   Ammo: 0
   magazineSize: 45
   ammoIsInfinite: 0
   isFullAuto: 1
   bulletDamage: 1
-  currentAmmo: 50
+  reloadTime: 2
 --- !u!54 &441932952633903665
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -396,8 +400,23 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.65, y: 1.8669599, z: 0.5}
-  m_Center: {x: 0, y: 0.92412525, z: 0}
+  m_Size: {x: 0.5, y: 1.75, z: 0.25}
+  m_Center: {x: 0, y: 0.875, z: 0}
+--- !u!114 &6366458121875428653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821682288135021882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d9ffe8dc624a647b17bc9c0faee7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
+  hitCooldown: 0.3
 --- !u!114 &7418612439044330999
 MonoBehaviour:
   m_ObjectHideFlags: 0

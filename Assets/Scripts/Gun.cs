@@ -16,24 +16,32 @@ public class Gun : MonoBehaviour
     public bool ammoIsInfinite = false;
     public bool isFullAuto = false;
     public int bulletDamage = 1;
+    public float reloadTime = 2f;
 
-    public int currentAmmo = 0;    
+    private int currentAmmo = 0;    
     private float nextShot = 0;
     private bool isShooting = false;
-       
+    private bool isReloading = false;
+
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && nextShot <= Time.time && !isFullAuto)
+        if (Input.GetMouseButtonDown(0) && nextShot <= Time.time && !isFullAuto && !isReloading)
         {            
             CheckAmmo();
         }
-        else if (Input.GetMouseButton(0) && nextShot <= Time.time && isFullAuto)
+        else if (Input.GetMouseButton(0) && nextShot <= Time.time && isFullAuto && !isReloading)
         {
             isShooting = true;            
             CheckAmmo();
         }
-        if(Input.GetMouseButtonUp(0)) isShooting = false;
+
+        if(Input.GetMouseButtonUp(0) && isShooting) isShooting = false;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartReloading();
+        }
     }    
     void CheckAmmo()
     {
@@ -46,7 +54,7 @@ public class Gun : MonoBehaviour
             }
             else
             {
-                //reload
+                StartReloading();
             }
         }
         else
@@ -58,7 +66,7 @@ public class Gun : MonoBehaviour
             }
             else if (Ammo > 0)
             {
-                //reload
+                StartReloading();
             }
             else
             {
@@ -76,10 +84,49 @@ public class Gun : MonoBehaviour
         bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * bulletSpeed * 100);
         bullet.GetComponent<PlayerBullet>().SetBulletDamage(bulletDamage);
         nextShot = Time.time + fireRate;
-    }   
+    }
+
+    private void StartReloading()
+    {        
+       StartCoroutine("Reload");           
+    }
+    public void StopReloading()
+    {
+        isReloading = false;
+    }
 
     public bool IsShooting()
     {
         return isShooting;
+    }
+
+    public bool IsReloading()
+    {
+        return isReloading;
+    }
+
+    private IEnumerator Reload()
+    {
+        isReloading = true;       
+        yield return new WaitForSeconds(reloadTime);
+        if (isReloading)
+        {           
+            StopReloading();
+            Ammo += currentAmmo;
+            if (ammoIsInfinite)
+            {
+                currentAmmo = magazineSize;
+            }
+            else if (Ammo >= magazineSize)
+            {
+                Ammo -= magazineSize;
+                currentAmmo = magazineSize;
+            }
+            else
+            {
+                currentAmmo = Ammo;
+                Ammo = 0;
+            }                        
+        }
     }
 }

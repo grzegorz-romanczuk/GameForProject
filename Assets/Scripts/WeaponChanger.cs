@@ -46,6 +46,10 @@ public class WeaponChanger : MonoBehaviour
             var selectedWeapon = transform.GetChild(weaponId).GetComponent<Gun>();
             if (selectedWeapon.isUnlocked)
             {
+                if (currentWeapon.IsReloading())
+                {
+                    CancelReload(currentWeapon);
+                }
                 weaponChangeCooldown = Time.time + 0.15f;
                 currentWeaponId = weaponId;
                 currentWeapon = selectedWeapon;
@@ -62,6 +66,10 @@ public class WeaponChanger : MonoBehaviour
             var selectedWeapon = transform.GetChild(weaponId).GetComponent<Gun>();
             if (selectedWeapon.isUnlocked)
             {
+                if (currentWeapon.IsReloading())
+                {
+                    CancelReload(currentWeapon);
+                }
                 currentWeaponId = weaponId;
                 currentWeapon = selectedWeapon;
                 ActiveWeapon();
@@ -81,6 +89,10 @@ public class WeaponChanger : MonoBehaviour
             var selectedWeapon = transform.GetChild(weaponId).GetComponent<Gun>();
             if (selectedWeapon.isUnlocked )
             {
+                if (currentWeapon.IsReloading())
+                {
+                    CancelReload(currentWeapon);
+                }
                 currentWeaponId = weaponId;
                 currentWeapon = selectedWeapon;
                 ActiveWeapon();
@@ -105,5 +117,10 @@ public class WeaponChanger : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             i++;
         }
+    }
+
+    private void CancelReload(Gun weapon)
+    {
+        weapon.StopReloading();
     }
 }
