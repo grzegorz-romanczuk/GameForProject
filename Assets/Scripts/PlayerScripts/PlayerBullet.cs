@@ -17,7 +17,7 @@ public class PlayerBullet : MonoBehaviour
         //damage Enemy
         if (other.gameObject.tag.Contains("Enemy"))
         {
-            //trigger enemy damage
+            other.gameObject.GetComponent<Health>().DoDamage(bulletDamage);
         }
 
         DestroyBullet();
