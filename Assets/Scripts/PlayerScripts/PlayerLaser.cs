@@ -14,19 +14,17 @@ public class PlayerLaser : MonoBehaviour
     void Start()
     {
         laserOrigin = gunPoint.transform.position;
-        laserEnd = gunPoint.transform.forward * 10f;
-        laserEnd.y = laserOrigin.y;
+        laserEnd = gunPoint.transform.forward * 20 + gunPoint.transform.position;
         Vector3[] laserPositions = new Vector3[2] { laserOrigin, laserEnd };
         laserRender.SetPositions(laserPositions);
-        laserRender.SetWidth(laserWidth, laserWidth);
+        laserRender.startWidth = laserWidth;
+        laserRender.endWidth = laserWidth;
     }
-
     // Update is called once per frame
     void Update()
     {
         laserOrigin = gunPoint.transform.position;
-        laserEnd = gunPoint.transform.forward * 10f;
-        laserEnd.y = laserOrigin.y;
+        laserEnd = gunPoint.transform.forward * 20 + gunPoint.transform.position;
         Vector3[] laserPositions = new Vector3[2] { laserOrigin, laserEnd };
         laserRender.SetPositions(laserPositions);
     }

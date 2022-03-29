@@ -555,7 +555,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: dcbe1383ad547ad4789696c5f320d590, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -629,7 +629,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 1
+    textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -931,6 +931,10 @@ PrefabInstance:
     - target: {fileID: 1470638351129763992, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470638351129763992, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1471024339434370802, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_Layer
