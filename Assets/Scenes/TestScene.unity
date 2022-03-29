@@ -740,8 +740,10 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 2.5
   projectile: {fileID: 4097970436253111838, guid: 1c4e00954e4e12945ae69b512e2a42b0, type: 3}
+  bulletSpawnPoint: {fileID: 0}
+  bulletSpeed: 10
   sightRange: 20
   attackRange: 10
   playerInSightRange: 0
