@@ -26,7 +26,7 @@ public class EnemyAi : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Man_03").transform;
+        if(!player) player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -81,7 +81,7 @@ public class EnemyAi : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, transform.position + new Vector3(0f,1f,0f), Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             ///End of attack code
