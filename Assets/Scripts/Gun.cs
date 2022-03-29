@@ -112,13 +112,14 @@ public class Gun : MonoBehaviour
         if (isReloading)
         {           
             StopReloading();
-            Ammo += currentAmmo;
+            
             if (ammoIsInfinite)
             {
                 currentAmmo = magazineSize;
             }
             else if (Ammo >= magazineSize)
             {
+                Ammo += currentAmmo;
                 Ammo -= magazineSize;
                 currentAmmo = magazineSize;
             }
