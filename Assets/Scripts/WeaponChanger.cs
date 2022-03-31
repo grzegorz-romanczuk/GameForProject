@@ -54,6 +54,7 @@ public class WeaponChanger : MonoBehaviour
                 currentWeaponId = weaponId;
                 currentWeapon = selectedWeapon;
                 ActiveWeapon();
+
             }
         }        
     }
@@ -112,9 +113,15 @@ public class WeaponChanger : MonoBehaviour
             if (i == currentWeaponId)
             {
                 weapon.gameObject.SetActive(true);
+                weapon.GetComponent<PlayerLaser>().Invoke("laserEnable", 0.1f);
             }
             else
+            {
                 weapon.gameObject.SetActive(false);
+                weapon.GetComponent<PlayerLaser>().Invoke("laserDisable", 0.1f);
+            }
+
+
             i++;
         }
     }
