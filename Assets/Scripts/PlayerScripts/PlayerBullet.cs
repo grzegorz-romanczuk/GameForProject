@@ -30,7 +30,7 @@ public class PlayerBullet : MonoBehaviour
     private void DestroyBullet()
     {
         gameObject.GetComponent<SphereCollider>().enabled = false;
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        gameObject.GetComponent<Rigidbody>().velocity *= 0.2f;
         Destroy(gameObject, gameObject.GetComponent<TrailRenderer>().time);
     }
 }
