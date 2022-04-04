@@ -16,8 +16,8 @@ public class EnemyAi : MonoBehaviour
     public float walkPointRange;
 
     //Attacking
-    public float timeBetweenAttacks, attackTime;
-    bool alreadyAttacked, isAttacking;
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
     public GameObject projectile;
     public GameObject bulletSpawnPoint;
     public float bulletSpeed = 10f;
@@ -38,13 +38,12 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange && !isAttacking) Patroling();
-        if (playerInSightRange && !playerInAttackRange && !isAttacking) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange && !isAttacking) StartAttack();
-        if (isAttacking) transform.LookAt(player);
+        if (!playerInSightRange && !playerInAttackRange) Patroling();
+        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
-    /*private void Patroling()
+    private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
@@ -56,7 +55,7 @@ public class EnemyAi : MonoBehaviour
         //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
-    }*/
+    }
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -74,15 +73,10 @@ public class EnemyAi : MonoBehaviour
         agent.SetDestination(player.position);
     }
 
-    private void StartAttack()
+    private void AttackPlayer()
     {
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
-        isAttacking = true;
-        Invoke(nameof(AttackPlayer), attackTime);
-    }
-    private void AttackPlayer()
-    {                
 
         transform.LookAt(player);
 
@@ -90,20 +84,13 @@ public class EnemyAi : MonoBehaviour
         {
             ///Attack code here
             Rigidbody rb = Instantiate(projectile, transform.position + new Vector3(0f,1f,0f), Quaternion.identity).GetComponent<Rigidbody>();
-            rb.rotation = transform.rotation;
             rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             ///End of attack code
 
-            Invoke(nameof(FinishAttack), 0.5f);            
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
             alreadyAttacked = true;
-        }        
-    }
-
-    private void FinishAttack()
-    {
-        isAttacking = false;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
     }
     private void ResetAttack()
     {
