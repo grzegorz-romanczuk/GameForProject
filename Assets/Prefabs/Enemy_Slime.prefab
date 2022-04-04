@@ -300,9 +300,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 4057188656312813988}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.00001
-  m_Speed: 15
-  m_Acceleration: 8
+  m_Radius: 0.1
+  m_Speed: 10
+  m_Acceleration: 3
   avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -335,11 +335,12 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
-  timeBetweenAttacks: 1
-  projectile: {fileID: 4097970436253111838, guid: 1c4e00954e4e12945ae69b512e2a42b0, type: 3}
+  timeBetweenAttacks: 2.5
+  attackTime: 0.5
+  projectile: {fileID: 7577550731130292106, guid: 30530e0351202b74ebe3f2f64bbce9da, type: 3}
   bulletSpawnPoint: {fileID: 4057188656312813988}
-  bulletSpeed: 10
-  sightRange: 60
+  bulletSpeed: 20
+  sightRange: 30
   attackRange: 15
   playerInSightRange: 0
   playerInAttackRange: 0
