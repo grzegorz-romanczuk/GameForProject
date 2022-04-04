@@ -11,7 +11,7 @@ public class PlayerLaser : MonoBehaviour
     Vector3 laserEnd;
     public GameObject gunPoint;
     Vector3[] laserPositions = new Vector3[2];
-    public LayerMask layer;
+    public LayerMask ignoreLayers;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class PlayerLaser : MonoBehaviour
     {
         laserOrigin = gunPoint.transform.position;
         laserEnd = gunPoint.transform.forward * laserMaxLength + gunPoint.transform.position;
-        if (Physics.Raycast(laserOrigin, laserEnd, out RaycastHit hitInfo, layer))
+        if (Physics.Raycast(laserOrigin, laserEnd, out RaycastHit hitInfo, laserMaxLength, ~ignoreLayers))
         {
             laserEnd = hitInfo.point;
         }

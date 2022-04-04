@@ -57,6 +57,7 @@ public class EnemyAi : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
+
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -94,11 +95,11 @@ public class EnemyAi : MonoBehaviour
             rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             ///End of attack code
-
-            Invoke(nameof(FinishAttack), 0.5f);            
+                                 
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             alreadyAttacked = true;
-        }        
+        }
+        Invoke(nameof(FinishAttack), 0.5f);
     }
 
     private void FinishAttack()
