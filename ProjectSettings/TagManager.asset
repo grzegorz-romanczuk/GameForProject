@@ -7,8 +7,6 @@ TagManager:
   - PlayerBullet
   - TerrainObject
   - Enemy
-  - EnemyBullet
-  - Effect
   layers:
   - Default
   - TransparentFX
@@ -20,7 +18,7 @@ TagManager:
   - PlayerBullet
   - Enemy
   - EnemyBullet
-  - Effects
+  - 
   - 
   - 
   - 
@@ -45,16 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Projectiles
-    uniqueID: 2030325407
-    locked: 0
-  - name: Creatures
-    uniqueID: 3806716605
-    locked: 0
-  - name: TerrainObjects
-    uniqueID: 743373753
-    locked: 0
-  - name: Effects
-    uniqueID: 3376478351
     locked: 0
