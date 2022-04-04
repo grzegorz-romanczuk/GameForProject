@@ -17,11 +17,13 @@ public class Gun : MonoBehaviour
     public bool isFullAuto = false;
     public int bulletDamage = 1;
     public float reloadTime = 2f;
+    public Animator animator;
 
     private int currentAmmo = 0;    
     private float nextShot = 0;
     private bool isShooting = false;
     private bool isReloading = false;
+    
 
 
     void Update()
@@ -36,11 +38,15 @@ public class Gun : MonoBehaviour
             CheckAmmo();
         }
 
-        if(Input.GetMouseButtonUp(0) && isShooting) isShooting = false;
-
+        if (Input.GetMouseButtonUp(0))
+        {
+            isShooting = false;
+            animator.SetBool("IsShooting", false);
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartReloading();
+            
         }
     }    
     void CheckAmmo()
@@ -78,17 +84,21 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        animator.SetBool("IsShooting", true);
         var recoilValue = Random.Range(-recoil, recoil);
         GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.Euler(0f, recoilValue, 0f));
         bullet.transform.parent = null;
-        bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * bulletSpeed * 100);
+        bullet.transform.rotation = Quaternion.identity;
+        bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * bulletSpeed * 100);        
         bullet.GetComponent<PlayerBullet>().SetBulletDamage(bulletDamage);
         nextShot = Time.time + fireRate;
+        if(!isFullAuto) animator.SetBool("IsShooting", false);
     }
 
     private void StartReloading()
-    {        
-       StartCoroutine("Reload");           
+    {
+        animator.SetTrigger("Reload");
+        StartCoroutine("Reload");           
     }
     public void StopReloading()
     {

@@ -23,8 +23,23 @@ public class Health : MonoBehaviour
             if (currentHealth <= 0)
             {
                 if (gameObject.tag.Contains("Player"))
+                {                    
+                    Invoke(nameof(DestroyUnit), 5f);
+                    
+                    GetComponent<PlayerAim>().enabled = false;
+                    GetComponent<PlayerMover>().enabled = false;
+                    GetComponent<Animator>().SetTrigger("Death");
+                    GetComponent<Rigidbody>().isKinematic = true;
+                    GetComponent<BoxCollider>().enabled = false;
+                }
+                else if (gameObject.tag.Contains("Enemy"))
                 {
-                    DestroyUnit(); // !!!!!Stworzyc smierc gracza!!!!!!
+                    Invoke(nameof(DestroyUnit), 5f);
+
+                    GetComponent<EnemyAi>().enabled = false;                    
+                    GetComponent<Animator>().SetTrigger("Death");
+                    GetComponent<Rigidbody>().isKinematic = true;
+                    GetComponent<CapsuleCollider>().enabled = false;
                 }
                 else DestroyUnit();
             }

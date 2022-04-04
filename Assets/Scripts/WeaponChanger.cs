@@ -8,6 +8,7 @@ public class WeaponChanger : MonoBehaviour
     private float weaponChangeCooldown = 0;
     private int numOfWeapons = 0;
     private Gun currentWeapon;
+    public Animator animator;
 
     private void Start()
     {        
@@ -108,10 +109,12 @@ public class WeaponChanger : MonoBehaviour
     private void ActiveWeapon()
     {
         int i = 0;
+        
         foreach (Transform weapon in transform)
         {
             if (i == currentWeaponId)
             {
+                animator.SetTrigger("WeaponChange");
                 weapon.gameObject.SetActive(true);
                 weapon.GetComponent<PlayerLaser>().Invoke("laserEnable", 0.1f);
             }

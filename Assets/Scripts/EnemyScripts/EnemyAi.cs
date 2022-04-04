@@ -26,10 +26,12 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    Animator animator;
     private void Awake()
     {
         if(!player) player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -79,7 +81,7 @@ public class EnemyAi : MonoBehaviour
     {
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
-        isAttacking = true;
+        isAttacking = true;        
         Invoke(nameof(AttackPlayer), attackTime);
     }
     private void AttackPlayer()
@@ -90,6 +92,7 @@ public class EnemyAi : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
+            animator.SetTrigger("Attack");
             Rigidbody rb = Instantiate(projectile, transform.position + new Vector3(0f,1f,0f), Quaternion.identity).GetComponent<Rigidbody>();
             rb.rotation = transform.rotation;
             rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
@@ -105,6 +108,7 @@ public class EnemyAi : MonoBehaviour
     private void FinishAttack()
     {
         isAttacking = false;
+        
     }
     private void ResetAttack()
     {
