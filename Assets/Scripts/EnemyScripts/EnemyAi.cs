@@ -44,7 +44,7 @@ public class EnemyAi : MonoBehaviour
         if (isAttacking) transform.LookAt(player);
     }
 
-    private void Patroling()
+    /*private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
@@ -56,7 +56,7 @@ public class EnemyAi : MonoBehaviour
         //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
-    }
+    }*/
     private void SearchWalkPoint()
     {
         //Calculate random point in range
