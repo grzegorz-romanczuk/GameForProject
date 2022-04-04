@@ -95,15 +95,15 @@ public class EnemyAi : MonoBehaviour
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             ///End of attack code
 
-            Invoke(nameof(FinishAttack), 0.5f);
+            Invoke(nameof(FinishAttack), 0.5f);            
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
-        isAttacking = false;
+            alreadyAttacked = true;
+        }        
     }
 
     private void FinishAttack()
     {
-        alreadyAttacked = true;
+        isAttacking = false;
     }
     private void ResetAttack()
     {
