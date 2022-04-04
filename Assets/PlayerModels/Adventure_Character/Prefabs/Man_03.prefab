@@ -3938,11 +3938,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1860531194169969613, guid: a584c7ff4cc2d8040a60e71dccd584f4, type: 3}
   m_PrefabInstance: {fileID: 4951170854316319131}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6273856068106467811 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1416137382928881784, guid: a584c7ff4cc2d8040a60e71dccd584f4, type: 3}
-  m_PrefabInstance: {fileID: 4951170854316319131}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5414920733091586332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3957,7 +3952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isUnlocked: 1
   bulletPrefab: {fileID: 4097970436253111838, guid: df58d650c5c0e8c48a6d7820edf9fe4e, type: 3}
-  gunPoint: {fileID: 6273856068106467811}
+  gunPoint: {fileID: 0}
   bulletSpeed: 10
   fireRate: 0.5
   recoil: 1

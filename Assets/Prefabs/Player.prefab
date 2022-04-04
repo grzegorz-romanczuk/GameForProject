@@ -140,22 +140,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2675361429882964898, guid: da1203547328fdb41974e0b5334e799a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675361429882964898, guid: da1203547328fdb41974e0b5334e799a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675361429882964898, guid: da1203547328fdb41974e0b5334e799a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675361429882964898, guid: da1203547328fdb41974e0b5334e799a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675361429882964898, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -454,7 +438,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3344797552917926168, guid: da1203547328fdb41974e0b5334e799a, type: 3}
   m_PrefabInstance: {fileID: 5267005648490980506}
   m_PrefabAsset: {fileID: 0}
-
 --- !u!1 &1470638351129763992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6733137022000563202, guid: da1203547328fdb41974e0b5334e799a, type: 3}
@@ -485,6 +468,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8909408534092707330, guid: da1203547328fdb41974e0b5334e799a, type: 3}
   m_PrefabInstance: {fileID: 5267005648490980506}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5414920733091586332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470638351129763992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd9a27c1e8ecf14f99a29a93f51b98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 1
+  bulletPrefab: {fileID: 4097970436253111838, guid: df58d650c5c0e8c48a6d7820edf9fe4e, type: 3}
+  gunPoint: {fileID: 8297898728263891901}
+  bulletSpeed: 10
+  fireRate: 0.5
+  recoil: 1
+  maxAmmo: 1000
+  Ammo: 0
+  magazineSize: 12
+  ammoIsInfinite: 1
+  isFullAuto: 0
+  bulletDamage: 1
+  reloadTime: 2
 --- !u!54 &8358021806340797930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -514,6 +522,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.75, z: 0.25}
   m_Center: {x: 0, y: 0.875, z: 0}
+--- !u!114 &157532591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454356905797039490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d9ffe8dc624a647b17bc9c0faee7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
+  hitCooldown: 0.1
 --- !u!114 &1381359975458794028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   Camera: {fileID: 0}
---- !u!114 &157532591
+--- !u!114 &3163402250763536363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,20 +560,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7454356905797039490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-
-  m_Script: {fileID: 11500000, guid: 76d9ffe8dc624a647b17bc9c0faee7d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d4eb40bbfdd06345888390b13411da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 0
-  hitCooldown: 0.3
---- !u!114 &5414920733091586332
+--- !u!114 &6897996570472230484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470638351129763992}
+  m_GameObject: {fileID: 8344579076327790898}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcd9a27c1e8ecf14f99a29a93f51b98a, type: 3}
@@ -558,15 +577,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isUnlocked: 1
   bulletPrefab: {fileID: 4097970436253111838, guid: df58d650c5c0e8c48a6d7820edf9fe4e, type: 3}
-  gunPoint: {fileID: 8297898728263891901}
+  gunPoint: {fileID: 3656001922573931160}
   bulletSpeed: 10
-  fireRate: 0.5
-  recoil: 1
-  maxAmmo: 1000
+  fireRate: 0.15
+  recoil: 3
+  maxAmmo: 675
   Ammo: 0
-  magazineSize: 12
-  ammoIsInfinite: 1
-  isFullAuto: 0
+  magazineSize: 45
+  ammoIsInfinite: 0
+  isFullAuto: 1
   bulletDamage: 1
   reloadTime: 2
 --- !u!114 &229852182472942527
@@ -590,31 +609,6 @@ MonoBehaviour:
   maxAmmo: 375
   Ammo: 0
   magazineSize: 25
-  ammoIsInfinite: 0
-  isFullAuto: 1
-  bulletDamage: 1
-  reloadTime: 2
---- !u!114 &6897996570472230484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8344579076327790898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd9a27c1e8ecf14f99a29a93f51b98a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isUnlocked: 1
-  bulletPrefab: {fileID: 4097970436253111838, guid: df58d650c5c0e8c48a6d7820edf9fe4e, type: 3}
-  gunPoint: {fileID: 3656001922573931160}
-  bulletSpeed: 10
-  fireRate: 0.15
-  recoil: 3
-  maxAmmo: 675
-  Ammo: 0
-  magazineSize: 45
   ammoIsInfinite: 0
   isFullAuto: 1
   bulletDamage: 1
