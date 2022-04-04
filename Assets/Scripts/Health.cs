@@ -22,7 +22,11 @@ public class Health : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
-                DestroyUnit();
+                if (gameObject.tag.Contains("Player"))
+                {
+                    DestroyUnit(); // !!!!!Stworzyc smierc gracza!!!!!!
+                }
+                else DestroyUnit();
             }
         }
     }
