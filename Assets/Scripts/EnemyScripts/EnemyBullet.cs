@@ -6,11 +6,12 @@ public class EnemyBullet : MonoBehaviour
 {
     public float bulletLifeTime = 2f;    
     private int bulletDamage = 1;
+    public GameObject destroyEffect;
     Animator animator;
     
     void Start()
     {
-        animator = GetComponent<Animator>();        
+        animator = GetComponent<Animator>();
         Invoke("DestroyBullet", bulletLifeTime);
     }
 
@@ -21,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
         {
             other.gameObject.GetComponent<Health>().DoDamage(bulletDamage);
         }
-
+        
         DestroyBullet();
     }
 
@@ -31,9 +32,12 @@ public class EnemyBullet : MonoBehaviour
     }
     private void DestroyBullet()
     {
-        gameObject.GetComponent<SphereCollider>().enabled = false;
-        gameObject.GetComponent<Rigidbody>().velocity *= 0.2f;
         animator.SetTrigger("Destroy");
-        Destroy(gameObject, gameObject.GetComponent<TrailRenderer>().time);
+        var effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        effect.transform.rotation = transform.rotation;
+        Destroy(effect, 1f);
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().velocity *= 0.2f;
+        Destroy(gameObject, 0.15f);
     }
 }
