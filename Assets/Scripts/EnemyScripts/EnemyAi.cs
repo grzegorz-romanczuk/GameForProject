@@ -38,12 +38,12 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
+        //if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
-    private void Patroling()
+    /*private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
@@ -55,7 +55,7 @@ public class EnemyAi : MonoBehaviour
         //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
-    }
+    }*/
     private void SearchWalkPoint()
     {
         //Calculate random point in range
