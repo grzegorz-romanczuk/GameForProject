@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public float bulletLifeTime = 2f;
-    public Animator animator;
+    public float bulletLifeTime = 2f;    
     private int bulletDamage = 1;
+    public GameObject destroyEffect;
+    Animator animator;
     
     void Start()
     {
+        animator = GetComponent<Animator>();
         Invoke("DestroyBullet", bulletLifeTime);
     }
 
@@ -20,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
         {
             other.gameObject.GetComponent<Health>().DoDamage(bulletDamage);
         }
-
+        
         DestroyBullet();
     }
 
@@ -30,9 +32,12 @@ public class EnemyBullet : MonoBehaviour
     }
     private void DestroyBullet()
     {
-        gameObject.GetComponent<SphereCollider>().enabled = false;
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        animator.SetBool("IsDestroyed", true);
-        Destroy(gameObject, gameObject.GetComponent<TrailRenderer>().time);
+        animator.SetTrigger("Destroy");
+        var effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        effect.transform.rotation = transform.rotation;
+        Destroy(effect, 1f);
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().velocity *= 0.2f;
+        Destroy(gameObject, 0.15f);
     }
 }
