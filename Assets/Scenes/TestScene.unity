@@ -266,6 +266,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95000013841406666, guid: 529296adea5f8bb4581e098f98e62549, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 95000013841406666, guid: 529296adea5f8bb4581e098f98e62549, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ffb60233f794e164fbcf2ee4724aa5ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 529296adea5f8bb4581e098f98e62549, type: 3}
 --- !u!1 &118231771 stripped
@@ -387,9 +395,6 @@ MonoBehaviour:
   laserWidth: 0.1
   laserMaxLength: 25
   gunPoint: {fileID: 1791941791}
-  warstwa:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &157532587 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7454356905797039490, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
@@ -756,9 +761,6 @@ MonoBehaviour:
   laserWidth: 0.1
   laserMaxLength: 25
   gunPoint: {fileID: 1940441901}
-  warstwa:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1433995313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1470638351129763992, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
@@ -780,9 +782,6 @@ MonoBehaviour:
   laserWidth: 0.1
   laserMaxLength: 15
   gunPoint: {fileID: 1714939261}
-  warstwa:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!120 &1433995319
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1146,9 +1145,6 @@ MonoBehaviour:
   laserWidth: 0.1
   laserMaxLength: 10
   gunPoint: {fileID: 1630143999}
-  warstwa:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1883949416 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000014251014320, guid: 529296adea5f8bb4581e098f98e62549, type: 3}
@@ -1423,6 +1419,22 @@ PrefabInstance:
     - target: {fileID: 4092653249654098795, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240365980088186178, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240365980088186178, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d172c0e3a294ae545ab6c2a1aae94577, type: 2}
+    - target: {fileID: 4240365980088186178, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240365980088186178, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4421268653716262393, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_Layer
