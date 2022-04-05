@@ -494,6 +494,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
+      propertyPath: m_Intensity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4184213434242821452, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
       propertyPath: m_Name
       value: Sun Light
@@ -597,8 +601,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 157532595}
     - target: {fileID: 1155285910321220799, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155285910321220799, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: reloadTime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155285910321220799, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: ammoIsInfinite
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1395609528575483929, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: laserWidth
@@ -853,8 +865,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 157532595}
     - target: {fileID: 5343715489080280869, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5343715489080280869, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: reloadTime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5343715489080280869, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: ammoIsInfinite
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5544770018594900301, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1181,8 +1201,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 157532595}
     - target: {fileID: 8773863050334550066, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773863050334550066, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: reloadTime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773863050334550066, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: ammoIsInfinite
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8784898683564885185, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_LocalPosition.x
