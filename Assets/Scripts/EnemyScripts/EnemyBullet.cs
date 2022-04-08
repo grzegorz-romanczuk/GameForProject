@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float bulletLifeTime = 2f;    
-    private int bulletDamage = 1;
+    public int bulletDamage = 1;
     public GameObject destroyEffect;
     Animator animator;
     

@@ -26,6 +26,10 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    //Stats
+    public int maxHealth;
+    public int spawnValue;
+
     Animator animator;
     private void Awake()
     {

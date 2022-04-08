@@ -1672,6 +1672,10 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   hitCooldown: 0.3
+  isPlayer: 1
+  invulnerable: 0
+  TurnOffObjects:
+  - {fileID: 3758572911873743127}
 --- !u!54 &8358021806340797930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1902,7 +1906,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3758572911873743127}
-  m_LocalRotation: {x: -0.038464513, y: 0.054421537, z: -0.0024118393, w: 0.997774}
+  m_LocalRotation: {x: 0.56098557, y: 0.52133375, z: 0.43045938, w: 0.47771442}
   m_LocalPosition: {x: 0.15282223, y: 0.08693619, z: 0.07093189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1912,7 +1916,7 @@ Transform:
   - {fileID: 4240246402829325496}
   m_Father: {fileID: 9065334652824403069}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5, y: 100, z: 90}
 --- !u!114 &4043608094912202070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1925,6 +1929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f72fd1bda9e46a45acfbb698fb8bbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8340921455869514200}
 --- !u!1 &4007586546533580278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3860,6 +3865,7 @@ MonoBehaviour:
   isFullAuto: 1
   bulletDamage: 1
   reloadTime: 2
+  animator: {fileID: 0}
 --- !u!1001 &4239637266316851616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3989,6 +3995,7 @@ MonoBehaviour:
   isFullAuto: 1
   bulletDamage: 1
   reloadTime: 2
+  animator: {fileID: 0}
 --- !u!1001 &4951170854316319131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4114,3 +4121,4 @@ MonoBehaviour:
   isFullAuto: 0
   bulletDamage: 1
   reloadTime: 2
+  animator: {fileID: 0}
