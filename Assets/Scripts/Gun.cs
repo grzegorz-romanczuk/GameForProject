@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
             isShooting = false;
             animator.SetBool("IsShooting", false);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
             StartReloading();
             

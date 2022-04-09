@@ -265,7 +265,7 @@ MonoBehaviour:
   gunPoint: {fileID: 6072408948039334493}
   bulletSpeed: 10
   fireRate: 0.2
-  recoil: 0
+  recoil: 10
   maxAmmo: 100
   Ammo: 0
   magazineSize: 30

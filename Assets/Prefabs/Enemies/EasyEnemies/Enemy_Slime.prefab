@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 4054295104103866850}
   m_Layer: 8
   m_Name: MESH
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 4057188656312813988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 75, y: 100, z: 75}
   m_Children:
   - {fileID: 4054295104103866850}
   - {fileID: 4054295103398195526}
@@ -272,10 +272,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0075
-  m_Height: 0.02
+  m_Radius: 0.01
+  m_Height: 0.01
   m_Direction: 1
-  m_Center: {x: 0, y: 0.01, z: 0}
+  m_Center: {x: 0, y: 0.0075, z: 0}
 --- !u!114 &4057050673979199138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +291,10 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   hitCooldown: 0.1
+  isPlayer: 0
+  invulnerable: 0
+  TurnOffObjects: []
+  destroyTime: 5
 --- !u!195 &8896747953215648760
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -301,8 +305,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.01
-  m_Speed: 5
-  m_Acceleration: 2
+  m_Speed: 3
+  m_Acceleration: 1
   avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -339,11 +343,13 @@ MonoBehaviour:
   attackTime: 0.5
   projectile: {fileID: 7577550731130292106, guid: 30530e0351202b74ebe3f2f64bbce9da, type: 3}
   bulletSpawnPoint: {fileID: 4057188656312813988}
-  bulletSpeed: 20
-  sightRange: 30
+  bulletSpeed: 15
+  sightRange: 50
   attackRange: 15
   playerInSightRange: 0
   playerInAttackRange: 0
+  maxHealth: 3
+  spawnValue: 4
 --- !u!1 &4057188656542633438
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +411,7 @@ Transform:
   - {fileID: 4054295104292060250}
   m_Father: {fileID: 4054295105554485056}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.496131e-15, y: 180, z: -174.61763}
 --- !u!1 &4057188657115902740
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,4 +714,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4054295102229123896}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -23.526299, y: 0, z: 0}

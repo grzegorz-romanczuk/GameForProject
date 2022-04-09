@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float bulletLifeTime = 2f;    
-    private int bulletDamage = 1;
+    public int bulletDamage = 1;
     public GameObject destroyEffect;
     Animator animator;
     
@@ -19,8 +19,10 @@ public class EnemyBullet : MonoBehaviour
     {        
         //damage Enemy
         if (other.gameObject.tag.Contains("Player"))
-        {            
-            other.gameObject.GetComponent<Health>().DoDamage(bulletDamage);            
+        {
+            Health health;
+            other.gameObject.TryGetComponent<Health>(out health);
+            if (health) health.DoDamage(bulletDamage);
         }
         
         DestroyBullet();
