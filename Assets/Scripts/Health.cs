@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public float hitCooldown = 0.1f;
     public bool isPlayer = false, invulnerable = false;
     public GameObject[] TurnOffObjects;
+    public float destroyTime = 1f;
 
     private float invulnerabilityTime = 0f;
     private void Start()
@@ -31,26 +32,26 @@ public class Health : MonoBehaviour
             if (currentHealth <= 0)
             {
                 if (isPlayer)
-                {                    
-                    //Invoke(nameof(DestroyUnit), 5f);
-                    
+                {                   
+                                        
                     GetComponent<PlayerAim>().enabled = false;
                     GetComponent<PlayerMover>().enabled = false;
                     GetComponent<Animator>().SetTrigger("Death");
                     GetComponent<Rigidbody>().isKinematic = true;
-                    GetComponent<BoxCollider>().enabled = false;
+                    GetComponent<BoxCollider>().enabled = false;                   
                     if (TurnOffObjects.Length > 0) DisableObjects();
+                    Destroy(this);
                 }
                 else 
                 {
-                    Invoke(nameof(DestroyUnit), 5f);
+                    DestroyUnit(destroyTime);
 
                     GetComponent<EnemyAi>().enabled = false;
                     GetComponent<NavMeshAgent>().enabled = false;
                     GetComponent<Animator>().SetTrigger("Death");
                     GetComponent<Rigidbody>().isKinematic = true;
-                    GetComponent<CapsuleCollider>().enabled = false;
                     if (TurnOffObjects.Length > 0) DisableObjects();
+                    Destroy(this);
                 }                
             }
         }
@@ -62,9 +63,9 @@ public class Health : MonoBehaviour
             item.SetActive(false);
         }
     }
-    private void DestroyUnit()
+    private void DestroyUnit(float time)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, time);
     }
 
 }

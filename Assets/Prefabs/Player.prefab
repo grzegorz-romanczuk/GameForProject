@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 229852182472942527, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: recoil
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 229852182472942527, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4240365980088186178}
@@ -320,6 +324,10 @@ PrefabInstance:
       value: -65.046165
       objectReference: {fileID: 0}
     - target: {fileID: 1970540932336422073, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: recoil
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970540932336422073, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4240365980088186178}
@@ -628,9 +636,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3520456247563934888, guid: da1203547328fdb41974e0b5334e799a, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 4240365980088186178}
+      propertyPath: recoil
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3521982409449855449, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -842,6 +850,10 @@ PrefabInstance:
     - target: {fileID: 5809078708842748370, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -43.821068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: recoil
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: animator
@@ -1439,7 +1451,7 @@ MonoBehaviour:
   gunPoint: {fileID: 6480676025793859119}
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 1984
+    m_Bits: 1728
 --- !u!120 &1816449373
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1556,7 +1568,7 @@ MonoBehaviour:
   gunPoint: {fileID: 5735386337139935402}
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 1984
+    m_Bits: 1728
 --- !u!120 &118231773
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1673,7 +1685,7 @@ MonoBehaviour:
   gunPoint: {fileID: 8077526491515406414}
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 1984
+    m_Bits: 1728
 --- !u!120 &898352696
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1790,4 +1802,4 @@ MonoBehaviour:
   gunPoint: {fileID: 8558583691954758794}
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 1984
+    m_Bits: 1728

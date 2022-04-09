@@ -2,21 +2,155 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemySpawn))]
 public class WaveSystem : MonoBehaviour
 {
     private int currentWave = 1;
     private int maxMediumEnemies = 0, maxHardEnemies = 0, maxBossEnemies = 0;
     private int maxEnemiesActive = 0, currentEnemiesActive = 0;    
     private int waveValue = 0;
+    public float spawnDelay = 1;
+    private bool isFinished = true;
 
+    
     public GameObject[] easyEnemyPrefabs, mediumEnemyPrefabs, hardEnemyPrefabs, bossEnemyPrefabs;
-    public EnemySpawn enemySpawn;
-
+    private EnemySpawn enemySpawn;
 
     private void Start()
     {
-                
+        CalculateWave();
+        enemySpawn = GetComponent<EnemySpawn>();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && isFinished)
+        {
+
+            StartCoroutine(SpawnWave());
+        }
+
+        if (!isFinished && currentEnemiesActive == 0 && waveValue <= 0) isFinished = true;
+    }
+
+    public IEnumerator SpawnWave()
+    {
+        isFinished = false;
+        while (waveValue > 0)
+        {
+            if(currentEnemiesActive < maxEnemiesActive)
+            {
+                if (maxBossEnemies > 0)
+                {
+                    SpawnBossEnemy();
+                }
+                else if (maxHardEnemies > 0)
+                {
+                    SpawnHardEnemy();
+                }
+                else if (maxMediumEnemies > 0)
+                {
+                    SpawnMediumEnemy();
+                }
+                else
+                {
+                    SpawnEasyEnemy();
+                }
+            }
+            yield return new WaitForSeconds(spawnDelay);
+        }        
+    }
+
+    private void SpawnEasyEnemy()
+    {
+        try
+        {
+            var rand = Mathf.RoundToInt(Random.Range(0, easyEnemyPrefabs.Length));
+            var prefab = easyEnemyPrefabs[rand];
+            var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+            if (waveValue > 0)
+            {
+                StartCoroutine(enemySpawn.SpawnEnemy(prefab));
+                currentEnemiesActive++;
+                waveValue -= enemyValue;
+            }
+        }
+        catch (UnityException e)
+        {
+            Debug.Log("Easy enemy spawn Error: " + e.Message);
+        }
+    }
+    private void SpawnMediumEnemy()
+    {
+        maxMediumEnemies--;
+        if(mediumEnemyPrefabs.Length > 0)
+        {
+            try
+            {
+                var rand = Mathf.RoundToInt(Random.Range(0, mediumEnemyPrefabs.Length));
+                var prefab = mediumEnemyPrefabs[rand];
+                var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+                if (waveValue >= enemyValue)
+                {
+                    StartCoroutine(enemySpawn.SpawnEnemy(prefab));
+                    currentEnemiesActive++;
+                    waveValue -= enemyValue;
+                }
+            }
+            catch(UnityException e) 
+            { 
+                Debug.Log("Medium enemy spawn Error: " + e.Message); 
+            }
+        }        
+    }
+    private void SpawnHardEnemy()
+    {
+        maxHardEnemies--;
+        if (hardEnemyPrefabs.Length > 0)
+        {
+            try
+            {
+                var rand = Mathf.RoundToInt(Random.Range(0, hardEnemyPrefabs.Length));
+                var prefab = hardEnemyPrefabs[rand];
+                var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+                if(waveValue >= enemyValue )
+                {
+                    StartCoroutine(enemySpawn.SpawnEnemy(prefab));
+                    currentEnemiesActive++;
+                    waveValue -= enemyValue;
+                }
+            }
+            catch (UnityException e)
+            {
+                Debug.Log("Hard enemy spawn Error: " + e.Message);
+            }
+        }
+
+    }
+    private void SpawnBossEnemy()
+    {
+        maxBossEnemies--;
+        if (bossEnemyPrefabs.Length > 0)
+        {
+            try
+            {
+                var rand = Mathf.RoundToInt(Random.Range(0, bossEnemyPrefabs.Length));
+                var prefab = bossEnemyPrefabs[rand];
+                var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+                if (waveValue >= enemyValue)
+                {
+                    StartCoroutine(enemySpawn.SpawnEnemy(prefab));
+                    currentEnemiesActive++;
+                    waveValue -= enemyValue;
+                }
+            }
+            catch (UnityException e)
+            {
+                Debug.Log("Boss enemy spawn Error: " + e.Message);
+            }
+        }
+    }
+
 
     private void CalculateWave()
     {        
@@ -69,6 +203,8 @@ public class WaveSystem : MonoBehaviour
     public void NextWave()
     {
         currentWave++;
+        CalculateWave();
+        StartCoroutine(SpawnWave());
     }
 
     public int GetWave()

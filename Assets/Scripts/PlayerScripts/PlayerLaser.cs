@@ -27,7 +27,7 @@ public class PlayerLaser : MonoBehaviour
     {
         laserOrigin = gunPoint.transform.position;
         laserEnd = gunPoint.transform.forward * laserMaxLength + gunPoint.transform.position;
-        if (Physics.Raycast(laserOrigin, laserEnd, out RaycastHit hitInfo, laserMaxLength, ~ignoreLayers))
+        if (Physics.Raycast(laserOrigin, gunPoint.transform.forward, out RaycastHit hitInfo, laserMaxLength, ~ignoreLayers))
         {
             laserEnd = hitInfo.point;
         }

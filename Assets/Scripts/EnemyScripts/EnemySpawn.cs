@@ -8,16 +8,16 @@ public class EnemySpawn : MonoBehaviour
     public float maxDistance = 45f;
     public LayerMask ignoreLayers;
     public GameObject Enemy;
-    public GameObject spawn;
+    //public GameObject spawn;
     public int maxEnemyCount;
-    float xpos;
-    float zpos;
+    //float xpos;
+    //float zpos;
     int enemyCount = 0;
     public float spawnDelay;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(enemyDrop());
+        //StartCoroutine(enemyDrop());
        
     }
 
@@ -35,6 +35,7 @@ public class EnemySpawn : MonoBehaviour
     {        
         return Physics.CheckSphere(targetDestination, radius, ~ignoreLayers);        
     }
+
     private bool CheckIfInView(Vector3 targetDestination)
     {
         var viewportCord = Camera.main.WorldToViewportPoint(targetDestination);
@@ -42,8 +43,7 @@ public class EnemySpawn : MonoBehaviour
         {
             
             return false;
-        }
-        Debug.Log(viewportCord);
+        }        
         return true;
     }
 

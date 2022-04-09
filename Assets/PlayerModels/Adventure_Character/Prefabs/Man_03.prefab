@@ -3987,7 +3987,7 @@ MonoBehaviour:
   gunPoint: {fileID: 8909408534092707330}
   bulletSpeed: 10
   fireRate: 0.15
-  recoil: 3
+  recoil: 5
   maxAmmo: 675
   Ammo: 0
   magazineSize: 45
@@ -3995,7 +3995,7 @@ MonoBehaviour:
   isFullAuto: 1
   bulletDamage: 1
   reloadTime: 2
-  animator: {fileID: 0}
+  animator: {fileID: 8340921455869514200}
 --- !u!1001 &4951170854316319131
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,8 +19,10 @@ public class EnemyBullet : MonoBehaviour
     {        
         //damage Enemy
         if (other.gameObject.tag.Contains("Player"))
-        {            
-            other.gameObject.GetComponent<Health>().DoDamage(bulletDamage);            
+        {
+            Health health;
+            other.gameObject.TryGetComponent<Health>(out health);
+            if (health) health.DoDamage(bulletDamage);
         }
         
         DestroyBullet();
