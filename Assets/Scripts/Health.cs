@@ -44,12 +44,14 @@ public class Health : MonoBehaviour
                 }
                 else 
                 {
+                    GameObject.Find("GameManager").GetComponent<DefeatedEnemyCount>().DefeatedEasyEnemy+=1; //Odsy?am informacj? o pokonanym easy przeciwniku
                     DestroyUnit(destroyTime);
-
+                    
                     GetComponent<EnemyAi>().enabled = false;
                     GetComponent<NavMeshAgent>().enabled = false;
                     GetComponent<Animator>().SetTrigger("Death");
                     GetComponent<Rigidbody>().isKinematic = true;
+
                     if (TurnOffObjects.Length > 0) DisableObjects();
                     Destroy(this);
                 }                
