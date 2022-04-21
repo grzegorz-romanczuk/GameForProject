@@ -11,8 +11,9 @@ public class Health : MonoBehaviour
     public bool isPlayer = false, invulnerable = false;
     public GameObject[] TurnOffObjects;
     public float destroyTime = 1f;
-
+    public GameObject GameOver;
     private float invulnerabilityTime = 0f;
+
     private void Start()
     {
         if (!isPlayer)
@@ -38,7 +39,9 @@ public class Health : MonoBehaviour
                     GetComponent<PlayerMover>().enabled = false;
                     GetComponent<Animator>().SetTrigger("Death");
                     GetComponent<Rigidbody>().isKinematic = true;
-                    GetComponent<BoxCollider>().enabled = false;                   
+                    GetComponent<BoxCollider>().enabled = false;
+                    GameOver.GetComponent<GameOverFunctions>().GetScore();
+                    GameOver.SetActive(true);
                     if (TurnOffObjects.Length > 0) DisableObjects();
                     Destroy(this);
                 }
