@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        GameOver = GameObject.Find("GameOverCanvas");
         if (!isPlayer)
         {
             var health = GetComponent<EnemyAi>().maxHealth;
@@ -40,8 +41,9 @@ public class Health : MonoBehaviour
                     GetComponent<Animator>().SetTrigger("Death");
                     GetComponent<Rigidbody>().isKinematic = true;
                     GetComponent<BoxCollider>().enabled = false;
-                    GameOver.GetComponent<GameOverFunctions>().GetScore();
-                    GameOver.SetActive(true);
+                    GameOver.GetComponent<GameOverFunctions>().Invoke("ActiveGameOverMenu", 3f);
+
+
                     if (TurnOffObjects.Length > 0) DisableObjects();
                     Destroy(this);
                 }
@@ -68,6 +70,8 @@ public class Health : MonoBehaviour
             item.SetActive(false);
         }
     }
+
+    
     private void DestroyUnit(float time)
     {
         Destroy(gameObject, time);
