@@ -273,6 +273,7 @@ MonoBehaviour:
   Items:
   - {fileID: 21300000, guid: 24e8c099b44fad44f8db94804987584c, type: 3}
   - {fileID: 21300000, guid: 37320c767dde02549b078347a3832775, type: 3}
+  - {fileID: 21300000, guid: ebbc7165d2ac8774b8c30b098e3b71ab, type: 3}
   image: {fileID: 986331714}
   ShopPanelUI: {fileID: 296084072}
 --- !u!1 &296084072
