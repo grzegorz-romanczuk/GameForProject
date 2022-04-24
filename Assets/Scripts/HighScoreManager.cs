@@ -6,20 +6,20 @@ using UnityEngine;
 
 public class HighScoreManager : MonoBehaviour
 {
-
-    void CheckHighScore(int lastGameScore)
+    List<int> highScore;
+    public void CheckHighScore(int lastGameScore)
     {
         List<int> hScore = LoadHighScore();
-        if(lastGameScore > hScore[hScore.Count - 1])
+        if (lastGameScore > hScore[0])
         {
             hScore.Add(lastGameScore);
             hScore.Sort();
-            hScore.RemoveAt(hScore.Count - 1);
+            hScore.RemoveAt(0);
             SaveHighScore(hScore);
         }
     }
 
-    List<int> LoadHighScore()
+    public List<int> LoadHighScore()
     {
         List<int> hScore = new List<int>();
         string[] hScoreString;
@@ -27,18 +27,18 @@ public class HighScoreManager : MonoBehaviour
         hScoreString = File.ReadAllLines(Application.dataPath + "/highscore.txt");
         for (int i = 0; i < hScoreString.Length; i++)
         {
-            hScore[i] = Convert.ToInt32(hScoreString);
+            hScore[i] = Convert.ToInt32(hScoreString[i]);
         }
         return hScore;
     }
 
-    void SaveHighScore(List<int> hScore)
+    public void SaveHighScore(List<int> hScore)
     {
-        string[] hScoreString = { };
+        List<string> hScoreString = new List<string>();
 
         for (int i = 0; i < hScore.Count; i++)
         {
-            hScoreString[i] = hScore.ToString();
+            hScoreString.Add(hScore[i].ToString());
         }
         File.WriteAllLines(Application.dataPath + "/highscore.txt", hScoreString);
     }
