@@ -9,18 +9,52 @@ public class ShopPanel : MonoBehaviour
     public int CurentIndex;
     public Sprite[] Items;
     public Image image;
-
+    public Button BuyButon;
+    public Text cash;
+    public Text cost;
+    public PlayerMoney money;
     public static bool IsShopPanelOpen=false;
     public GameObject ShopPanelUI;
+    string cashString = "Cash: ";
+    public Sprite[] buttons;
     // Update is called once per frame
+
+    public int[] WeponCost;
+    public bool[] WeponsUnlocked;
 
     void Start()
     {
         image.sprite=Items[CurentIndex];
+        cash.text = cashString+money.Money;
+        WeponsUnlocked = new bool[4] {false,false,false,false};
+
     }
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Space))
+        cost.text =""+WeponCost[CurentIndex];
+        image.sprite = Items[CurentIndex];
+        cash.text = cashString + money.Money;
+
+        if(WeponsUnlocked[CurentIndex])
+        {
+            cost.text = "Owned";
+            cost.color = Color.green;
+        }
+        else if (money.Money>=WeponCost[CurentIndex])
+            cost.color = Color.green; 
+        else
+             cost.color = Color.red;
+
+        if(WeponsUnlocked[CurentIndex])
+        {
+            BuyButon.image.sprite = buttons[1];
+        }
+        else
+        {
+            BuyButon.image.sprite = buttons[0];
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             if(IsShopPanelOpen)
             {
@@ -38,6 +72,7 @@ public class ShopPanel : MonoBehaviour
         ShopPanelUI.SetActive(false);
         Time.timeScale = 1f;
         IsShopPanelOpen = false;
+        
     }
 
     void ShopOpen()
@@ -45,27 +80,42 @@ public class ShopPanel : MonoBehaviour
         ShopPanelUI.SetActive(true);
         Time.timeScale = 0f;
         IsShopPanelOpen = true;
+        WeponsUnlocked[3] = false; //Bo to amo .....
     }
 
     //Next i P
 
     public void Next()
     {
+        cost.fontSize = 30;
         CurentIndex++;
         if (CurentIndex>=Items.Length)
         {
             CurentIndex = 0;
         }
-        image.sprite = Items[CurentIndex];
+        
     }
 
     public void Previous()
     {
+        cost.fontSize = 30;
         CurentIndex--;
         if (CurentIndex ==-1)
         {
             CurentIndex = Items.Length-1;
         }
-        image.sprite = Items[CurentIndex];
+       
     }
+
+    public void Buy()
+    {
+        if (money.Money >= WeponCost[CurentIndex] && WeponsUnlocked[CurentIndex]==false)
+        {
+            money.Money -= WeponCost[CurentIndex];
+            WeponsUnlocked[CurentIndex] = true;
+        }
+        else
+            cost.fontSize = 45;
+    }
+
 }
