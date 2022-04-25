@@ -34,8 +34,8 @@ public class Health : MonoBehaviour
             if (currentHealth <= 0)
             {
                 if (isPlayer)
-                {                   
-                                        
+                {
+
                     GetComponent<PlayerAim>().enabled = false;
                     GetComponent<PlayerMover>().enabled = false;
                     GetComponent<Animator>().SetTrigger("Death");
@@ -47,11 +47,11 @@ public class Health : MonoBehaviour
                     if (TurnOffObjects.Length > 0) DisableObjects();
                     Destroy(this);
                 }
-                else 
+                else
                 {
-                    GameObject.Find("GameManager").GetComponent<DefeatedEnemyCount>().DefeatedEasyEnemy+=1; //Odsy?am informacj? o pokonanym easy przeciwniku
+                    GameObject.Find("GameManager").GetComponent<DefeatedEnemyCount>().DefeatedEasyEnemy += 1; //Odsy?am informacj? o pokonanym easy przeciwniku
                     DestroyUnit(destroyTime);
-                    
+
                     GetComponent<EnemyAi>().enabled = false;
                     GetComponent<NavMeshAgent>().enabled = false;
                     GetComponent<Animator>().SetTrigger("Death");
@@ -59,19 +59,21 @@ public class Health : MonoBehaviour
 
                     if (TurnOffObjects.Length > 0) DisableObjects();
                     Destroy(this);
-                }                
+                }
             }
         }
     }
     private void DisableObjects()
-    {        
-        foreach(var item in TurnOffObjects)
+    {
+        foreach (var item in TurnOffObjects)
         {
             item.SetActive(false);
         }
     }
 
-    
+
+
+
     private void DestroyUnit(float time)
     {
         Destroy(gameObject, time);
