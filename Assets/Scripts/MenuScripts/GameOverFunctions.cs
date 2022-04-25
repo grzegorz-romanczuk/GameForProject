@@ -20,7 +20,7 @@ public class GameOverFunctions : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Piotrek");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void GetScore()

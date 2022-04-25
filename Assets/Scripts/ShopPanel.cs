@@ -17,6 +17,7 @@ public class ShopPanel : MonoBehaviour
     public GameObject ShopPanelUI;
     string cashString = "Cash: ";
     public Sprite[] buttons;
+    private GameObject gameManager;
     // Update is called once per frame
 
     public int[] WeponCost;
@@ -27,7 +28,7 @@ public class ShopPanel : MonoBehaviour
         image.sprite=Items[CurentIndex];
         cash.text = cashString+money.Money;
         WeponsUnlocked = new bool[4] {false,false,false,false};
-
+        gameManager = GameObject.Find("GameManager");
     }
     void Update()
     {
@@ -54,17 +55,17 @@ public class ShopPanel : MonoBehaviour
             BuyButon.image.sprite = buttons[0];
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            if(IsShopPanelOpen)
-            {
-                Resume();
-            }
-            else
-            {
-                ShopOpen();
-            }
-        }
+        //if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    if(IsShopPanelOpen)
+        //    {
+        //        Resume();
+        //    }
+        //    else
+        //    {
+        //        ShopOpen();
+        //    }
+        //}
     }
 
     public void Resume()
@@ -72,10 +73,10 @@ public class ShopPanel : MonoBehaviour
         ShopPanelUI.SetActive(false);
         Time.timeScale = 1f;
         IsShopPanelOpen = false;
-        
+        gameManager.GetComponent<WaveSystem>().NextWave();
     }
 
-    void ShopOpen()
+    public void ShopOpen()
     {
         ShopPanelUI.SetActive(true);
         Time.timeScale = 0f;

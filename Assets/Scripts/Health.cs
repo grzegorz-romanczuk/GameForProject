@@ -8,62 +8,17 @@ public class Health : MonoBehaviour
     public int maxHealth = 5;
     public int currentHealth;
     public float hitCooldown = 0.1f;
-    public bool isPlayer = false, invulnerable = false;
+    public bool invulnerable = false;
     public GameObject[] TurnOffObjects;
-    public float destroyTime = 1f;
-    public GameObject GameOver;
-    private float invulnerabilityTime = 0f;
+    public float destroyTime = 1f;   
+    
 
     private void Start()
     {
-        GameOver = GameObject.Find("GameOverCanvas");
-        if (!isPlayer)
-        {
-            var health = GetComponent<EnemyAi>().maxHealth;
-            if (health > 0) maxHealth = health;
-        }
-        currentHealth = maxHealth;
+                  
     }
-
-    public void DoDamage(int damage)
-    {
-        if (invulnerabilityTime <= Time.time && !invulnerable)
-        {
-            invulnerabilityTime = Time.time + hitCooldown;
-            currentHealth -= damage;
-            if (currentHealth <= 0)
-            {
-                if (isPlayer)
-                {
-
-                    GetComponent<PlayerAim>().enabled = false;
-                    GetComponent<PlayerMover>().enabled = false;
-                    GetComponent<Animator>().SetTrigger("Death");
-                    GetComponent<Rigidbody>().isKinematic = true;
-                    GetComponent<BoxCollider>().enabled = false;
-                    GameOver.GetComponent<GameOverFunctions>().Invoke("ActiveGameOverMenu", 3f);
-
-
-                    if (TurnOffObjects.Length > 0) DisableObjects();
-                    Destroy(this);
-                }
-                else
-                {
-                    GameObject.Find("GameManager").GetComponent<DefeatedEnemyCount>().DefeatedEasyEnemy += 1; //Odsy?am informacj? o pokonanym easy przeciwniku
-                    DestroyUnit(destroyTime);
-
-                    GetComponent<EnemyAi>().enabled = false;
-                    GetComponent<NavMeshAgent>().enabled = false;
-                    GetComponent<Animator>().SetTrigger("Death");
-                    GetComponent<Rigidbody>().isKinematic = true;
-
-                    if (TurnOffObjects.Length > 0) DisableObjects();
-                    Destroy(this);
-                }
-            }
-        }
-    }
-    private void DisableObjects()
+    
+    public void DisableObjects()
     {
         foreach (var item in TurnOffObjects)
         {
@@ -71,10 +26,7 @@ public class Health : MonoBehaviour
         }
     }
 
-
-
-
-    private void DestroyUnit(float time)
+    public void DestroyUnit(float time)
     {
         Destroy(gameObject, time);
     }

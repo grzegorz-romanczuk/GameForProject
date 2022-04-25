@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 4115173049804401630}
   - component: {fileID: 4057050673979199136}
   - component: {fileID: 4057050673979199137}
-  - component: {fileID: 4057050673979199138}
+  - component: {fileID: 4839061561468364768}
   - component: {fileID: 8896747953215648760}
   - component: {fileID: 161924308368187832}
   m_Layer: 8
@@ -276,7 +276,7 @@ CapsuleCollider:
   m_Height: 0.01
   m_Direction: 1
   m_Center: {x: 0, y: 0.0075, z: 0}
---- !u!114 &4057050673979199138
+--- !u!114 &4839061561468364768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,13 +285,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4057188656312813988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d9ffe8dc624a647b17bc9c0faee7d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a9f390dcc1d8f34baba8b11a37890a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
   hitCooldown: 0.1
-  isPlayer: 0
   invulnerable: 0
   TurnOffObjects: []
   destroyTime: 5
@@ -306,9 +305,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.01
   m_Speed: 3
-  m_Acceleration: 1
-  avoidancePriority: 1
-  m_AngularSpeed: 120
+  m_Acceleration: 2
+  avoidancePriority: 2
+  m_AngularSpeed: 240
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -345,7 +344,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 4057188656312813988}
   bulletSpeed: 15
   sightRange: 50
-  attackRange: 15
+  attackRange: 10
   playerInSightRange: 0
   playerInAttackRange: 0
   maxHealth: 3

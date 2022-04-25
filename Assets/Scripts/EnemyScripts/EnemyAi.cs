@@ -78,13 +78,24 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position);
+        //agent.SetDestination(player.position);
+
+        NavMeshPath path = new NavMeshPath();
+
+        agent.CalculatePath(player.transform.position, path);
+
+        if (player.transform.position != agent.destination)
+        {
+            agent.SetPath(path);
+        }
+
     }
 
     private void StartAttack()
     {
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
+        
         isAttacking = true;        
         Invoke(nameof(AttackPlayer), attackTime);
     }

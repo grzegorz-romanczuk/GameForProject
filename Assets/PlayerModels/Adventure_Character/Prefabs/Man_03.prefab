@@ -1566,7 +1566,7 @@ GameObject:
   - component: {fileID: 8340921455869514200}
   - component: {fileID: 801103341388079441}
   - component: {fileID: 1381359975458794028}
-  - component: {fileID: 3280191521603250934}
+  - component: {fileID: 5616110751823301609}
   - component: {fileID: 8358021806340797930}
   - component: {fileID: 7700159848857180187}
   - component: {fileID: 8109697754734358677}
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   usedLayers:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &3280191521603250934
+--- !u!114 &5616110751823301609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3344797552917926168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d9ffe8dc624a647b17bc9c0faee7d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 46daf98931028514d9ce3881df2e2f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
@@ -1676,6 +1676,8 @@ MonoBehaviour:
   invulnerable: 0
   TurnOffObjects:
   - {fileID: 3758572911873743127}
+  destroyTime: 1
+  GameOver: {fileID: 0}
 --- !u!54 &8358021806340797930
 Rigidbody:
   m_ObjectHideFlags: 0
