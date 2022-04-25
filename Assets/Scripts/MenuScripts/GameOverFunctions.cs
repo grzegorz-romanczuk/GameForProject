@@ -7,7 +7,10 @@ using UnityEngine.UI;
 
 public class GameOverFunctions : MonoBehaviour
 {
+    public GameObject GameOver;
     public TextMeshProUGUI TextScore;
+
+    
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -22,5 +25,12 @@ public class GameOverFunctions : MonoBehaviour
     {
         var scorePoints = GameObject.Find("GameManager").GetComponent<PlayerScore>().score;
         TextScore.text = "Your score: " + scorePoints.ToString();
+    }
+    public void ActiveGameOverMenu()
+    {
+        
+        
+        GetScore();
+        GameOver.SetActive(true);
     }
 }
