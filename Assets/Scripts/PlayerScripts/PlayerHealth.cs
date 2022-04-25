@@ -11,7 +11,7 @@ public class PlayerHealth : Health
     void Start()
     {
         currentHealth = maxHealth;
-        GameOver = GameObject.Find("GameOverCanvas");
+        if(!GameOver) GameOver = GameObject.Find("GameOverCanvas");
     }
 
     public void DoDamage(int damage)

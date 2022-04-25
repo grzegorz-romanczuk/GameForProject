@@ -9,7 +9,7 @@ public class MenuFunctions : MonoBehaviour
     public TextMeshProUGUI TextScore;
     public void PlayGame()
     {
-        SceneManager.LoadScene("Piotrek");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void QuitGame()
@@ -19,7 +19,7 @@ public class MenuFunctions : MonoBehaviour
 
     public void GetHighScore()
     {
-        var highScore = GetComponent<HighScoreManager>().LoadHighScore();
+        var highScore = GetComponent<HighScoreManager>().LoadHighScore();        
         highScore.Reverse();
         TextScore.text = "";
         for (int i = 0; i < highScore.Count; i++)
