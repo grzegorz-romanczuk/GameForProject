@@ -11,6 +11,8 @@ public class GameOverFunctions : MonoBehaviour
     public TextMeshProUGUI TextScore;
 
 
+
+
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -37,3 +39,4 @@ public class GameOverFunctions : MonoBehaviour
         GameOver.SetActive(true);
     }
 }
+
