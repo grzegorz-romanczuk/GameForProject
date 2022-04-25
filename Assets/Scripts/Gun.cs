@@ -18,12 +18,13 @@ public class Gun : MonoBehaviour
     public int bulletDamage = 1;
     public float reloadTime = 2f;
     public Animator animator;
+    public float reloadAnimationTime = 4f;
 
     private int currentAmmo = 0;    
     private float nextShot = 0;
     private bool isShooting = false;
     private bool isReloading = false;
-    
+    private float animationMultiplier;
 
 
     void Update()
@@ -38,17 +39,22 @@ public class Gun : MonoBehaviour
             CheckAmmo();
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && (Ammo > 0 || ammoIsInfinite))
         {
             isShooting = false;
             animator.SetBool("IsShooting", false);
         }
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading && (Ammo > 0 || ammoIsInfinite))
         {
             StartReloading();
             
         }
-    }    
+    }
+
+    private void Start()
+    {
+        animationMultiplier = reloadAnimationTime / reloadTime;
+    }
     void CheckAmmo()
     {
         if (ammoIsInfinite)
@@ -98,6 +104,9 @@ public class Gun : MonoBehaviour
     private void StartReloading()
     {
         animator.SetTrigger("Reload");
+        
+
+        animator.SetFloat("reloadMultiplier", animationMultiplier);
         StartCoroutine("Reload");           
     }
     public void StopReloading()

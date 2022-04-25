@@ -10,6 +10,7 @@ public class EnemySpawn : MonoBehaviour
     public GameObject Enemy;
     //public GameObject spawn;
     public int maxEnemyCount;
+    private GameObject player;
     //float xpos;
     //float zpos;
     int enemyCount = 0;
@@ -18,7 +19,7 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         //StartCoroutine(enemyDrop());
-       
+        player = GameObject.Find("Player");
     }
 
     private bool CheckForNavMesh(Vector3 targetDestination)
@@ -49,7 +50,7 @@ public class EnemySpawn : MonoBehaviour
 
     public IEnumerator SpawnEnemy(GameObject enemy)
     {
-        Vector3 randomPos = Random.insideUnitSphere * maxDistance;
+        Vector3 randomPos = Random.insideUnitSphere * maxDistance + player.transform.position ;
 
         if (CheckForNavMesh(randomPos))
         {

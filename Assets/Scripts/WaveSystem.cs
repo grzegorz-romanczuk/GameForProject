@@ -11,6 +11,7 @@ public class WaveSystem : MonoBehaviour
     private int waveValue = 0;
     public float spawnDelay = 1;
     private bool isFinished = true;
+    public ShopPanel shop;
 
     
     public GameObject[] easyEnemyPrefabs, mediumEnemyPrefabs, hardEnemyPrefabs, bossEnemyPrefabs;
@@ -24,17 +25,22 @@ public class WaveSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && isFinished)
+        if (Input.GetKeyDown(KeyCode.Return) && isFinished && currentWave == 1)
         {
 
             StartCoroutine(SpawnWave());
         }
 
-        if (!isFinished && currentEnemiesActive == 0 && waveValue <= 0) isFinished = true;
+        if (!isFinished && currentEnemiesActive == 0 && waveValue <= 0)
+        {
+            isFinished = true;
+            Invoke(nameof(EndWave), 1f);
+        }
     }
 
     public IEnumerator SpawnWave()
     {
+        Debug.Log("Fala: " + currentWave);
         isFinished = false;
         while (waveValue > 0)
         {
@@ -200,9 +206,13 @@ public class WaveSystem : MonoBehaviour
         maxMediumEnemies = 0;
     }
 
+    public void EndWave()
+    {        
+        shop.ShopOpen();
+    }
     public void NextWave()
-    {
-        currentWave++;
+    {        
+        currentWave++;        
         CalculateWave();
         StartCoroutine(SpawnWave());
     }
@@ -212,4 +222,8 @@ public class WaveSystem : MonoBehaviour
         return currentWave;
     }
 
+    public void EnemieDeath()
+    {
+        currentEnemiesActive--;
+    }
 }
