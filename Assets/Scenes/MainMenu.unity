@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 107904621}
   - component: {fileID: 107904622}
+  - component: {fileID: 107904623}
   m_Layer: 5
   m_Name: Main
   m_TagString: Untagged
@@ -175,6 +176,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ec12507f0381b429d5936d5ebf181a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextScore: {fileID: 1533307854}
+--- !u!114 &107904623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107904620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7bef1997544a1438bec7d9d9eacd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &112290673
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +216,7 @@ RectTransform:
   m_GameObject: {fileID: 112290673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1939272504}
   m_RootOrder: 0
@@ -295,7 +309,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 5.7251835, z: 0, w: 0}
+  m_margin: {x: 0, y: 5.7251835, z: 0, w: -18.166676}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2687,7 +2701,7 @@ GameObject:
   - component: {fileID: 1195107676}
   - component: {fileID: 1195107675}
   m_Layer: 5
-  m_Name: OptionsText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3236,8 +3250,9 @@ GameObject:
   - component: {fileID: 1339190389}
   - component: {fileID: 1339190388}
   - component: {fileID: 1339190387}
+  - component: {fileID: 1339190390}
   m_Layer: 5
-  m_Name: HighScore
+  m_Name: ButtonHighScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3331,6 +3346,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 107904622}
+        m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
+        m_MethodName: GetHighScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1339190388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3369,6 +3396,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339190385}
   m_CullTransparentMesh: 1
+--- !u!114 &1339190390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339190385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7bef1997544a1438bec7d9d9eacd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1344966281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,9 +3935,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1.\tNICKNAME \tWYNIK\n2. \tNICKNAME \tWYNIK\n3. \tNICKNAME \tWYNIK\n4.\tNICKNAME
-    \tWYNIK\n5. \tNICKNAME \tWYNIK\n6. \tNICKNAME \tWYNIK\n7. \tNICKNAME \tWYNIK\n8.
-    \tNICKNAME \tWYNIK\n9. \tNICKNAME \tWYNIK\n10. \tNICKNAME\tWYNIK\n"
+  m_text: "1.\tWYNIK\n2. \tWYNIK\n3. \tWYNIK\n4.\tWYNIK\n5. \tWYNIK\n6. \tWYNIK\n7. 
+    \tWYNIK\n8.  \tWYNIK\n9.  \tWYNIK\n10. \tWYNIK\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -4063,7 +4101,7 @@ GameObject:
   - component: {fileID: 1662546984}
   - component: {fileID: 1662546983}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: ButtonQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
