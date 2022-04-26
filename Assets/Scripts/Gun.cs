@@ -26,6 +26,8 @@ public class Gun : MonoBehaviour
     private bool isReloading = false;
     private float animationMultiplier;
 
+    private PlayerMover playerMover;
+
 
     void Update()
     {
@@ -49,11 +51,13 @@ public class Gun : MonoBehaviour
             StartReloading();
             
         }
+        if (playerMover.GetIsDashing() && isReloading) StopReloading();
     }
 
     private void Start()
     {
         animationMultiplier = reloadAnimationTime / reloadTime;
+        playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();        
     }
     void CheckAmmo()
     {
