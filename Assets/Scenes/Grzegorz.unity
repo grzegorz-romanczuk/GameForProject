@@ -724,6 +724,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -113.81519
       objectReference: {fileID: 0}
+    - target: {fileID: 4148737331911627791, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: dashTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148737331911627791, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+      propertyPath: ignoreDashLayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 4240365980088186178, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_WarningMessage
       value: 

@@ -21,11 +21,13 @@ public class PlayerMover : MonoBehaviour
     private bool isDashing = false;
     public float dashTime = 0.5f;
     public float dashPower = 2f;
-
+    public int stamina = 20;
+    private float staminaRegenTime = 0f;
     void Awake()
     {
         _input = GetComponent<InputHandler>();
         _playerAim = GetComponent<PlayerAim>();
+        
     }
 
     void Update()
@@ -38,12 +40,17 @@ public class PlayerMover : MonoBehaviour
         }
         else Dash(dashVector);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing) StartDash(); 
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing && stamina >= 10) StartDash(); 
 
         if (Vector3.Distance(targetVector, Vector3.zero) > 0.25f) GetComponent<Animator>().SetBool("IsRunning", true);
         else GetComponent<Animator>().SetBool("IsRunning", false);
         
-        
+        if(stamina < 20 && staminaRegenTime < Time.fixedTime)
+        {
+            stamina++;
+            staminaRegenTime = Time.fixedTime + 0.5f;
+
+        }
 
     }
     private void Move(Vector3 targetVector)
@@ -63,10 +70,18 @@ public class PlayerMover : MonoBehaviour
         {
             dashVector = -(mousePoint - transform.position).normalized;            
         }
+        ChangeDashComponentsState(false);
+        stamina -= 10;
         isDashing = true;
         Invoke(nameof(EndDash), dashTime);
     }
 
+    private void ChangeDashComponentsState(bool state)
+    {
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyBullet"), !state);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), !state);
+        GetComponent<Rigidbody>().isKinematic = !state;
+    }
     private void Dash(Vector3 targetVector)
     {
         var speed = moveSpeed * Time.deltaTime * dashPower;        
@@ -76,6 +91,7 @@ public class PlayerMover : MonoBehaviour
 
     private void EndDash()
     {
+        ChangeDashComponentsState(true);
         isDashing = false;
     }
 
