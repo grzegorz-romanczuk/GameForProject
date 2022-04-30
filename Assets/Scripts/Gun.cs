@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public bool isUnlocked = false;
+    
+    
+    
+    [Header("Aniamtion Config")]
+    public Animator animator;
+    public float reloadAnimationTime = 4f;
+    [Header("Weapon Config")]
     public GameObject bulletPrefab;
     public Transform gunPoint;
     public float bulletSpeed = 100f;
@@ -17,8 +23,12 @@ public class Gun : MonoBehaviour
     public bool isFullAuto = false;
     public int bulletDamage = 1;
     public float reloadTime = 2f;
-    public Animator animator;
-    public float reloadAnimationTime = 4f;
+    [Header("Shop Config")]
+    public bool isUnlocked = false;
+    public int weaponCost = 500;
+    public int ammoCost =  50;
+    public Sprite weaponIcon, ammoIcon;
+
 
     private int currentAmmo = 0;    
     private float nextShot = 0;
@@ -31,33 +41,42 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && nextShot <= Time.time && !isFullAuto && !isReloading)
-        {            
-            CheckAmmo();
-        }
-        else if (Input.GetMouseButton(0) && nextShot <= Time.time && isFullAuto && !isReloading)
+        if (!PauseSystem.gameIsPaused)
         {
-            isShooting = true;            
-            CheckAmmo();
-        }
+            if (Input.GetMouseButtonDown(0) && nextShot <= Time.time && !isFullAuto && !isReloading)
+            {
+                CheckAmmo();
+            }
+            else if (Input.GetMouseButton(0) && nextShot <= Time.time && isFullAuto && !isReloading)
+            {
+                isShooting = true;
+                CheckAmmo();
+            }
 
-        if (Input.GetMouseButtonUp(0) && (Ammo > 0 || ammoIsInfinite))
-        {
-            isShooting = false;
-            animator.SetBool("IsShooting", false);
+            if (Input.GetMouseButtonUp(0) && (Ammo > 0 || ammoIsInfinite))
+            {
+                isShooting = false;
+                animator.SetBool("IsShooting", false);
+            }
+            if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineSize && !isReloading && (Ammo > 0 || ammoIsInfinite))
+            {
+                StartReloading();
+
+            }
+            if (playerMover.GetIsDashing() && isReloading) StopReloading();
         }
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading && (Ammo > 0 || ammoIsInfinite))
-        {
-            StartReloading();
-            
-        }
-        if (playerMover.GetIsDashing() && isReloading) StopReloading();
     }
 
     private void Start()
     {
         animationMultiplier = reloadAnimationTime / reloadTime;
         playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();        
+    }
+
+    public void AmmoBought()
+    {
+        Ammo += magazineSize;
+        if (Ammo > maxAmmo) Ammo = maxAmmo;
     }
     void CheckAmmo()
     {
@@ -152,5 +171,9 @@ public class Gun : MonoBehaviour
                 Ammo = 0;
             }                        
         }
+    }
+    public int GetCurrentAmmo()
+    {
+        return currentAmmo;
     }
 }

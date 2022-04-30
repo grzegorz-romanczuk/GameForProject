@@ -21,30 +21,41 @@ public class PlayerMover : MonoBehaviour
     private bool isDashing = false;
     public float dashTime = 0.5f;
     public float dashPower = 2f;
-
+    public int maxStamina = 20;
+    public int staminaUsage = 10;
+    public bool infiniteStamina = false;
+    private int stamina;
+    private float staminaRegenTime = 0f;
     void Awake()
     {
         _input = GetComponent<InputHandler>();
         _playerAim = GetComponent<PlayerAim>();
+        stamina = maxStamina;
     }
 
     void Update()
     {
-
-        if (!isDashing) 
+        if (!PauseSystem.gameIsPaused)
         {
-            targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
-            Move(targetVector);
+            if (!isDashing)
+            {
+                targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
+                Move(targetVector);
+            }
+            else Dash(dashVector);
+
+            if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina))) StartDash();
+
+            if (Vector3.Distance(targetVector, Vector3.zero) > 0.25f) GetComponent<Animator>().SetBool("IsRunning", true);
+            else GetComponent<Animator>().SetBool("IsRunning", false);
+
+            if (stamina < maxStamina && staminaRegenTime < Time.fixedTime)
+            {
+                stamina++;
+                staminaRegenTime = Time.fixedTime + 0.5f;
+
+            }
         }
-        else Dash(dashVector);
-
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing) StartDash(); 
-
-        if (Vector3.Distance(targetVector, Vector3.zero) > 0.25f) GetComponent<Animator>().SetBool("IsRunning", true);
-        else GetComponent<Animator>().SetBool("IsRunning", false);
-        
-        
-
     }
     private void Move(Vector3 targetVector)
     {
@@ -57,16 +68,24 @@ public class PlayerMover : MonoBehaviour
     {
         var mousePoint = _playerAim.GetMousePoint();
         mousePoint.y = 0;
-        dashVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
+        dashVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y).normalized;
         dashVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * dashVector;        
         if (dashVector == Vector3.zero)
         {
             dashVector = -(mousePoint - transform.position).normalized;            
         }
+        ChangeDashComponentsState(false);
+        if(!infiniteStamina)stamina -= staminaUsage;
         isDashing = true;
         Invoke(nameof(EndDash), dashTime);
     }
 
+    private void ChangeDashComponentsState(bool state)
+    {
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyBullet"), !state);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), !state);
+        GetComponent<Rigidbody>().isKinematic = !state;
+    }
     private void Dash(Vector3 targetVector)
     {
         var speed = moveSpeed * Time.deltaTime * dashPower;        
@@ -76,6 +95,7 @@ public class PlayerMover : MonoBehaviour
 
     private void EndDash()
     {
+        ChangeDashComponentsState(true);
         isDashing = false;
     }
 

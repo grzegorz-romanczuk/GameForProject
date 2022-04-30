@@ -12,6 +12,10 @@ PrefabInstance:
       value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 229852182472942527, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: ammoIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c5de5a1888d3eb418d79c516aace70c, type: 3}
+    - target: {fileID: 229852182472942527, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4240365980088186178}
@@ -19,6 +23,14 @@ PrefabInstance:
       propertyPath: reloadTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 229852182472942527, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: weaponCost
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 229852182472942527, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 381e0b0a35b7c8d448a3c56e416ce3a0, type: 3}
     - target: {fileID: 288844070325641139, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.6236615
@@ -339,6 +351,10 @@ PrefabInstance:
       propertyPath: reloadTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1970540932336422073, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: d9d546db744c76b4f86848010646e61c, type: 3}
     - target: {fileID: 2024034994546143533, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9997047
@@ -648,9 +664,25 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3520456247563934888, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: ammoCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520456247563934888, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: ammoIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: b62ee76087863914ca8420ab965f74a0, type: 3}
+    - target: {fileID: 3520456247563934888, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: reloadTime
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3520456247563934888, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: weaponCost
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520456247563934888, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 18b50ed32a63d254485c953cc35b111a, type: 3}
     - target: {fileID: 3521982409449855449, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -868,6 +900,18 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: maxAmmo
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: ammoCost
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: ammoIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 6293c25d0befd46468babdbe074b08f8, type: 3}
+    - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4240365980088186178}
@@ -879,6 +923,14 @@ PrefabInstance:
       propertyPath: reloadTime
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: weaponCost
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b26f51d60d8f8c4aa23d4e1b8a87cf2, type: 3}
     - target: {fileID: 6417717229662644261, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: ammoIsInfinite
       value: 1
@@ -1094,6 +1146,14 @@ PrefabInstance:
     - target: {fileID: 8008225151374815150, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -58.633804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109697754734358677, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: dashPower
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109697754734358677, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: infiniteStamina
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8257719421293118395, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_LocalRotation.w
