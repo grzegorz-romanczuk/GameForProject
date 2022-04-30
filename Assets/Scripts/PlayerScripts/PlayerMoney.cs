@@ -16,4 +16,9 @@ public class PlayerMoney : MonoBehaviour
     {
         
     }
+
+    public void ChangeMoneyAmount(int amount)
+    {
+        Money += amount;
+    }
 }

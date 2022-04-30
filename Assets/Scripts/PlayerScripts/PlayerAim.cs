@@ -11,7 +11,7 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateFromMouseVector();
+        if(!PauseSystem.gameIsPaused)RotateFromMouseVector();
     }
     private void RotateFromMouseVector()
     {

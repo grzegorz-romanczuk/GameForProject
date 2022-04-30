@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b7f195a9171376744841c7ccc9673cc5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - weaponBelt: {instanceID: 0}
+  - blankItem: {fileID: 5559840551307294239, guid: 91c058fb1c06f66488038160e3ef71c7, type: 3}
+  - WeaponPanelContent: {instanceID: 0}
+  - cashText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

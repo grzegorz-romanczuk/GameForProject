@@ -5,30 +5,37 @@ using UnityEngine;
 [RequireComponent(typeof(EnemySpawn))]
 public class WaveSystem : MonoBehaviour
 {
-    private int currentWave = 1;
+    private int currentWave = 0;
     private int maxMediumEnemies = 0, maxHardEnemies = 0, maxBossEnemies = 0;
     private int maxEnemiesActive = 0, currentEnemiesActive = 0;    
     private int waveValue = 0;
     public float spawnDelay = 1;
     private bool isFinished = true;
-    public ShopPanel shop;
+    public Shop shop;
+    public int waveCountdownTime = 10;
 
     
     public GameObject[] easyEnemyPrefabs, mediumEnemyPrefabs, hardEnemyPrefabs, bossEnemyPrefabs;
     private EnemySpawn enemySpawn;
+    private MessageSystem messageSystem;
+    private bool countdown = false;
+    private float nextWaveTime = 0f;
 
     private void Start()
     {
         CalculateWave();
         enemySpawn = GetComponent<EnemySpawn>();
+        messageSystem = GameObject.Find("MessageSystem").GetComponent<MessageSystem>();
+        messageSystem.DisplayMessage("Press ENTER to start",0);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && isFinished && currentWave == 1)
+        if (Input.GetKeyDown(KeyCode.Return) && isFinished && currentWave == 0)
         {
 
-            StartCoroutine(SpawnWave());
+            NextWave();
+            messageSystem.HideMessage();
         }
 
         if (!isFinished && currentEnemiesActive == 0 && waveValue <= 0)
@@ -36,15 +43,33 @@ public class WaveSystem : MonoBehaviour
             isFinished = true;
             Invoke(nameof(EndWave), 1f);
         }
+        if(countdown)
+        {            
+            messageSystem.WaveCountdown(Mathf.CeilToInt(nextWaveTime - Time.time),currentWave);
+        }
     }
 
     public IEnumerator SpawnWave()
     {
         Debug.Log("Fala: " + currentWave);
         isFinished = false;
+        while (countdown)
+        {
+            if (countdown && Time.time > nextWaveTime)
+            {
+                countdown = false;
+                messageSystem.HideCountdown();
+
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }           
+        }
+        
         while (waveValue > 0)
         {
-            if(currentEnemiesActive < maxEnemiesActive)
+            if (currentEnemiesActive < maxEnemiesActive)
             {
                 if (maxBossEnemies > 0)
                 {
@@ -64,7 +89,8 @@ public class WaveSystem : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(spawnDelay);
-        }        
+        }
+        
     }
 
     private void SpawnEasyEnemy()
@@ -208,12 +234,14 @@ public class WaveSystem : MonoBehaviour
 
     public void EndWave()
     {        
-        shop.ShopOpen();
+        shop.OpenShop();
     }
     public void NextWave()
     {        
         currentWave++;        
         CalculateWave();
+        nextWaveTime = Time.time + waveCountdownTime;
+        countdown = true;
         StartCoroutine(SpawnWave());
     }
 
@@ -226,4 +254,5 @@ public class WaveSystem : MonoBehaviour
     {
         currentEnemiesActive--;
     }
+        
 }
