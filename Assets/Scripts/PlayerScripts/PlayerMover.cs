@@ -9,6 +9,7 @@ public class PlayerMover : MonoBehaviour
 {
     private InputHandler _input;
     private PlayerAim _playerAim;
+    Animator animator;
 
     [SerializeField]
     private float moveSpeed;
@@ -66,6 +67,8 @@ public class PlayerMover : MonoBehaviour
     }
     private void StartDash()
     {
+        // animator.SetBool("IsDashing", true);
+        GetComponent<Animator>().SetTrigger("Dashing");
         var mousePoint = _playerAim.GetMousePoint();
         mousePoint.y = 0;
         dashVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y).normalized;
@@ -91,12 +94,14 @@ public class PlayerMover : MonoBehaviour
         var speed = moveSpeed * Time.deltaTime * dashPower;        
         var targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
+       
     }
 
     private void EndDash()
     {
         ChangeDashComponentsState(true);
         isDashing = false;
+        //animator.SetBool("IsDashing", false);
     }
 
     public bool GetIsDashing()
