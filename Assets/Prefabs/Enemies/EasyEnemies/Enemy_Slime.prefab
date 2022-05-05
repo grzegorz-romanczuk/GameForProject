@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 4839061561468364768}
   - component: {fileID: 8896747953215648760}
   - component: {fileID: 161924308368187832}
+  - component: {fileID: 8981485282870510368}
   m_Layer: 8
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -349,6 +350,19 @@ MonoBehaviour:
   playerInAttackRange: 0
   maxHealth: 3
   spawnValue: 4
+--- !u!114 &8981485282870510368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057188656312813988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25024f02baf47fe4bbd82a9caafded8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 8787965332968228166, guid: 01d75b9fb178ff343bc7abc143090c58, type: 3}
 --- !u!1 &4057188656542633438
 GameObject:
   m_ObjectHideFlags: 0

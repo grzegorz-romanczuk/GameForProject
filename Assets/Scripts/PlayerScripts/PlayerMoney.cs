@@ -21,4 +21,8 @@ public class PlayerMoney : MonoBehaviour
     {
         Money += amount;
     }
+    public void AddMoney(int amount)
+    {
+        Money += amount;
+    }
 }
