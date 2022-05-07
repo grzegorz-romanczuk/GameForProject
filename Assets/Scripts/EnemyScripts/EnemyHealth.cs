@@ -28,6 +28,7 @@ public class EnemyHealth : Health
                 gameManager.GetComponent<DefeatedEnemyCount>().DefeatedEasyEnemy += 1; //Odsy?am informacj? o pokonanym easy przeciwniku
                 DestroyUnit(destroyTime);
 
+                GetComponent<EnemyDrop>().CoinDrop();
                 GetComponent<EnemyAi>().enabled = false;
                 GetComponent<NavMeshAgent>().enabled = false;
                 GetComponent<Animator>().SetTrigger("Death");

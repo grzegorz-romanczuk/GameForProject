@@ -35,4 +35,9 @@ public class PlayerHealth : Health
             }
         }
     }
+
+    public void AddHealth(int amount)
+    {
+        currentHealth += amount;
+    }
 }
