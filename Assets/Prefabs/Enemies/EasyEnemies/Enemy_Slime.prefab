@@ -363,6 +363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 8787965332968228166, guid: 01d75b9fb178ff343bc7abc143090c58, type: 3}
+  heart: {fileID: 7739494574113364651, guid: bb4ae96bd2bd15c4db7083fb8f549071, type: 3}
+  akMag: {fileID: 8001748816802454811, guid: 06e313319bf923a48bcb5b245971804a, type: 3}
+  uziMag: {fileID: 1156771101897759774, guid: 652886257448f7e44b928c4d0d66935f, type: 3}
+  m4Mag: {fileID: 1415889362257595599, guid: 3bfe083cda0f53a4aa2950515f7c7551, type: 3}
 --- !u!1 &4057188656542633438
 GameObject:
   m_ObjectHideFlags: 0
