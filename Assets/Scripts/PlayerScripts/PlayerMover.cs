@@ -47,8 +47,22 @@ public class PlayerMover : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina))) StartDash();
 
-            if (Vector3.Distance(targetVector, Vector3.zero) > 0.25f) GetComponent<Animator>().SetBool("IsRunning", true);
+            if (Input.GetKey("a")) GetComponent<Animator>().SetBool("IsRunningLeft", true);
+            else GetComponent<Animator>().SetBool("IsRunningLeft", false);
+
+            if (Input.GetKey("w")) GetComponent<Animator>().SetBool("IsRunning", true);
             else GetComponent<Animator>().SetBool("IsRunning", false);
+
+            if (Input.GetKey("s")) GetComponent<Animator>().SetBool("IsRuningBack", true);
+            else GetComponent<Animator>().SetBool("IsRuningBack", false);
+
+            if (Input.GetKey("d")) GetComponent<Animator>().SetBool("IsRuningRight", true);
+            else GetComponent<Animator>().SetBool("IsRuningRight", false);
+
+            //if (Vector3.Distance(targetVector, Vector3.zero) > 0.25f) GetComponent<Animator>().SetBool("IsRunning", true);
+            //else GetComponent<Animator>().SetBool("IsRunning", false);
+
+
 
             if (stamina < maxStamina && staminaRegenTime < Time.fixedTime)
             {
@@ -67,19 +81,20 @@ public class PlayerMover : MonoBehaviour
     }
     private void StartDash()
     {
-        // animator.SetBool("IsDashing", true);
-        GetComponent<Animator>().SetTrigger("Dashing");
+        
+       
         var mousePoint = _playerAim.GetMousePoint();
         mousePoint.y = 0;
         dashVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y).normalized;
-        dashVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * dashVector;        
+        dashVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * dashVector;
         if (dashVector == Vector3.zero)
         {
-            dashVector = -(mousePoint - transform.position).normalized;            
+            dashVector = -(mousePoint - transform.position).normalized;
         }
         ChangeDashComponentsState(false);
-        if(!infiniteStamina)stamina -= staminaUsage;
+        if (!infiniteStamina) stamina -= staminaUsage;
         isDashing = true;
+        GetComponent<Animator>().SetTrigger("Dashing");
         Invoke(nameof(EndDash), dashTime);
     }
 
@@ -101,7 +116,7 @@ public class PlayerMover : MonoBehaviour
     {
         ChangeDashComponentsState(true);
         isDashing = false;
-        //animator.SetBool("IsDashing", false);
+       
     }
 
     public bool GetIsDashing()
