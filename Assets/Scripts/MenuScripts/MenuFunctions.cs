@@ -9,6 +9,7 @@ public class MenuFunctions : MonoBehaviour
     public TextMeshProUGUI TextScore;
     public void PlayGame()
     {
+       
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

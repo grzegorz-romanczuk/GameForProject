@@ -1148,8 +1148,12 @@ PrefabInstance:
       value: -58.633804
       objectReference: {fileID: 0}
     - target: {fileID: 8109697754734358677, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: dashTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109697754734358677, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: dashPower
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8109697754734358677, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: WeaponBelt
@@ -1158,6 +1162,10 @@ PrefabInstance:
     - target: {fileID: 8109697754734358677, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: infiniteStamina
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109697754734358677, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: dashAnimationTime
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8257719421293118395, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1197,6 +1205,14 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 8a515a15839216849ad82b85bb25f41f, type: 2}
     - target: {fileID: 8340921455869514200, guid: da1203547328fdb41974e0b5334e799a, type: 3}
       propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358021806340797930, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: m_Constraints
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358021806340797930, guid: da1203547328fdb41974e0b5334e799a, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8422327259302067425, guid: da1203547328fdb41974e0b5334e799a, type: 3}
