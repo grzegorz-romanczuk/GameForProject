@@ -42,10 +42,14 @@ public class PlayerMover : MonoBehaviour
             {
                 targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
                 Move(targetVector);
+                
             }
             else Dash(dashVector);
 
             if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina))) StartDash();
+
+            GetComponent<Animator>().SetFloat("x", _input.InputVector.x);
+            GetComponent<Animator>().SetFloat("y", _input.InputVector.y);
 
             if (targetVector.x < 0) GetComponent<Animator>().SetBool("IsRunningLeft", true);
             else GetComponent<Animator>().SetBool("IsRunningLeft", false);
