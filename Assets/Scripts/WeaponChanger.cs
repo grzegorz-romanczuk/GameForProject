@@ -124,7 +124,6 @@ public class WeaponChanger : MonoBehaviour
                 weapon.GetComponent<PlayerLaser>().Invoke("laserDisable", 0.1f);
             }
 
-
             i++;
         }
     }

@@ -9,16 +9,29 @@ public class GuiManager : MonoBehaviour
     public TextMeshProUGUI TextScore;
     public TextMeshProUGUI TextCash;
     public TextMeshProUGUI TextHeal;
+    public TextMeshProUGUI TextAmmo;
     public Slider stamina;
+    public GameObject Weapons;
+    public Image WeaponImage;
+
 
     private PlayerScore playerScore;
     private PlayerMoney playerCash;
     private PlayerHealth playerHealth;
     private PlayerMover playerMover;
-
+    private WeaponChanger WeapChanger;
+    
+    private List<GameObject> WeapList = new List<GameObject>();
     void Start()
     {
         stamina.maxValue = GameObject.Find("Player").GetComponent<PlayerMover>().maxStamina;
+        WeapChanger = GameObject.Find("Weapons").GetComponent<WeaponChanger>();
+
+        foreach (Transform child in Weapons.transform)
+        {
+            WeapList.Add(child.gameObject);
+        }
+
     }
 
     // Update is called once per frame
@@ -32,6 +45,7 @@ public class GuiManager : MonoBehaviour
         GUICash();
         GUIHeal();
         GUIStamina();
+        GUIweapon();
     }
 
     void GUIScore()
@@ -56,7 +70,7 @@ public class GuiManager : MonoBehaviour
         }
         else
         {
-            TextHeal.text = "DEAD"; //?
+            TextHeal.text = "0";
         }
 
     }
@@ -68,5 +82,27 @@ public class GuiManager : MonoBehaviour
             stamina.value = playerMover.stamina;
         }
     }
-
+    void GUIAmmo(GameObject weap)
+    {
+        var weapInfo = weap.GetComponent<Gun>();
+        if (weapInfo.ammoIsInfinite)
+        {
+            TextAmmo.text = weapInfo.GetCurrentAmmo().ToString();
+        }
+        else
+        {
+            TextAmmo.text = weapInfo.GetCurrentAmmo().ToString() + "/" + weapInfo.Ammo.ToString();
+        }   
+    }
+    void GUIweapon()
+    {
+        foreach (GameObject weap in WeapList)
+        {
+            if (weap.activeSelf)
+            {
+                WeaponImage.sprite = weap.GetComponent<Gun>().weaponIcon;
+                GUIAmmo(weap);
+            }
+        }
+    }
 }
