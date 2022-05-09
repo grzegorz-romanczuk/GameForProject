@@ -25,7 +25,7 @@ public class M4AmmoPickup : MonoBehaviour
     {
         if (other.gameObject.tag.Contains("Player"))
         {
-            M4.GetComponent<Gun>().Ammo += 30;
+            M4.GetComponent<Gun>().AmmoBought();
             Destroy(gameObject);
         }
     }

@@ -41,29 +41,30 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
+        var isDashing = playerMover.GetIsDashing();
         if (!PauseSystem.gameIsPaused)
         {
-            if (Input.GetMouseButtonDown(0) && nextShot <= Time.time && !isFullAuto && !isReloading)
+            if (Input.GetMouseButtonDown(0) && !isDashing && nextShot <= Time.time && !isFullAuto && !isReloading)
             {
                 CheckAmmo();
             }
-            else if (Input.GetMouseButton(0) && nextShot <= Time.time && isFullAuto && !isReloading)
+            else if (Input.GetMouseButton(0) && !isDashing && nextShot <= Time.time && isFullAuto && !isReloading)
             {
                 isShooting = true;
                 CheckAmmo();
             }
 
-            if (Input.GetMouseButtonUp(0) && (Ammo > 0 || ammoIsInfinite))
+            if (Input.GetMouseButtonUp(0) && !isDashing && (Ammo > 0 || ammoIsInfinite))
             {
                 isShooting = false;
                 animator.SetBool("IsShooting", false);
             }
-            if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineSize && !isReloading && (Ammo > 0 || ammoIsInfinite))
+            if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineSize && !isReloading && !isDashing && (Ammo > 0 || ammoIsInfinite))
             {
                 StartReloading();
 
             }
-            if (playerMover.GetIsDashing() && isReloading) StopReloading();
+            if (isDashing && isReloading) StopReloading();
         }
     }
 
@@ -134,7 +135,7 @@ public class Gun : MonoBehaviour
     }
     public void StopReloading()
     {
-        isReloading = false;
+        isReloading = false;        
     }
 
     public bool IsShooting()

@@ -28,8 +28,8 @@ public class DefeatedEnemyCount : MonoBehaviour
             playerScore.score += (DefeatedEasyEnemy - OldDefeatedEasyEnemy) * 100;
             playerMoney.Money += (DefeatedEasyEnemy - OldDefeatedEasyEnemy) * 50;
             OldDefeatedEasyEnemy = DefeatedEasyEnemy;
-            Debug.Log("Punkty Gracza: " + playerScore.score);
-            Debug.Log("Pieni?dze Gracza: " + playerMoney.Money);
+            //Debug.Log("Punkty Gracza: " + playerScore.score);
+            //Debug.Log("Pieni?dze Gracza: " + playerMoney.Money);
 
         }
         if (OldDefeatedMediumEnemy < DefeatedMediumEnemy)
