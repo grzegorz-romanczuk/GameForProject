@@ -9,8 +9,12 @@ public class GameOverFunctions : MonoBehaviour
 {
     public GameObject GameOver;
     public TextMeshProUGUI TextScore;
+    private GameObject gui;
 
-
+    private void Start()
+    {
+        gui = GameObject.Find("GUIWindow");
+    }
 
 
     public void MainMenu()
@@ -20,7 +24,7 @@ public class GameOverFunctions : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GetScore()
@@ -37,6 +41,7 @@ public class GameOverFunctions : MonoBehaviour
     {
         GetScore();
         GameOver.SetActive(true);
+        gui.SetActive(false);
     }
 }
 
