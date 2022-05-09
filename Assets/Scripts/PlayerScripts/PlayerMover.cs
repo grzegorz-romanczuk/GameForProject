@@ -47,16 +47,16 @@ public class PlayerMover : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina))) StartDash();
 
-            if (Input.GetKey("a")) GetComponent<Animator>().SetBool("IsRunningLeft", true);
+            if (targetVector.x < 0) GetComponent<Animator>().SetBool("IsRunningLeft", true);
             else GetComponent<Animator>().SetBool("IsRunningLeft", false);
 
-            if (Input.GetKey("w")) GetComponent<Animator>().SetBool("IsRunning", true);
+            if (targetVector.z > 0) GetComponent<Animator>().SetBool("IsRunning", true);
             else GetComponent<Animator>().SetBool("IsRunning", false);
 
-            if (Input.GetKey("s")) GetComponent<Animator>().SetBool("IsRuningBack", true);
+            if (targetVector.z < 0) GetComponent<Animator>().SetBool("IsRuningBack", true);
             else GetComponent<Animator>().SetBool("IsRuningBack", false);
 
-            if (Input.GetKey("d")) GetComponent<Animator>().SetBool("IsRuningRight", true);
+            if (targetVector.x > 0) GetComponent<Animator>().SetBool("IsRuningRight", true);
             else GetComponent<Animator>().SetBool("IsRuningRight", false);
 
             //if (Vector3.Distance(targetVector, Vector3.zero) > 0.25f) GetComponent<Animator>().SetBool("IsRunning", true);

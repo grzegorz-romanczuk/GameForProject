@@ -739,12 +739,20 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
+      propertyPath: m_Intensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
       propertyPath: m_AreaSize.x
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
       propertyPath: m_AreaSize.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
       propertyPath: m_BoundingSphereOverride.w
