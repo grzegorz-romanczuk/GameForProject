@@ -25,7 +25,7 @@ public class UziAmmoPickup : MonoBehaviour
     {
         if (other.gameObject.tag.Contains("Player"))
         {
-            Uzi.GetComponent<Gun>().Ammo += 30;
+            Uzi.GetComponent<Gun>().AmmoBought();
             Destroy(gameObject);
         }
     }

@@ -26,6 +26,7 @@ public class PlayerMover : MonoBehaviour
     public bool infiniteStamina = false;
     private int stamina;
     private float staminaRegenTime = 0f;
+    public GameObject WeaponBelt;
     void Awake()
     {
         _input = GetComponent<InputHandler>();
@@ -66,24 +67,26 @@ public class PlayerMover : MonoBehaviour
     }
     private void StartDash()
     {
-        var mousePoint = _playerAim.GetMousePoint();
+        var mousePoint = _playerAim.GetMousePoint();        //pozycja myszki na ekranie
         mousePoint.y = 0;
-        dashVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y).normalized;
-        dashVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * dashVector;        
+        dashVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y).normalized;                     //Vector kierunku wykonania uniku
+        dashVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * dashVector;   //przeliczenei Vectoru zgodnie z kamer¹      
         if (dashVector == Vector3.zero)
         {
-            dashVector = -(mousePoint - transform.position).normalized;            
+            dashVector = (mousePoint - transform.position).normalized;   //zmiana kierunku dashu w strone myszki w przypadku gdy grasz siê nie porusza
         }
-        ChangeDashComponentsState(false);
-        if(!infiniteStamina)stamina -= staminaUsage;
-        isDashing = true;
-        Invoke(nameof(EndDash), dashTime);
+        ChangeDashComponentsState(false);                   //zmiana odpowiednich komponentów gracza na czas uniku
+        if(!infiniteStamina)stamina -= staminaUsage;        //odjêcie staminy 
+        isDashing = true;                                   //zmiana stanu prouszania na unik
+        Invoke(nameof(EndDash), dashTime);                  //zakoñczenie uniku po okreœlonym czasie
     }
 
     private void ChangeDashComponentsState(bool state)
     {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyBullet"), !state);
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), !state);
+        WeaponBelt.SetActive(state);
+        GetComponent<PlayerAim>().enabled = state;
         GetComponent<Rigidbody>().isKinematic = !state;
     }
     private void Dash(Vector3 targetVector)

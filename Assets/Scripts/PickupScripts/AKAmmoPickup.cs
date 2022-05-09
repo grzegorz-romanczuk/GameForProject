@@ -25,7 +25,7 @@ public class AKAmmoPickup : MonoBehaviour
     {
         if (other.gameObject.tag.Contains("Player"))
         {
-            AK.GetComponent<Gun>().Ammo += 30;
+            AK.GetComponent<Gun>().AmmoBought();
             Destroy(gameObject);
         }
     }
