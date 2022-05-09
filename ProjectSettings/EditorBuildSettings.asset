@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3018d44a3ff455e4897811a8c97dc44d
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: b165f380ca2cd0e44bf0a0876b2f60c8
+    path: Assets/Scenes/Piotrek.unity
+    guid: e24245d4956eabb44885404c5964336b
+  - enabled: 0
+    path: Assets/Scenes/Grzegorz.unity
+    guid: fd3c25f0e39b7ba45b5f7b8e3c0f656f
   m_configObjects: {}

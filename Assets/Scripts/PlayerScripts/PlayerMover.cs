@@ -25,7 +25,7 @@ public class PlayerMover : MonoBehaviour
     public int maxStamina = 20;
     public int staminaUsage = 10;
     public bool infiniteStamina = false;
-    private int stamina;
+    public int stamina;
     private float staminaRegenTime = 0f;
     void Awake()
     {
