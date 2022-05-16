@@ -91,12 +91,12 @@ public class Shop : MonoBehaviour
         var gun = weapon.GetComponent<Gun>();
         if (gun.isUnlocked)
         {
-            gameManager.GetComponent<PlayerMoney>().ChangeMoneyAmount(-gun.ammoCost);
+            gameManager.GetComponent<PlayerMoney>().AddMoney(-gun.ammoCost);
             gun.AmmoBought();
         }
         else
         {
-            gameManager.GetComponent<PlayerMoney>().ChangeMoneyAmount(-gun.weaponCost);
+            gameManager.GetComponent<PlayerMoney>().AddMoney(-gun.weaponCost);
             gun.isUnlocked = true;
             gun.Ammo = gun.magazineSize * 5;
         }

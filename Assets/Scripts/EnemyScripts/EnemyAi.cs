@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(EnemyStats))]
 public class EnemyAi : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -16,6 +17,7 @@ public class EnemyAi : MonoBehaviour
     public float walkPointRange;
 
     //Attacking
+    public bool enemyIsRanged = false;
     public float timeBetweenAttacks, attackTime;
     bool alreadyAttacked, isAttacking;
     public GameObject projectile;
@@ -26,16 +28,16 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    //Stats
-    public int maxHealth;
-    public int spawnValue;
-
+    private int difficulty;
+    EnemyStats enemyStats;
     Animator animator;
     private void Awake()
     {
         if(!player) player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        enemyStats = GetComponent<EnemyStats>();
+        difficulty = GameDifficulty.getDifficulty();
     }
 
     private void Update()
@@ -93,11 +95,15 @@ public class EnemyAi : MonoBehaviour
 
     private void StartAttack()
     {
-        //Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
-        
-        isAttacking = true;        
-        Invoke(nameof(AttackPlayer), attackTime);
+
+        if (enemyIsRanged)
+        {
+            //Make sure enemy doesn't move
+            agent.SetDestination(transform.position);
+
+            isAttacking = true;
+            Invoke(nameof(AttackPlayer), attackTime);
+        }        
     }
     private void AttackPlayer()
     {                
@@ -109,6 +115,7 @@ public class EnemyAi : MonoBehaviour
             ///Attack code here
             animator.SetTrigger("Attack");
             Rigidbody rb = Instantiate(projectile, transform.position + new Vector3(0f,1f,0f), Quaternion.identity).GetComponent<Rigidbody>();
+            rb.GetComponent<EnemyBullet>().bulletDamage = enemyStats.damage;
             rb.rotation = transform.rotation;
             rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
