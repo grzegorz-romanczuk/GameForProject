@@ -70,6 +70,9 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
+        var diff = GameDifficulty.getDifficulty();
+        ammoCost *= diff;
+        weaponCost *= diff;
         animationMultiplier = reloadAnimationTime / reloadTime;
         playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();        
     }

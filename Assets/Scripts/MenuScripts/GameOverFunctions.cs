@@ -10,10 +10,12 @@ public class GameOverFunctions : MonoBehaviour
     public GameObject GameOver;
     public TextMeshProUGUI TextScore;
     private GameObject gui;
+    private PlayerScore playerScore;
 
     private void Start()
     {
         gui = GameObject.Find("GUIWindow");
+        playerScore = GameObject.Find("GameManager").GetComponent<PlayerScore>();
     }
 
 
@@ -28,8 +30,8 @@ public class GameOverFunctions : MonoBehaviour
     }
 
     public void GetScore()
-    {
-        var scorePoints = GameObject.Find("GameManager").GetComponent<PlayerScore>().score;
+    {        
+        var scorePoints = playerScore.score;
         TextScore.text = "Your score: " + scorePoints.ToString();
 
         var highScore = GetComponent<HighScoreManager>();
@@ -39,6 +41,7 @@ public class GameOverFunctions : MonoBehaviour
     
     public void ActiveGameOverMenu()
     {
+        playerScore.CalculateFinalScore();
         GetScore();
         GameOver.SetActive(true);
         gui.SetActive(false);

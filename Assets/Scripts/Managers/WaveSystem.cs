@@ -9,24 +9,29 @@ public class WaveSystem : MonoBehaviour
     private int maxMediumEnemies = 0, maxHardEnemies = 0, maxBossEnemies = 0;
     private int maxEnemiesActive = 0, currentEnemiesActive = 0;    
     private int waveValue = 0;
-    public float spawnDelay = 1;
+    public float spawnDelay = 1f;
     private bool isFinished = true;
     public Shop shop;
     public int waveCountdownTime = 10;
 
-    
+    public static bool waveIsRunning = false;
     public GameObject[] easyEnemyPrefabs, mediumEnemyPrefabs, hardEnemyPrefabs, bossEnemyPrefabs;
     private EnemySpawn enemySpawn;
     private MessageSystem messageSystem;
     private bool countdown = false;
     private float nextWaveTime = 0f;
 
+    public TMPro.TMP_Text waveValueField;
+
+    private int difficulty;
     private void Start()
     {
         CalculateWave();
+        waveValueField.text = (currentWave + 1).ToString();
         enemySpawn = GetComponent<EnemySpawn>();
         messageSystem = GameObject.Find("MessageSystem").GetComponent<MessageSystem>();
         messageSystem.DisplayMessage("Press ENTER to start",0);
+        difficulty = GameDifficulty.getDifficulty();
     }
 
     private void Update()
@@ -41,6 +46,7 @@ public class WaveSystem : MonoBehaviour
         if (!isFinished && currentEnemiesActive == 0 && waveValue <= 0)
         {
             isFinished = true;
+            waveIsRunning = false;
             Invoke(nameof(EndWave), 1f);
         }
         if(countdown)
@@ -50,9 +56,9 @@ public class WaveSystem : MonoBehaviour
     }
 
     public IEnumerator SpawnWave()
-    {
-        Debug.Log("Fala: " + currentWave);
+    {        
         isFinished = false;
+        waveIsRunning = true;
         while (countdown)
         {
             if (countdown && Time.time > nextWaveTime)
@@ -88,7 +94,7 @@ public class WaveSystem : MonoBehaviour
                     SpawnEasyEnemy();
                 }
             }
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(spawnDelay / difficulty);
         }
         
     }
@@ -99,7 +105,7 @@ public class WaveSystem : MonoBehaviour
         {
             var rand = Mathf.RoundToInt(Random.Range(0, easyEnemyPrefabs.Length));
             var prefab = easyEnemyPrefabs[rand];
-            var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+            var enemyValue = prefab.GetComponent<EnemyStats>().spawnValue;
             if (waveValue > 0)
             {
                 StartCoroutine(enemySpawn.SpawnEnemy(prefab));
@@ -121,7 +127,7 @@ public class WaveSystem : MonoBehaviour
             {
                 var rand = Mathf.RoundToInt(Random.Range(0, mediumEnemyPrefabs.Length));
                 var prefab = mediumEnemyPrefabs[rand];
-                var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+                var enemyValue = prefab.GetComponent<EnemyStats>().spawnValue;
                 if (waveValue >= enemyValue)
                 {
                     StartCoroutine(enemySpawn.SpawnEnemy(prefab));
@@ -144,7 +150,7 @@ public class WaveSystem : MonoBehaviour
             {
                 var rand = Mathf.RoundToInt(Random.Range(0, hardEnemyPrefabs.Length));
                 var prefab = hardEnemyPrefabs[rand];
-                var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+                var enemyValue = prefab.GetComponent<EnemyStats>().spawnValue;
                 if(waveValue >= enemyValue )
                 {
                     StartCoroutine(enemySpawn.SpawnEnemy(prefab));
@@ -168,7 +174,7 @@ public class WaveSystem : MonoBehaviour
             {
                 var rand = Mathf.RoundToInt(Random.Range(0, bossEnemyPrefabs.Length));
                 var prefab = bossEnemyPrefabs[rand];
-                var enemyValue = prefab.GetComponent<EnemyAi>().spawnValue;
+                var enemyValue = prefab.GetComponent<EnemyStats>().spawnValue;
                 if (waveValue >= enemyValue)
                 {
                     StartCoroutine(enemySpawn.SpawnEnemy(prefab));
@@ -194,7 +200,7 @@ public class WaveSystem : MonoBehaviour
         ResetData();
 
         waveValue = waveX25 * 50 + waveX10 * 25 + waveX5 * 10 + waveX2 * 5 + currentWave + 25;
-        maxEnemiesActive = 10 + waveX5;
+        maxEnemiesActive = (10 + waveX5) * difficulty;
                 
         if (waveX25 > 0) maxBossEnemies += waveX25;
 
@@ -238,7 +244,8 @@ public class WaveSystem : MonoBehaviour
     }
     public void NextWave()
     {        
-        currentWave++;        
+        currentWave++;
+        waveValueField.text = currentWave.ToString();
         CalculateWave();
         nextWaveTime = Time.time + waveCountdownTime;
         countdown = true;

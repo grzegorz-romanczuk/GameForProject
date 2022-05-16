@@ -5,22 +5,24 @@ using UnityEngine;
 public class PlayerScore : MonoBehaviour
 {
     public int score;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
     public void saveHighScore()
     {
         if (score > PlayerPrefs.GetInt("highscore"))
         {
             PlayerPrefs.SetInt("highscore", score);
         }
+    }
+
+    public void CalculateFinalScore()
+    {
+        var dayTime = GetComponent<DayTimeManager>();
+        score -= Mathf.RoundToInt((dayTime.getTime() - dayTime.startTime) / dayTime.timeSpeedMultiplier);
+        saveHighScore();
+    }
+
+    public void AddScore(int amount)
+    {
+        score += amount;
     }
 }

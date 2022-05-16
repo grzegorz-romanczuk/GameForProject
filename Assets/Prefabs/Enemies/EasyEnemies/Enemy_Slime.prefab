@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 8896747953215648760}
   - component: {fileID: 161924308368187832}
   - component: {fileID: 8981485282870510368}
+  - component: {fileID: 5453354019995694266}
   m_Layer: 8
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -339,6 +340,7 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
+  enemyIsRanged: 1
   timeBetweenAttacks: 2.5
   attackTime: 0.5
   projectile: {fileID: 7577550731130292106, guid: 30530e0351202b74ebe3f2f64bbce9da, type: 3}
@@ -348,8 +350,6 @@ MonoBehaviour:
   attackRange: 10
   playerInSightRange: 0
   playerInAttackRange: 0
-  maxHealth: 3
-  spawnValue: 4
 --- !u!114 &8981485282870510368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +367,23 @@ MonoBehaviour:
   akMag: {fileID: 8001748816802454811, guid: 06e313319bf923a48bcb5b245971804a, type: 3}
   uziMag: {fileID: 1156771101897759774, guid: 652886257448f7e44b928c4d0d66935f, type: 3}
   m4Mag: {fileID: 1415889362257595599, guid: 3bfe083cda0f53a4aa2950515f7c7551, type: 3}
+--- !u!114 &5453354019995694266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057188656312813988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a94fb7a70ee3a40b8c3e3c9996c1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  cashValue: 50
+  spawnValue: 4
+  damage: 1
+  score: 100
 --- !u!1 &4057188656542633438
 GameObject:
   m_ObjectHideFlags: 0
