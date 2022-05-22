@@ -40,4 +40,13 @@ public class PlayerHealth : Health
     {
         currentHealth += amount;
     }
+
+    public void infHPDisabler()
+    {
+        Invoke("disableInfHP", 10);
+    }
+    void disableInfHP()
+    {
+        invulnerable = false;
+    }
 }
