@@ -207,7 +207,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.02
+  m_Radius: 0.008
   m_Height: 0.01
   m_Direction: 1
   m_Center: {x: 0, y: 0.0075, z: 0}
@@ -223,11 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a94fb7a70ee3a40b8c3e3c9996c1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
-  cashValue: 100
-  spawnValue: 4
-  damage: 1
-  score: 150
+  health: 10
+  cashValue: 60
+  spawnValue: 5
+  damage: 2
+  score: 200
 --- !u!114 &6905775045650261537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9f390dcc1d8f34baba8b11a37890a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
+  maxHealth: 10
   currentHealth: 0
   hitCooldown: 0.1
   invulnerable: 0
@@ -256,8 +256,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.01
-  m_Speed: 1
-  m_Acceleration: 1
+  m_Speed: 4
+  m_Acceleration: 3
   avoidancePriority: 2
   m_AngularSpeed: 240
   m_StoppingDistance: 0
@@ -290,14 +290,14 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
-  enemyIsRanged: 1
-  timeBetweenAttacks: 2.5
+  enemyIsRanged: 0
+  timeBetweenAttacks: 1.5
   attackTime: 0.5
-  projectile: {fileID: 0}
-  bulletSpawnPoint: {fileID: 0}
-  bulletSpeed: 0
-  sightRange: 0
-  attackRange: 0
+  projectile: {fileID: 7577550731130292106, guid: 30530e0351202b74ebe3f2f64bbce9da, type: 3}
+  bulletSpawnPoint: {fileID: 1000011659465104}
+  bulletSpeed: 15
+  sightRange: 60
+  attackRange: 2
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &-7979105855812211671
@@ -317,6 +317,10 @@ MonoBehaviour:
   akMag: {fileID: 8001748816802454811, guid: 06e313319bf923a48bcb5b245971804a, type: 3}
   uziMag: {fileID: 1156771101897759774, guid: 652886257448f7e44b928c4d0d66935f, type: 3}
   m4Mag: {fileID: 1415889362257595599, guid: 3bfe083cda0f53a4aa2950515f7c7551, type: 3}
+  DblSPD: {fileID: 2737447628291152550, guid: dceffb8aca13eac4aa3d1998574309e2, type: 3}
+  InfHP: {fileID: 3339527471972339871, guid: b585fd1b7ef64c540a918c664be52a8b, type: 3}
+  InfSTM: {fileID: 6088830830290138319, guid: a45e079d110faf64fa03673689db475a, type: 3}
+  InfAmmo: {fileID: 9007678649964618668, guid: 9d0f4411eead42649972109752ce6e4d, type: 3}
 --- !u!1 &1000011867156646
 GameObject:
   m_ObjectHideFlags: 0

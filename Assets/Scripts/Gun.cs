@@ -54,7 +54,7 @@ public class Gun : MonoBehaviour
                 CheckAmmo();
             }
 
-            if (Input.GetMouseButtonUp(0) && !isDashing && (Ammo > 0 || ammoIsInfinite))
+            if (Input.GetMouseButtonUp(0) && !isDashing && isShooting)
             {
                 isShooting = false;
                 animator.SetBool("IsShooting", false);

@@ -101,8 +101,7 @@ public class TerrainObjectSpawn : MonoBehaviour
                     obj = obj5;
                     Ypos = 0.0f;
                     break;
-            }
-            Invoke("disableInfHP", 10);
+            }            
             SpawnEnemy(obj, Ypos);
             enemyCount++;
         }

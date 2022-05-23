@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3254985792971423130}
   - component: {fileID: 3810543747493929199}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9084105398035635662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DBLSPD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 1019135549657447783}
   - component: {fileID: 4263516355755720181}
   - component: {fileID: 9079040186700613359}
-  - component: {fileID: 1039568018007310647}
+  - component: {fileID: 7662518369361509546}
   m_Layer: 11
   m_Name: Coin
   m_TagString: Untagged
@@ -358,9 +358,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1039568018007310647
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0.23, z: 0}
+--- !u!114 &7662518369361509546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2363437396511808027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181bb6374fad98b419533dc05551ce48, type: 3}
+  m_Script: {fileID: 11500000, guid: 5480aff9ff17a3c4eb2677394ab650ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2737447628291152550
@@ -381,10 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6113210534011316521}
-  - component: {fileID: 5805970033864666923}
-  - component: {fileID: 1390371600826478}
-  - component: {fileID: 5992193290611077725}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoubleSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,47 +403,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &5805970033864666923
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737447628291152550}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
---- !u!65 &1390371600826478
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737447628291152550}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5992193290611077725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737447628291152550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5480aff9ff17a3c4eb2677394ab650ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4972637315762193211
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3530747856768755332}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InfHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
