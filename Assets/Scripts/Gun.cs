@@ -180,4 +180,14 @@ public class Gun : MonoBehaviour
     {
         return currentAmmo;
     }
+
+    public void infAmmoDisabler()
+    {
+        Invoke("disableInfAmmo", 10);
+    }
+
+    void disableInfAmmo()
+    {
+        ammoIsInfinite = false;
+    }
 }
