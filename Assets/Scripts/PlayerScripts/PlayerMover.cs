@@ -12,7 +12,7 @@ public class PlayerMover : MonoBehaviour
     Animator animator;
     
     [SerializeField]
-    private float moveSpeed;
+    public float moveSpeed;
 
     [SerializeField]
     private Camera Camera;
@@ -138,5 +138,25 @@ public class PlayerMover : MonoBehaviour
     public bool GetIsDashing()
     {
         return isDashing;
+    }
+
+    public void infSTMDisabler()
+    {
+        Invoke("disableInfSTM", 10);
+    }
+
+    void disableInfSTM()
+    {
+        infiniteStamina = false;
+    }
+
+    public void DBSpeedDisabler()
+    {
+        Invoke("disableDBSPD", 10);
+    }
+
+    void disableDBSPD()
+    {
+        moveSpeed /= 2;
     }
 }
