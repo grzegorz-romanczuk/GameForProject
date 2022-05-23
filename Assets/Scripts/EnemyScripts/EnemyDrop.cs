@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyDrop : MonoBehaviour
 {
-    public GameObject coin;
-    public GameObject heart;
-    public GameObject akMag;
-    public GameObject uziMag;
-    public GameObject m4Mag;
+    public GameObject coin; //5
+    public GameObject heart; //5
+    public GameObject akMag; //5
+    public GameObject uziMag; //5
+    public GameObject m4Mag; //5
+    public GameObject DblSPD; //20
+    public GameObject InfHP; //20
+    public GameObject InfSTM; //15
+    public GameObject InfAmmo; //20
     // Start is called before the first frame update
     void Start()
     {
@@ -25,37 +29,51 @@ public class EnemyDrop : MonoBehaviour
     {
         Vector3 position = transform.position + new Vector3(0.0f, 3.0f, 0.0f);
         
-        int rand = Random.Range(1, 9);
-        if(rand >= 1 && rand <= 3)
+        int rand = Random.Range(1, 100);
+        if(rand >= 1 && rand <= 5)
         {
             Instantiate(coin, position, Quaternion.identity);
-            coin.SetActive(true);       
-            //hajs
+            //Pieni?dz
         }
-        if(rand >= 4 && rand <= 6)
+        if(rand >= 6 && rand <= 10)
         {
             Instantiate(heart, position, Quaternion.identity);
-            heart.SetActive(true);
-            //Life
+            //HP
         }
-        if(rand >= 7 && rand <= 9)
+        if (rand >= 11 && rand <= 15)
         {
-            switch (rand)
-            {
-                case 7:
-                    Instantiate(akMag, position, Quaternion.identity);
-                    akMag.SetActive(true);
-                    break;
-                case 8:
-                    Instantiate(uziMag, position, Quaternion.identity);
-                    uziMag.SetActive(true);
-                    break;
-                case 9:
-                    Instantiate(m4Mag, position, Quaternion.identity);
-                    m4Mag.SetActive(true);
-                    break;
-            }
-            //Ammo
+            Instantiate(akMag, position, Quaternion.identity);
+            //Magazynek AK
+        }
+        if (rand >= 16 && rand <= 20)
+        {
+            Instantiate(uziMag, position, Quaternion.identity);
+            //Magazynek Uzi
+        }
+        if (rand >= 21 && rand <= 25)
+        {
+            Instantiate(m4Mag, position, Quaternion.identity);
+            //Magazynek M4
+        }
+        if (rand >= 26 && rand <= 45)
+        {
+            Instantiate(DblSPD, position, Quaternion.identity);
+            //2x szybko??
+        }
+        if (rand >= 46 && rand <= 65)
+        {
+            Instantiate(InfHP, position, Quaternion.identity);
+            //Nieko?cz?ce si? HP
+        }
+        if (rand >= 66 && rand <= 80)
+        {
+            Instantiate(InfSTM, position, Quaternion.identity);
+            //Nieko?cz?ca si? stamina
+        }
+        if (rand >= 81 && rand <= 100)
+        {
+            Instantiate(InfAmmo, position, Quaternion.identity);
+            //Nieko?cz?ce si? ammo
         }
     }
 }
