@@ -8017,6 +8017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 3741761318262549839}
+  qualityDropdown: {fileID: 1999654985368587784}
   MasterAudio: {fileID: 24100000, guid: 89ebfbce693096348b9f473c07b77499, type: 2}
 --- !u!114 &8969248183969531865
 MonoBehaviour:
