@@ -16,6 +16,7 @@ public class PauseSystem : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         player = GameObject.Find("Player");
+        Cursor.visible = false;
         //gui = GameObject.Find("GUIWindow");
     }   
 
@@ -28,6 +29,8 @@ public class PauseSystem : MonoBehaviour
                 ResumeGame();
                 gamePause.SetActive(false);
                 gamePause.transform.GetChild(1).gameObject.SetActive(false);
+                
+                
                 //gui.SetActive(true);
             }
             
@@ -35,6 +38,7 @@ public class PauseSystem : MonoBehaviour
             {
                 PauseGame();
                 gamePause.SetActive(true);
+                
                 //gui.SetActive(false);
             }
         }
@@ -44,6 +48,7 @@ public class PauseSystem : MonoBehaviour
     {
         Time.timeScale = 1f;
         gameIsPaused = false;
+        Cursor.visible = false;
         AudioListener.pause = false;                       
     }
 
@@ -51,6 +56,7 @@ public class PauseSystem : MonoBehaviour
     {
         Time.timeScale = 0f;
         gameIsPaused = true;
+        Cursor.visible = true;
         AudioListener.pause = true;                
     }
 

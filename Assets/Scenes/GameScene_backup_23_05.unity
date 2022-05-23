@@ -899,7 +899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4184213434242821451, guid: c6b255b45904d0d45bd8f8506d9514b3, type: 3}
       propertyPath: m_AreaSize.x
@@ -1336,7 +1336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3915617882144702611, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4148737331911627791, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: ignoreDashLayers.m_Bits
@@ -1433,10 +1433,6 @@ PrefabInstance:
     - target: {fileID: 5003362890621482997, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 49.057987
-      objectReference: {fileID: 0}
-    - target: {fileID: 5093968917008194144, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
-      propertyPath: m_Lightmapping
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5171889020101360926, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1940,10 +1936,6 @@ PrefabInstance:
       propertyPath: waveValueField
       value: 
       objectReference: {fileID: 121001890}
-    - target: {fileID: 6252762121082336396, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
-      propertyPath: waveCountdownTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6252762121082336397, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1992,10 +1984,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6252762121082336399, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
-      propertyPath: Enemy
-      value: 
-      objectReference: {fileID: 4057188656312813988, guid: 2329125117a37774fbf41057bf3ca6bd, type: 3}
     - target: {fileID: 6669413395139210966, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
       propertyPath: light
       value: 

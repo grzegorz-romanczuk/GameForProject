@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6669413395139210966}
   - component: {fileID: 7171959617194752373}
   - component: {fileID: 2941798533203021130}
+  - component: {fileID: 529630050730711683}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -77,6 +78,7 @@ MonoBehaviour:
   mediumEnemyPrefabs: []
   hardEnemyPrefabs: []
   bossEnemyPrefabs: []
+  waveValueField: {fileID: 0}
 --- !u!114 &6252762121082336384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +156,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 720
-  inGameTimeSpeed: 60
+  timeSpeedMultiplier: 1
   flashlightObject: {fileID: 0}
   dayValueField: {fileID: 0}
   timeValueField: {fileID: 0}
   lightObject: {fileID: 0}
+--- !u!114 &529630050730711683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252762121082336397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebc7ebd4207d184d9c4bd468c4d4070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 100
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  obj1: {fileID: 1189032352745680, guid: 2814d06df7b08b743be7294d7041e1a5, type: 3}
+  obj2: {fileID: 1984014846892628, guid: 0d76463840a57ec4899b2e19ff99c6bb, type: 3}
+  obj3: {fileID: 1906656229910602, guid: 8dfd1c3242055c943a88942e00e8c78c, type: 3}
+  obj4: {fileID: 1875929919973544, guid: fca867e93da64f84c8cc00bde5b816f0, type: 3}
+  obj5: {fileID: 1415099511820332, guid: d64bcd605f1bc084588c5a35592f7fc3, type: 3}
+  maxEnemyCount: 80
+  spawnDelay: 0

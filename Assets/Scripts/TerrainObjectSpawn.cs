@@ -53,13 +53,14 @@ public class TerrainObjectSpawn : MonoBehaviour
     public void SpawnEnemy(GameObject obj, float Ypos)
     {
         Vector3 randomPos = Random.insideUnitSphere * maxDistance + new Vector3(0.0f, 0.0f, 0.0f);
+        Quaternion randomRot = Quaternion.Euler(0, Random.Range(0.0f, 360.0f), 0);
 
         if (CheckForNavMesh(randomPos))
         {
             randomPos = new Vector3(randomPos.x, Ypos, randomPos.z);
             if (!CheckForUnit(randomPos, obj.GetComponent<CapsuleCollider>().radius * obj.transform.localScale.x + 0.1f))
             {
-                Instantiate(obj, randomPos, Quaternion.identity);
+                Instantiate(obj, randomPos, randomRot);
 
             }
             else
@@ -101,8 +102,7 @@ public class TerrainObjectSpawn : MonoBehaviour
                     obj = obj5;
                     Ypos = 0.0f;
                     break;
-            }
-            Invoke("disableInfHP", 10);
+            }            
             SpawnEnemy(obj, Ypos);
             enemyCount++;
         }

@@ -6,14 +6,12 @@ using UnityEngine.AI;
 public class EnemySpawn : MonoBehaviour
 {
     public float maxDistance = 45f;
-    public LayerMask ignoreLayers;
-    public GameObject Enemy;
+    public LayerMask ignoreLayers; 
     //public GameObject spawn;
     public int maxEnemyCount;
     private GameObject player;
     //float xpos;
-    //float zpos;
-    int enemyCount = 0;
+    //float zpos;  
     public float spawnDelay;
     // Start is called before the first frame update
     void Start()
@@ -63,26 +61,13 @@ public class EnemySpawn : MonoBehaviour
             else
             {
                 yield return new WaitForSeconds(0.01f);
-                StartCoroutine(SpawnEnemy(Enemy));
+                StartCoroutine(SpawnEnemy(enemy));
             }
         }
         else
         {            
             yield return new WaitForSeconds(0.01f);
-            StartCoroutine(SpawnEnemy(Enemy));
-        }
-    }
-
-    IEnumerator enemyDrop()
-    {
-        while(enemyCount < maxEnemyCount)
-        {
-            //xpos = Random.Range(spawn.transform.position.x - 5, spawn.transform.position.x + 5);
-            //zpos = Random.Range(spawn.transform.position.z - 5, spawn.transform.position.z + 5);
-            //Instantiate(Enemy, new Vector3(xpos, 0, zpos), Quaternion.identity);
-            StartCoroutine(SpawnEnemy(Enemy));
-            yield return new WaitForSeconds(spawnDelay);
-            enemyCount++;
+            StartCoroutine(SpawnEnemy(enemy));
         }
     }
 }
