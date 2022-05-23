@@ -6,34 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedScenePath-0:
-      value: 22424703114646680e0b0227036c72111d16282b272968252320092a
-      flags: 0
-    RecentlyUsedScenePath-1:
       value: 22424703114646740f070929043a1f1e1757152b3c21237f1e3d123de7f30b39ece309ebf22836393d3dfb2e013f122ae00f4626f7020438120bf31d14b1051d18d101
       flags: 0
-    RecentlyUsedScenePath-2:
-      value: 22424703114646680e0b0227036c6f1919030a2f2766333e243d04
-      flags: 0
-    RecentlyUsedScenePath-3:
-      value: 22424703114646680e0b0227036c72111f19352f223d68252320092a
-      flags: 0
-    RecentlyUsedScenePath-4:
+    RecentlyUsedScenePath-1:
       value: 2242470311464648191700270a265b501a180f6a3c272a296d390f3cf2f37b3ce7ea39a7f234362820
       flags: 0
-    RecentlyUsedScenePath-5:
+    RecentlyUsedScenePath-2:
       value: 22424703114646680e0b0227036c78111b122b292926230f2f281e38f7f07a2decee22f0
       flags: 0
-    RecentlyUsedScenePath-6:
-      value: 22424703114646680e0b0227036c78020c121f253e3268252320092a
-      flags: 0
-    RecentlyUsedScenePath-7:
-      value: 22424703114646680e0b0227036c721102120d393668777e38271427fb
-      flags: 0
-    RecentlyUsedScenePath-8:
+    RecentlyUsedScenePath-3:
       value: 22424703114646680e0b0227036c78111b122b292926237e38271427fb
       flags: 0
-    RecentlyUsedScenePath-9:
+    RecentlyUsedScenePath-4:
+      value: 22424703114646680e0b0227036c78020c121f253e3268252320092a
+      flags: 0
+    RecentlyUsedScenePath-5:
+      value: 22424703114646680e0b0227036c78020c121f253e3268252320092a
+      flags: 0
+    RecentlyUsedScenePath-6:
+      value: 22424703114646680e0b0227036c72111f19352f223d68252320092a
+      flags: 0
+    RecentlyUsedScenePath-7:
+      value: 22424703114646680e0b0227036c6f1919030a2f2766333e243d04
+      flags: 0
+    RecentlyUsedScenePath-8:
       value: 22424703114646680e0b0227036c721102120d393666333e243d04
+      flags: 0
+    RecentlyUsedScenePath-9:
+      value: 22424703114646680e0b0227036c6f1919030a2f2766333e243d04
       flags: 0
   m_VCAutomaticAdd: 1
   m_VCDebugCom: 0
