@@ -14,19 +14,31 @@ public class InfiniteAmmoPickup : MonoBehaviour
         M4 = GameObject.Find("Player/root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Weapons/M4");
         Uzi = GameObject.Find("Player/root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Weapons/Uzi");
         AK = GameObject.Find("Player/root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Weapons/AK74");
+        Destroy(gameObject, 120);
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Player"))
         {
+            
             M4.GetComponent<Gun>().ammoIsInfinite = true;
             M4.GetComponent<Gun>().infAmmoDisabler();
+            
+            
             Uzi.GetComponent<Gun>().ammoIsInfinite = true;
             Uzi.GetComponent<Gun>().infAmmoDisabler();
+
+           
             AK.GetComponent<Gun>().ammoIsInfinite = true;
             AK.GetComponent<Gun>().infAmmoDisabler();
+
+            
             Destroy(gameObject);
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+       
     }
 }

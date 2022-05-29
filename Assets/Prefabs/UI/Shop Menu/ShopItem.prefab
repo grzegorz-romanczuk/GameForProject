@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 3452287661502240378}
   - component: {fileID: 7724015704377668674}
   m_Layer: 5
-  m_Name: WeaponShopItem
+  m_Name: ShopItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

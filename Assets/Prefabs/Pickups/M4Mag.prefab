@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5100048131367618258}
   - component: {fileID: 7120836950246306344}
   - component: {fileID: -9188893141894428336}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: M4Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415889362257595599}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 0.5}
@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 3107913661839914200}
   - component: {fileID: 6905811455535053056}
   - component: {fileID: 271327627465141342}
+  - component: {fileID: 8570541611007856271}
   m_Layer: 11
   m_Name: Mag
   m_TagString: Untagged
@@ -158,6 +159,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8570541611007856271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712190737961663592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.17407931, z: 0.080084264}
+  m_Center: {x: 0.04, y: -0.035089873, z: -0.020738307}
 --- !u!1 &6997511721276281843
 GameObject:
   m_ObjectHideFlags: 0

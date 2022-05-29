@@ -13,10 +13,12 @@ public class EnemyDrop : MonoBehaviour
     public GameObject InfHP; //20
     public GameObject InfSTM; //15
     public GameObject InfAmmo; //20
+
+    private GameObject weaponBelt;
     // Start is called before the first frame update
     void Start()
     {
-        
+        weaponBelt = GameObject.Find("Weapons");
     }
 
     // Update is called once per frame
@@ -42,18 +44,21 @@ public class EnemyDrop : MonoBehaviour
         }
         if (rand >= 11 && rand <= 15)
         {
-            Instantiate(akMag, position, Quaternion.identity);
+            if (weaponBelt.transform.GetChild(2).GetComponent<Gun>().isUnlocked) Instantiate(akMag, position, Quaternion.identity);
             //Magazynek AK
+            else CoinDrop();
         }
         if (rand >= 16 && rand <= 20)
         {
-            Instantiate(uziMag, position, Quaternion.identity);
+            if (weaponBelt.transform.GetChild(1).GetComponent<Gun>().isUnlocked) Instantiate(uziMag, position, Quaternion.identity);
             //Magazynek Uzi
+            else CoinDrop();
         }
         if (rand >= 21 && rand <= 25)
         {
-            Instantiate(m4Mag, position, Quaternion.identity);
+            if (weaponBelt.transform.GetChild(3).GetComponent<Gun>().isUnlocked) Instantiate(m4Mag, position, Quaternion.identity);
             //Magazynek M4
+            else CoinDrop();
         }
         if (rand >= 26 && rand <= 45)
         {

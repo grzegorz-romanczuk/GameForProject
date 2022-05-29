@@ -9,15 +9,21 @@ public class DoubleSpeedPickup : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        Destroy(gameObject, 120);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Contains("Player"))
+        {
+            player.GetComponent<PlayerMover>().isDoubleSpeed = true;
+            player.GetComponent<PlayerMover>().DBSpeedDisabler();
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag.Contains("Player"))
-        {
-            player.GetComponent<PlayerMover>().moveSpeed *= 2;
-            player.GetComponent<PlayerMover>().DBSpeedDisabler();
-            Destroy(gameObject);
-        }
+        
     }
 }
