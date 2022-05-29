@@ -347,7 +347,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 4057188656312813988}
   bulletSpeed: 15
   sightRange: 60
-  attackRange: 10
+  attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &8981485282870510368
@@ -386,7 +386,7 @@ MonoBehaviour:
   health: 4
   cashValue: 30
   spawnValue: 5
-  damage: 1
+  damage: 2
   score: 100
 --- !u!1 &4057188656542633438
 GameObject:

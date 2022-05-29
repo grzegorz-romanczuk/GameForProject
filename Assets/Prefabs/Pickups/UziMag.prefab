@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: -3924352477456810687}
   - component: {fileID: -776811440879693572}
   - component: {fileID: 3479879146105444280}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: UziMag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156771101897759774}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 0.2}
@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 3573158575836678249}
   - component: {fileID: 2923055134084431831}
   - component: {fileID: 5740144024149831311}
+  - component: {fileID: 4321944372691050264}
   m_Layer: 11
   m_Name: Magazin
   m_TagString: Untagged
@@ -251,6 +252,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4321944372691050264
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117231862168208350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.16148876, z: 0.02728125}
+  m_Center: {x: 0.09, y: -0.07032342, z: 0.0021501444}
 --- !u!1001 &295493998515587627
 PrefabInstance:
   m_ObjectHideFlags: 0

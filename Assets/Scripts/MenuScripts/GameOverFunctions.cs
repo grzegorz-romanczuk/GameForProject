@@ -45,6 +45,7 @@ public class GameOverFunctions : MonoBehaviour
         GetScore();
         GameOver.SetActive(true);
         gui.SetActive(false);
+        Cursor.visible = true;
     }
 }
 

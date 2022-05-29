@@ -12,7 +12,7 @@ public class M4AmmoPickup : MonoBehaviour
     {
         M4 = GameObject.Find("Player/root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Weapons/M4");
 
-
+        Destroy(gameObject, 120);
     }
 
     // Update is called once per frame
@@ -21,12 +21,16 @@ public class M4AmmoPickup : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Contains("Player"))
+        if (other.gameObject.tag.Contains("Player") && M4.GetComponent<Gun>().Ammo < M4.GetComponent<Gun>().maxAmmo)
         {
             M4.GetComponent<Gun>().AmmoBought();
             Destroy(gameObject);
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        
     }
 }

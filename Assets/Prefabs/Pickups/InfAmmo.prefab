@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4180506333533841909}
-  - component: {fileID: 7484593129817611260}
   - component: {fileID: 8945949344121043575}
-  - component: {fileID: 4772929215471507412}
   m_Layer: 11
   m_Name: Coin
   m_TagString: Untagged
@@ -35,22 +33,6 @@ Transform:
   m_Father: {fileID: 4825131427126719804}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &7484593129817611260
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347218274296616835}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!65 &8945949344121043575
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64,18 +46,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.23, z: 0}
---- !u!114 &4772929215471507412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347218274296616835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241e302b8cc9cbd40b57757072de00dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &387375558757024861
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +433,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5985570685917125742}
-  m_Layer: 11
+  - component: {fileID: 7223715052511793457}
+  - component: {fileID: 6158230840206524318}
+  - component: {fileID: 4836492804201806287}
+  m_Layer: 13
   m_Name: InfAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,3 +458,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7223715052511793457
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9007678649964618668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &6158230840206524318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9007678649964618668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241e302b8cc9cbd40b57757072de00dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &4836492804201806287
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9007678649964618668}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0

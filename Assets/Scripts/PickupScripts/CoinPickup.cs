@@ -10,7 +10,7 @@ public class CoinPickup : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
-
+        Destroy(gameObject, 120);
     }
 
     // Update is called once per frame
@@ -18,13 +18,16 @@ public class CoinPickup : MonoBehaviour
     {
 
     }
-
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Player"))
         {
-            gameManager.GetComponent<PlayerMoney>().AddMoney(100);
+            gameManager.GetComponent<PlayerMoney>().AddMoney(Random.Range(5, 41) * 5 );
             Destroy(gameObject);
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        
     }
 }

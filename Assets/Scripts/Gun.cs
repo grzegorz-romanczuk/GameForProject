@@ -183,11 +183,12 @@ public class Gun : MonoBehaviour
 
     public void infAmmoDisabler()
     {
-        Invoke("disableInfAmmo", 10);
+        CancelInvoke();
+        Invoke(nameof(disableInfAmmo), 10f);
     }
 
     void disableInfAmmo()
-    {
+    {       
         ammoIsInfinite = false;
     }
 }

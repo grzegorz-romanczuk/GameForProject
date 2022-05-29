@@ -1343,7 +1343,7 @@ MonoBehaviour:
   hitCooldown: 0.1
   invulnerable: 0
   TurnOffObjects: []
-  destroyTime: 1
+  destroyTime: 2
 --- !u!195 &-6178051382130548324
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1388,14 +1388,14 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
-  enemyIsRanged: 0
-  timeBetweenAttacks: 2
-  attackTime: 0.1
-  projectile: {fileID: 0}
-  bulletSpawnPoint: {fileID: 0}
-  bulletSpeed: 0
+  enemyIsRanged: 1
+  timeBetweenAttacks: 1.5
+  attackTime: 0.2
+  projectile: {fileID: 7577550731130292106, guid: aa326752ce0479b4dadb43fb2ac00f03, type: 3}
+  bulletSpawnPoint: {fileID: 1000013849561652}
+  bulletSpeed: 20
   sightRange: 60
-  attackRange: 1
+  attackRange: 15
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &-6174025745925023485
