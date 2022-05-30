@@ -23,6 +23,8 @@ public class Gun : MonoBehaviour
     public bool isFullAuto = false;
     public int bulletDamage = 1;
     public float reloadTime = 2f;
+    public bool isUsingShotgunShells = false;
+    public bool isUsingRockets = false;    
     [Header("Shop Config")]
     public bool isUnlocked = false;
     public int weaponCost = 500;
@@ -118,12 +120,39 @@ public class Gun : MonoBehaviour
     void Shoot()
     {
         animator.SetBool("IsShooting", true);
-        var recoilValue = Random.Range(-recoil, recoil);
-        GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.Euler(0f, recoilValue, 0f));
-        bullet.transform.parent = null;
-        bullet.transform.rotation = Quaternion.identity;
-        bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * bulletSpeed * 100);        
-        bullet.GetComponent<PlayerBullet>().SetBulletDamage(bulletDamage);
+        if (isUsingShotgunShells)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                var recoilValue = Random.Range(-recoil, recoil);
+                GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.Euler(0f, recoilValue, 0f));
+                bullet.transform.parent = null;
+                bullet.transform.rotation = Quaternion.identity;
+                bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * bulletSpeed * 100);
+                bullet.GetComponent<PlayerBullet>().SetBulletDamage(bulletDamage);
+                bullet.GetComponent<PlayerBullet>().Invoke("ShotgunShell", 0.25f);                
+            }
+        }
+        else if (isUsingRockets)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            var recoilValue = Random.Range(-recoil, recoil);
+            GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.Euler(0f, recoilValue, 0f));
+            bullet.transform.parent = null;            
+            bullet.transform.rotation = transform.rotation;
+            bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * bulletSpeed * 100);
+            bullet.GetComponent<PlayerRocket>().SetBulletDamage(bulletDamage);
+        }
+        else
+        {
+
+            var recoilValue = Random.Range(-recoil, recoil);
+            GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.Euler(0f, recoilValue, 0f));
+            bullet.transform.parent = null;
+            bullet.transform.rotation = Quaternion.identity;
+            bullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * bulletSpeed * 100);
+            bullet.GetComponent<PlayerBullet>().SetBulletDamage(bulletDamage);
+        }
         nextShot = Time.time + fireRate;
         if(!isFullAuto) animator.SetBool("IsShooting", false);
     }
@@ -173,7 +202,8 @@ public class Gun : MonoBehaviour
             {
                 currentAmmo = Ammo;
                 Ammo = 0;
-            }                        
+            }
+            if (isUsingRockets) transform.GetChild(0).gameObject.SetActive(true);
         }
     }
     public int GetCurrentAmmo()
