@@ -1415,6 +1415,9 @@ MonoBehaviour:
   akMag: {fileID: 8001748816802454811, guid: 06e313319bf923a48bcb5b245971804a, type: 3}
   uziMag: {fileID: 1156771101897759774, guid: 652886257448f7e44b928c4d0d66935f, type: 3}
   m4Mag: {fileID: 1415889362257595599, guid: 3bfe083cda0f53a4aa2950515f7c7551, type: 3}
+  m249Mag: {fileID: 1108577023435170466, guid: 6b25af1417abcf84f9aa0304fbf7e177, type: 3}
+  shotgunMag: {fileID: 6878691985831200956, guid: 1dd04e90282c3d14799a583b1e4105db, type: 3}
+  rpgMag: {fileID: 1046658662910948343, guid: e23ba6167e7ddb843a2cc8537cd506a2, type: 3}
   DblSPD: {fileID: 2737447628291152550, guid: dceffb8aca13eac4aa3d1998574309e2, type: 3}
   InfHP: {fileID: 3339527471972339871, guid: b585fd1b7ef64c540a918c664be52a8b, type: 3}
   InfSTM: {fileID: 6088830830290138319, guid: a45e079d110faf64fa03673689db475a, type: 3}
