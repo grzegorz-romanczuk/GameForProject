@@ -3153,7 +3153,7 @@ PrefabInstance:
     - target: {fileID: 2941798533203021130, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
       propertyPath: flashlightObject
       value: 
-      objectReference: {fileID: 946405013}
+      objectReference: {fileID: 0}
     - target: {fileID: 6252762121082336396, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
       propertyPath: shop
       value: 
@@ -11093,11 +11093,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
---- !u!1 &946405013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3915617882144702611, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
-  m_PrefabInstance: {fileID: 946405012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &946405014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9021004297787424141, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
