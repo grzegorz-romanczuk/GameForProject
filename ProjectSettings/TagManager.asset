@@ -24,8 +24,8 @@ TagManager:
   - Drop
   - TerrainObjects
   - DropTrigger
-  - 
-  - 
+  - EnemyCenter
+  - Turret
   - 
   - 
   - 

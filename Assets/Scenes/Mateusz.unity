@@ -3225,7 +3225,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6252762121082336387, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
   m_PrefabInstance: {fileID: 324387907}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199212882}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 438b28e322cb3364cbcf7121d101d16f, type: 3}
@@ -11103,6 +11103,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7454356905797039490, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
   m_PrefabInstance: {fileID: 946405012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &946405026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946405015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90883717b2a8d0e43a97c9a23c111673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Turret: {fileID: 738093674461589687, guid: bb1f03c40b10a3a44b9e5049a23f9f5e, type: 3}
+  Player: {fileID: 1495836183}
+  isTurretInEQ: 1
 --- !u!1001 &962131849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13415,34 +13430,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4311083684781656, guid: 6e0c284cd4efece4abd0b2e38ef32e3b, type: 3}
   m_PrefabInstance: {fileID: 1187276003}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1199212882 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6252762121082336397, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
-  m_PrefabInstance: {fileID: 324387907}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1199212883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199212882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ebc7ebd4207d184d9c4bd468c4d4070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 100
-  ignoreLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  obj1: {fileID: 1189032352745680, guid: 2814d06df7b08b743be7294d7041e1a5, type: 3}
-  obj2: {fileID: 1984014846892628, guid: 0d76463840a57ec4899b2e19ff99c6bb, type: 3}
-  obj3: {fileID: 1906656229910602, guid: 8dfd1c3242055c943a88942e00e8c78c, type: 3}
-  obj4: {fileID: 1875929919973544, guid: fca867e93da64f84c8cc00bde5b816f0, type: 3}
-  obj5: {fileID: 1415099511820332, guid: d64bcd605f1bc084588c5a35592f7fc3, type: 3}
-  maxEnemyCount: 80
-  spawnDelay: 0
 --- !u!1001 &1199818737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16293,6 +16280,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 10, z: 4}
   m_Center: {x: -0.000022888184, y: 0.11693454, z: -0.0000049471855}
+--- !u!1 &1495836183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5994400278831425576, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+  m_PrefabInstance: {fileID: 946405012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1498564287
 PrefabInstance:
   m_ObjectHideFlags: 0
