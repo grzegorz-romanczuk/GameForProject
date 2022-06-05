@@ -8,10 +8,13 @@ public class PlayerAim : MonoBehaviour
 {
     public LayerMask usedLayers;
     private Vector3 mousePoint;
+   
     // Update is called once per frame
     void Update()
     {
         if(!PauseSystem.gameIsPaused)RotateFromMouseVector();
+       
+
     }
     private void RotateFromMouseVector()
     {
@@ -29,5 +32,7 @@ public class PlayerAim : MonoBehaviour
     {
         return mousePoint;
     }
+
+   
 }
 
