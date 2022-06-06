@@ -451,6 +451,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8460520777909926895, guid: 91ebe1075e429c345b804337d70939b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ebe1075e429c345b804337d70939b6, type: 3}
 --- !u!1 &1523423723

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class DoubleSpeedPickup : MonoBehaviour
 {
+
+    public Sprite PngImage;
     private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         Destroy(gameObject, 120);
+        Debug.Log("DobuleSpeed");
     }
 
     private void OnTriggerEnter(Collider other)
