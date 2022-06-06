@@ -49,7 +49,7 @@ public class PauseSystem : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         Cursor.visible = false;
-        AudioListener.pause = false;                       
+                             
     }
 
     public void PauseGame()
@@ -57,7 +57,7 @@ public class PauseSystem : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
         Cursor.visible = true;
-        AudioListener.pause = true;                
+                      
     }
 
     public void MenuClick()
@@ -74,6 +74,7 @@ public class PauseSystem : MonoBehaviour
 
     public void YesClick()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 

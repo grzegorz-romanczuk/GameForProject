@@ -259,7 +259,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7045331448598625414}
+      - m_Target: {fileID: 8460520777909926895}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2116,7 +2116,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4565009940593348614}
         m_TargetAssemblyTypeName: Maps, Assembly-CSharp
-        m_MethodName: GetForestMap
+        m_MethodName: SetForestMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3030,7 +3030,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4565009940593348614}
         m_TargetAssemblyTypeName: Maps, Assembly-CSharp
-        m_MethodName: GetDesertMap
+        m_MethodName: SetDesertMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4537,6 +4537,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &6173933049664650811
 GameObject:
@@ -5319,7 +5331,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4565009940593348614}
         m_TargetAssemblyTypeName: Maps, Assembly-CSharp
-        m_MethodName: GetDirtMap
+        m_MethodName: SetDirtMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8732,6 +8744,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ec12507f0381b429d5936d5ebf181a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  click: {fileID: 8300000, guid: 134c83d6b10fe6945bba6b0cc14be6c1, type: 3}
+  back: {fileID: 8300000, guid: dbe60ddfb76cce24e99f5e95473c6d8a, type: 3}
   TextScore: {fileID: 7045331447608109348}
 --- !u!114 &7045331448598625413
 MonoBehaviour:
@@ -9794,7 +9809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Desert
+  m_text: Snow
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

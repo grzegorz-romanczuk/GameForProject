@@ -245,7 +245,8 @@ MonoBehaviour:
   currentHealth: 0
   hitCooldown: 0.1
   invulnerable: 0
-  TurnOffObjects: []
+  TurnOffObjects:
+  - {fileID: 372661827901029607}
   destroyTime: 2
 --- !u!195 &92948335301159707
 NavMeshAgent:

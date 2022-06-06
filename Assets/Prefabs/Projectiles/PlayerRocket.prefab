@@ -132,6 +132,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  explosionEffect: {fileID: 3803374047214528823, guid: 0edae552d85e42148860478b441780a2, type: 3}
 --- !u!1 &7754906206552196540
 GameObject:
   m_ObjectHideFlags: 0

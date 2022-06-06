@@ -4,32 +4,25 @@ using UnityEngine;
 
 
 public class Maps : MonoBehaviour
-{
-    public GameObject map1;
-    public GameObject map2;
-    public GameObject map3;
+{  
 
-
-    public void GetForestMap()
+    public void SetForestMap()
     {
-        map1.name = "map1";
-        DontDestroyOnLoad(map1);
+        PlayerPrefs.SetInt("map", 0);
     }
-    public void GetDirtMap()
+    public void SetDirtMap()
     {
-        map2.name = "map2";
-        DontDestroyOnLoad(map2);
+        PlayerPrefs.SetInt("map", 1);
+
+    }
+    public void SetDesertMap()
+    {
+        PlayerPrefs.SetInt("map", 2);
+    }
+    public static int GetMap()
+    {
+        return PlayerPrefs.GetInt("map");
+
     }
     
-    public void GetDesertMap()
-    {
-        map3.name = "map3";
-        DontDestroyOnLoad(map3);
-    }
-
-
-
-
-
-
 }

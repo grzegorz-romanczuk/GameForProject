@@ -19,7 +19,7 @@ public class GuiManager : MonoBehaviour
     public List<Image> BoostImage;
     public List<Sprite> BoostSprites;
     public Image TurretImage;
-
+    public List<Image> GrenadeImage;
 
     private PlayerScore playerScore;
     private PlayerMoney playerCash;
@@ -46,6 +46,7 @@ public class GuiManager : MonoBehaviour
         
         playerScore = gameManager.GetComponent<PlayerScore>();
         playerCash = gameManager.GetComponent<PlayerMoney>();
+        turretPlacer = GameObject.Find("Player").GetComponent<PlayerTurretPlacer>();
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();
         
@@ -69,7 +70,8 @@ public class GuiManager : MonoBehaviour
         GUIArmor();
         
         GUIBoost();
-        //GUITurret();
+        GUITurret();
+        GUIGrenade();
     }
 
     void GUIScore()
@@ -195,7 +197,19 @@ public class GuiManager : MonoBehaviour
         {
             TurretImage.enabled = true;
         }
+        else TurretImage.enabled = false;
     }
 
-    
+    void GUIGrenade()
+    {
+        for( int i = 0; i < 3; i++)
+        {
+            if(i < playerMover.getGrenades())
+            {
+                GrenadeImage[i].enabled = true;
+            }
+            else GrenadeImage[i].enabled = false;
+        }
+    }
+
 }

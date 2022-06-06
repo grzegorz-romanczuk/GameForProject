@@ -28,6 +28,14 @@ public class Shop : MonoBehaviour
     public int kevlarX2Price = 150;
     public int kevlarX3Price = 250;
 
+    [Header("Turret Settings")]
+    public Sprite Turret;
+    public int TurretPrice = 750;
+
+    [Header("Grenade Settings")]
+    public Sprite Grenade;
+    public int GrenadePrice = 150;
+
     private int money;
     void Start()
     {
@@ -143,6 +151,22 @@ public class Shop : MonoBehaviour
         newItem.transform.GetChild(0).GetChild(2).GetComponent<TMPro.TMP_Text>().text = kevlarX3Price + "$";
         if (player.GetComponent<PlayerHealth>().currentArmor >= 3 || money < kevlarX3Price) newItem.transform.GetChild(0).GetComponent<Button>().interactable = false;
         //hardened kev
+        newItem = Instantiate(blankItem, EqPanelContent.transform);
+        newItem.name = Turret.name + "Item";
+        newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => BuyTurret());
+        newItem.transform.GetChild(0).GetChild(0).GetComponent<TMPro.TMP_Text>().text = "Auto Turret";
+        newItem.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = Turret;
+        newItem.transform.GetChild(0).GetChild(2).GetComponent<TMPro.TMP_Text>().text = TurretPrice + "$";
+        if (player.GetComponent<PlayerTurretPlacer>().isTurretInEQ || money < TurretPrice) newItem.transform.GetChild(0).GetComponent<Button>().interactable = false;
+        //Turret
+        newItem = Instantiate(blankItem, EqPanelContent.transform);
+        newItem.name = Grenade.name + "Item";
+        newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => BuyGrenade());
+        newItem.transform.GetChild(0).GetChild(0).GetComponent<TMPro.TMP_Text>().text = "Grenade";
+        newItem.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = Grenade;
+        newItem.transform.GetChild(0).GetChild(2).GetComponent<TMPro.TMP_Text>().text = GrenadePrice + "$";
+        if (player.GetComponent<PlayerMover>().getGrenades() >= player.GetComponent<PlayerMover>().maxGrenades || money < GrenadePrice) newItem.transform.GetChild(0).GetComponent<Button>().interactable = false;
+        //Grenade
 
     }
 
@@ -167,6 +191,18 @@ public class Shop : MonoBehaviour
     private void BuyKevlar(int strenght)
     {
         player.GetComponent<PlayerHealth>().currentArmor = strenght;
+        ReloadItems();
+    }
+
+    private void BuyTurret()
+    {
+        player.GetComponent<PlayerTurretPlacer>().isTurretInEQ = true;
+        ReloadItems();
+    }
+
+    private void BuyGrenade()
+    {
+        player.GetComponent<PlayerMover>().addGrenade();
         ReloadItems();
     }
 }

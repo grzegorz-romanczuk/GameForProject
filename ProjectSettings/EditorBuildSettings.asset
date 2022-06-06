@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3018d44a3ff455e4897811a8c97dc44d
   - enabled: 1
-    path: Assets/Scenes/Piotrek.unity
-    guid: b41a9a44b23eed445b71a79de43c284c
-  - enabled: 0
-    path: Assets/Scenes/GameScene_Backup_30.05.unity
-    guid: b121a3528c76fa34dbac18bc7f33cf51
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/GameScene.unity
+    guid: e57c2d3ea8749ce439023f558dc8f5d9
   m_configObjects: {}
