@@ -480,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 49920
+    m_Bits: 50048
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
