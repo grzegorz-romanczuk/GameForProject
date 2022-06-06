@@ -7,7 +7,6 @@ public class Ahtung_Script : MonoBehaviour
 
     public float Delay = 3f;
     public float Radius = 10f;
-    public GameObject ExplosionEvect;
     float odlicznia;
     bool HasExploaded = false;
     // Start is called before the first frame update
@@ -32,7 +31,7 @@ public class Ahtung_Script : MonoBehaviour
     public void Explode()
     {
 
-        Instantiate(ExplosionEvect, transform.position, transform.rotation);
+       
 
         Collider[] coliders = Physics.OverlapSphere(transform.position, Radius);
 

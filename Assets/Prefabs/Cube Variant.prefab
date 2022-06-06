@@ -129,11 +129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5183837349620875846, guid: 4334f43c146ffc144944c439617da4a7, type: 3}
       propertyPath: stopAction
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5183837349620875846, guid: 4334f43c146ffc144944c439617da4a7, type: 3}
       propertyPath: cullingMode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5183837349620875846, guid: 4334f43c146ffc144944c439617da4a7, type: 3}
       propertyPath: lengthInSec
