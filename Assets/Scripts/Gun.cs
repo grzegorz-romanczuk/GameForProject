@@ -40,6 +40,11 @@ public class Gun : MonoBehaviour
 
     private PlayerMover playerMover;
 
+    //audio
+
+    public AudioClip shoot;
+    public AudioSource audioSource;
+
 
     void Update()
     {
@@ -77,6 +82,9 @@ public class Gun : MonoBehaviour
         weaponCost *= diff;
         animationMultiplier = reloadAnimationTime / reloadTime;
         playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();        
+
+        //audio
+        audioSource = GameObject.Find("Player Audio Source").GetComponent<AudioSource>();
     }
 
     public void AmmoBought()
@@ -155,6 +163,9 @@ public class Gun : MonoBehaviour
         }
         nextShot = Time.time + fireRate;
         if(!isFullAuto) animator.SetBool("IsShooting", false);
+
+        //audio
+        audioSource.PlayOneShot(shoot, 1f);
     }
 
     private void StartReloading()

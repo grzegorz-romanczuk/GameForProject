@@ -11,6 +11,7 @@ public class Shop : MonoBehaviour
     private List<GameObject> Weapons = new List<GameObject>();
     private GameObject gameManager;
     private GameObject player;
+    private GameObject granade;
 
     [Header("UI Elements")]
     public GameObject WeaponPanelContent;
