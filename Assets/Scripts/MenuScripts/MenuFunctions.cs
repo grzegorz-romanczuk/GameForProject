@@ -6,16 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class MenuFunctions : MonoBehaviour
 {
+    //audio
+    public AudioSource audioSource;
+    public AudioClip click;
+    public AudioClip back;
+
     public TextMeshProUGUI TextScore;
     public void PlayGame()
     {
        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        //audio
+        audioSource.PlayOneShot(click, 1f);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+
+        //audio
+        audioSource.PlayOneShot(back, 1f);
+
     }
 
     public void GetHighScore()
@@ -27,5 +39,20 @@ public class MenuFunctions : MonoBehaviour
         {
             TextScore.text += i + 1 +".\t" + highScore[i] + "\n";
         }
+
+        //audio
+        audioSource.PlayOneShot(click, 1f);
+    }
+
+    public void Options()
+    {
+        //audio
+        audioSource.PlayOneShot(click, 1f);
+    }
+
+    public void Back()
+    {
+        //audio
+        audioSource.PlayOneShot(back, 1f);
     }
 }
