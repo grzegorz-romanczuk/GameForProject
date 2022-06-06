@@ -23,6 +23,7 @@ public class PlayerMover : MonoBehaviour
     private bool isDashing = false;
     public float dashTime = 0.5f;
     public float dashPower = 2f;
+    public float IleGranatow = 2f;
     public int maxStamina = 20;
     public int staminaUsage = 10;
     public bool infiniteStamina = false;
@@ -31,6 +32,8 @@ public class PlayerMover : MonoBehaviour
     public GameObject WeaponBelt;
     [Header("Aniamtion Config")]
     public float dashAnimationTime = 0.8f;
+    public float force = 10f;
+    public GameObject AhtungObj;
     void Awake()
     {
         _input = GetComponent<InputHandler>();
@@ -58,7 +61,15 @@ public class PlayerMover : MonoBehaviour
             }
             else Dash(dashVector);
 
-            if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina))) StartDash();
+            if (Input.GetKeyDown(KeyCode.CapsLock))
+                TryThrowAhtung();
+
+               
+            if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina)))
+                            StartDash();
+              
+
+               
                       
             //if (targetVector.x < 0) GetComponent<Animator>().SetBool("IsRunningLeft", true);
             //else GetComponent<Animator>().SetBool("IsRunningLeft", false);
@@ -164,5 +175,37 @@ public class PlayerMover : MonoBehaviour
         yield return new WaitForSeconds(time);
         isDoubleSpeed = false;
     }
-     
+
+    void TryThrowAhtung()
+    {
+        Ahtung_Script ahtung = GetComponent<Ahtung_Script>();
+        //animator.SetTrigger("AhtungComing");
+       
+        if(CzyjestCo())
+        {
+            Vector3 tmp = transform.position;
+            tmp = tmp + transform.forward;
+
+            Instantiate(AhtungObj, tmp, Quaternion.identity);
+        }
+    }
+    public bool CzyjestCo()
+    {
+        if (IleGranatow > 0)
+        {
+            IleGranatow--;
+            return true;
+           
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    public void add()
+    {
+        Debug.Log("Added");
+        IleGranatow++;
+    }
 }
