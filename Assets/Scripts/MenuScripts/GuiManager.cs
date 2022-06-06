@@ -9,15 +9,16 @@ public class GuiManager : MonoBehaviour
     public TextMeshProUGUI TextScore;
     public TextMeshProUGUI TextCash;
     public TextMeshProUGUI TextHeal;
+    public TextMeshProUGUI TextArmor;
     public TextMeshProUGUI TextAmmo;
     public Slider stamina;
     private GameObject Weapons;
     public Image WeaponImage;
-
+    public GameObject ArmorUI;
 
     private PlayerScore playerScore;
     private PlayerMoney playerCash;
-    private PlayerHealth playerHealth;
+    private PlayerHealth playerHealth;   
     private PlayerMover playerMover;
     private WeaponChanger WeapChanger;
     private GameObject gameManager;
@@ -46,11 +47,20 @@ public class GuiManager : MonoBehaviour
         GUIHeal();
         GUIStamina();
         GUIweapon();
+        GUIArmor();
     }
 
     void GUIScore()
     {
         TextScore.text = playerScore.score.ToString();
+    }
+
+    void GUIArmor()
+    {
+        if(playerHealth.currentArmor > 0) ArmorUI.SetActive(true);        
+        else ArmorUI.SetActive(false);
+
+        TextArmor.text = "x " + playerHealth.currentArmor.ToString();
     }
 
     void GUICash()

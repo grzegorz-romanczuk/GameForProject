@@ -9,9 +9,9 @@ public class InfiniteStaminaPickup : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        Destroy(gameObject, 120);
     }
-
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Player"))
         {
@@ -19,5 +19,9 @@ public class InfiniteStaminaPickup : MonoBehaviour
             player.GetComponent<PlayerMover>().infSTMDisabler();
             Destroy(gameObject);
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        
     }
 }

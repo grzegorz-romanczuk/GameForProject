@@ -10,6 +10,7 @@ public class HeartPickup : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        Destroy(gameObject,120);
 
     }
 
@@ -18,13 +19,16 @@ public class HeartPickup : MonoBehaviour
     {
 
     }
-
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Contains("Player"))
+        if (other.gameObject.tag.Contains("Player") && player.GetComponent<PlayerHealth>().currentHealth < player.GetComponent<PlayerHealth>().maxHealth)
         {
             player.GetComponent<PlayerHealth>().AddHealth(1);
             Destroy(gameObject);
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        
     }
 }

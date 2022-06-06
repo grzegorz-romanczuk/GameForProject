@@ -9,9 +9,10 @@ public class InfiniteHPPickup : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        Destroy(gameObject, 120);
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Player"))
         {
@@ -19,6 +20,10 @@ public class InfiniteHPPickup : MonoBehaviour
             player.GetComponent<PlayerHealth>().infHPDisabler();
             Destroy(gameObject);
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        
     }
 
 }

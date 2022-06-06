@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1870978098511390705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8388784646805950063}
+  m_Layer: 14
+  m_Name: Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8388784646805950063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870978098511390705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.006128496, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4054295103991838120}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4057188655428664474
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +256,7 @@ Transform:
   m_Children:
   - {fileID: 4054295104103866850}
   - {fileID: 4054295103398195526}
+  - {fileID: 8388784646805950063}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,8 +377,8 @@ MonoBehaviour:
   projectile: {fileID: 7577550731130292106, guid: 30530e0351202b74ebe3f2f64bbce9da, type: 3}
   bulletSpawnPoint: {fileID: 4057188656312813988}
   bulletSpeed: 15
-  sightRange: 50
-  attackRange: 10
+  sightRange: 60
+  attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &8981485282870510368
@@ -367,6 +398,9 @@ MonoBehaviour:
   akMag: {fileID: 8001748816802454811, guid: 06e313319bf923a48bcb5b245971804a, type: 3}
   uziMag: {fileID: 1156771101897759774, guid: 652886257448f7e44b928c4d0d66935f, type: 3}
   m4Mag: {fileID: 1415889362257595599, guid: 3bfe083cda0f53a4aa2950515f7c7551, type: 3}
+  m249Mag: {fileID: 1108577023435170466, guid: 6b25af1417abcf84f9aa0304fbf7e177, type: 3}
+  shotgunMag: {fileID: 6878691985831200956, guid: 1dd04e90282c3d14799a583b1e4105db, type: 3}
+  rpgMag: {fileID: 1046658662910948343, guid: e23ba6167e7ddb843a2cc8537cd506a2, type: 3}
   DblSPD: {fileID: 2737447628291152550, guid: dceffb8aca13eac4aa3d1998574309e2, type: 3}
   InfHP: {fileID: 3339527471972339871, guid: b585fd1b7ef64c540a918c664be52a8b, type: 3}
   InfSTM: {fileID: 6088830830290138319, guid: a45e079d110faf64fa03673689db475a, type: 3}
@@ -383,10 +417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a94fb7a70ee3a40b8c3e3c9996c1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  cashValue: 50
-  spawnValue: 4
-  damage: 1
+  health: 4
+  cashValue: 30
+  spawnValue: 5
+  damage: 2
   score: 100
 --- !u!1 &4057188656542633438
 GameObject:

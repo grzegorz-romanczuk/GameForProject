@@ -603,7 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b73f9adb2ea072b409ac491fc9d76e14, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 641654234a1d9a04ebe5ce9e02dbad43, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1610,7 +1610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6476817111229685670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1658,7 +1658,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Kiedy\u015B si\u0119 doda"
+  m_text: x 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.1
+  m_fontSize: 22.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2127,9 +2127,11 @@ MonoBehaviour:
   TextScore: {fileID: 6476817110518366444}
   TextCash: {fileID: 6476817110770797097}
   TextHeal: {fileID: 6476817111263662371}
+  TextArmor: {fileID: 6476817111229685669}
   TextAmmo: {fileID: 6476817109858858236}
   stamina: {fileID: 6476817111889059822}
   WeaponImage: {fileID: 6476817111515204631}
+  ArmorUI: {fileID: 6476817110096743483}
 --- !u!1 &6476817111597078842
 GameObject:
   m_ObjectHideFlags: 0

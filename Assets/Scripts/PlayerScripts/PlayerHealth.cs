@@ -7,10 +7,15 @@ public class PlayerHealth : Health
 {
     private float invulnerabilityTime = 0f;
     public GameObject GameOver;
+
+    [Header("Armor")]
+    public int startingArmor = 1;
+    public int currentArmor = 0;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        currentArmor = startingArmor;
         if(!GameOver) GameOver = GameObject.Find("GameOverCanvas");
     }
 
@@ -19,7 +24,11 @@ public class PlayerHealth : Health
         if (invulnerabilityTime <= Time.time && !invulnerable)
         {
             invulnerabilityTime = Time.time + hitCooldown;
-            currentHealth -= damage;
+            if(currentArmor > 0)
+            {
+                currentArmor--;
+            }
+            else currentHealth -= damage;
             if (currentHealth <= 0)
             {               
                 GetComponent<PlayerAim>().enabled = false;
@@ -43,10 +52,12 @@ public class PlayerHealth : Health
 
     public void infHPDisabler()
     {
-        Invoke("disableInfHP", 10);
+        StopCoroutine(nameof(disableInfHP));
+        StartCoroutine(nameof(disableInfHP), 10f);
     }
-    void disableInfHP()
+    IEnumerator disableInfHP(float time)
     {
+        yield return new WaitForSeconds(time);
         invulnerable = false;
     }
 }

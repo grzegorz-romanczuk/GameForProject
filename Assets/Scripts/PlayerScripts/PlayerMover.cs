@@ -17,6 +17,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField]
     private Camera Camera;
 
+    public bool isDoubleSpeed = false;
     private Vector3 dashVector;
     private Vector3 targetVector;
     private bool isDashing = false;
@@ -28,7 +29,6 @@ public class PlayerMover : MonoBehaviour
     public int stamina;
     private float staminaRegenTime = 0f;
     public GameObject WeaponBelt;
-
     [Header("Aniamtion Config")]
     public float dashAnimationTime = 0.8f;
     void Awake()
@@ -87,7 +87,8 @@ public class PlayerMover : MonoBehaviour
     }
     private void Move(Vector3 targetVector)
     {
-        var speed = moveSpeed * Time.deltaTime;        
+        var speed = moveSpeed * Time.deltaTime;
+        if (isDoubleSpeed) speed *= 2;
         targetVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector;
         var targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
@@ -142,21 +143,26 @@ public class PlayerMover : MonoBehaviour
 
     public void infSTMDisabler()
     {
-        Invoke("disableInfSTM", 10);
+        StopCoroutine(nameof(disableInfSTM));
+        StartCoroutine(nameof(disableInfSTM), 10f);
     }
 
-    void disableInfSTM()
+    IEnumerator disableInfSTM(float time)
     {
+        yield return new WaitForSeconds(time);
         infiniteStamina = false;
     }
 
     public void DBSpeedDisabler()
     {
-        Invoke("disableDBSPD", 10);
+        StopCoroutine(nameof(disableDBSPD));        
+        StartCoroutine(nameof(disableDBSPD), 10f);
     }
 
-    void disableDBSPD()
+    IEnumerator disableDBSPD(float time)
     {
-        moveSpeed /= 2;
+        yield return new WaitForSeconds(time);
+        isDoubleSpeed = false;
     }
+     
 }

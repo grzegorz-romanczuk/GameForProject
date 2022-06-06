@@ -32,7 +32,13 @@ public class PlayerBullet : MonoBehaviour
     private void DestroyBullet()
     {
         gameObject.GetComponent<SphereCollider>().enabled = false;
-        gameObject.GetComponent<Rigidbody>().velocity *= 0.2f;
+        gameObject.GetComponent<Rigidbody>().velocity *= 0.1f;
         Destroy(gameObject, gameObject.GetComponent<TrailRenderer>().time);
+    }
+    
+    public void ShotgunShell()
+    {
+        bulletDamage--;
+        if(bulletDamage > 1) Invoke("ShotgunShell", 0.25f);
     }
 }

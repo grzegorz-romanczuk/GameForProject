@@ -103,7 +103,14 @@ public class EnemyAi : MonoBehaviour
 
             isAttacking = true;
             Invoke(nameof(AttackPlayer), attackTime);
-        }        
+        }
+        else
+        {
+            agent.SetDestination(transform.position);
+
+            isAttacking = true;
+            Invoke(nameof(HitPlayer), attackTime);
+        }
     }
     private void AttackPlayer()
     {                
@@ -121,6 +128,22 @@ public class EnemyAi : MonoBehaviour
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             ///End of attack code
                                  
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            alreadyAttacked = true;
+        }
+        Invoke(nameof(FinishAttack), 0.5f);
+    }
+
+    private void HitPlayer()
+    {
+
+        transform.LookAt(player);
+
+        if (!alreadyAttacked)
+        {
+            ///Attack code here
+            animator.SetTrigger("Attack");                        
+
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             alreadyAttacked = true;
         }

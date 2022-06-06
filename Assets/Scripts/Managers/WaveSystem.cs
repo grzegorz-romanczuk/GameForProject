@@ -103,7 +103,7 @@ public class WaveSystem : MonoBehaviour
     {
         try
         {
-            var rand = Mathf.RoundToInt(Random.Range(0, easyEnemyPrefabs.Length));
+            var rand = Mathf.RoundToInt(Random.Range(0, easyEnemyPrefabs.Length));            
             var prefab = easyEnemyPrefabs[rand];
             var enemyValue = prefab.GetComponent<EnemyStats>().spawnValue;
             if (waveValue > 0)
