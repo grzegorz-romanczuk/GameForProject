@@ -18,7 +18,8 @@ public class MenuFunctions : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         //audio
-        audioSource.PlayOneShot(click, 1f);
+
+        audioSource.Play();
     }
 
     public void QuitGame()
@@ -26,7 +27,7 @@ public class MenuFunctions : MonoBehaviour
         Application.Quit();
 
         //audio
-        audioSource.PlayOneShot(back, 1f);
+        audioSource.Play();
 
     }
 
@@ -41,18 +42,18 @@ public class MenuFunctions : MonoBehaviour
         }
 
         //audio
-        audioSource.PlayOneShot(click, 1f);
+       // audioSource.Play();
     }
 
     public void Options()
     {
         //audio
-        audioSource.PlayOneShot(click, 1f);
+        audioSource.Play();
     }
 
     public void Back()
     {
         //audio
-        audioSource.PlayOneShot(back, 1f);
+        audioSource.Play();
     }
 }

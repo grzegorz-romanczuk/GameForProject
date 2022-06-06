@@ -16,7 +16,7 @@ public class PlayerTurretPlacer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("t"))
+        if(Input.GetKeyDown(KeyCode.T))
         {
             if(isTurretInEQ == true)
             {

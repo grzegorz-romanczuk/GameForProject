@@ -84,7 +84,7 @@ public class Gun : MonoBehaviour
         playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();        
 
         //audio
-        audioSource = GameObject.Find("Player Audio Source").GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void AmmoBought()
@@ -165,7 +165,7 @@ public class Gun : MonoBehaviour
         if(!isFullAuto) animator.SetBool("IsShooting", false);
 
         //audio
-        audioSource.PlayOneShot(shoot, 1f);
+        audioSource.Play();
     }
 
     private void StartReloading()

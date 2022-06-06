@@ -9,6 +9,7 @@ public class PlayerRocket : MonoBehaviour
     public LayerMask enemyLayer;
     private int bulletDamage = 1;
     private ParticleSystem particles;
+    public GameObject explosionEffect;
 
     void Start()
     {
@@ -42,6 +43,8 @@ public class PlayerRocket : MonoBehaviour
     {
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().velocity *= 0;
+        var effect = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 2);
         particles.transform.parent = null;
         particles.Stop();
         Destroy(particles, particles.main.duration);

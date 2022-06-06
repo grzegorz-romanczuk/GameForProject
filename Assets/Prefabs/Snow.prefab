@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7367739424999351045}
   - component: {fileID: 7367739424999351044}
   m_Layer: 3
-  m_Name: Sand
+  m_Name: Snow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

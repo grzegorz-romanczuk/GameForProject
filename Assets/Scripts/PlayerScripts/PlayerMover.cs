@@ -22,14 +22,16 @@ public class PlayerMover : MonoBehaviour
     private Vector3 targetVector;
     private bool isDashing = false;
     public float dashTime = 0.5f;
-    public float dashPower = 2f;
-    public float IleGranatow = 2f;
+    public float dashPower = 2f;    
     public int maxStamina = 20;
     public int staminaUsage = 10;
     public bool infiniteStamina = false;
     public int stamina;
     private float staminaRegenTime = 0f;
     public GameObject WeaponBelt;
+    public int maxGrenades = 3;
+    private int grenades = 1;
+    public int throwStrength = 5;
     [Header("Aniamtion Config")]
     public float dashAnimationTime = 0.8f;
     public float force = 10f;
@@ -61,12 +63,10 @@ public class PlayerMover : MonoBehaviour
             }
             else Dash(dashVector);
 
-            if (Input.GetKeyDown(KeyCode.CapsLock))
-                TryThrowAhtung();
+            if (Input.GetKeyDown(KeyCode.Mouse1) && grenades > 0) TryThrowAhtung();
 
                
-            if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina)))
-                            StartDash();
+            if (Input.GetKeyDown(KeyCode.Space) && (!isDashing && (stamina >= staminaUsage || infiniteStamina))) StartDash();
               
 
                
@@ -181,31 +181,25 @@ public class PlayerMover : MonoBehaviour
         Ahtung_Script ahtung = GetComponent<Ahtung_Script>();
         //animator.SetTrigger("AhtungComing");
        
-        if(CzyjestCo())
-        {
-            Vector3 tmp = transform.position;
-            tmp = tmp + transform.forward;
+        
+        
+        Vector3 tmp = transform.position;
+        tmp = tmp + transform.forward;
 
-            Instantiate(AhtungObj, tmp, Quaternion.identity);
-        }
+        var grenade = Instantiate(AhtungObj, tmp, Quaternion.identity);
+        grenade.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * throwStrength * 10);
+        grenades--;
     }
-    public bool CzyjestCo()
+    public int getGrenades()
     {
-        if (IleGranatow > 0)
-        {
-            IleGranatow--;
-            return true;
-           
-        }
-        else
-        {
-            return false;
-        }
-
+        return grenades;
     }
-    public void add()
+    public void addGrenade()
     {
-        Debug.Log("Added");
-        IleGranatow++;
+        if(grenades < maxGrenades)
+        {        
+        grenades++;
+        }
+        
     }
 }
