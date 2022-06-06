@@ -16,13 +16,23 @@ public class GuiManager : MonoBehaviour
     public Image WeaponImage;
     public GameObject ArmorUI;
 
+    public List<Image> BoostImage;
+    public List<Sprite> BoostSprites;
+    public Image TurretImage;
+
+
     private PlayerScore playerScore;
     private PlayerMoney playerCash;
-    private PlayerHealth playerHealth;   
+    private PlayerHealth playerHealth;
     private PlayerMover playerMover;
     private WeaponChanger WeapChanger;
     private GameObject gameManager;
     private List<GameObject> WeapList = new List<GameObject>();
+    private PlayerTurretPlacer turretPlacer;
+
+
+
+
     void Start()
     {
         stamina.maxValue = GameObject.Find("Player").GetComponent<PlayerMover>().maxStamina;
@@ -33,21 +43,33 @@ public class GuiManager : MonoBehaviour
         {
             WeapList.Add(child.gameObject);
         }
+        
         playerScore = gameManager.GetComponent<PlayerScore>();
         playerCash = gameManager.GetComponent<PlayerMoney>();
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();
+        
+
+        foreach (Image image in BoostImage)
+        {
+            image.enabled = false;
+        }
+        
+        TurretImage.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
-    {        
+    {
         GUIScore();
         GUICash();
         GUIHeal();
         GUIStamina();
         GUIweapon();
         GUIArmor();
+        
+        GUIBoost();
+        //GUITurret();
     }
 
     void GUIScore()
@@ -57,7 +79,7 @@ public class GuiManager : MonoBehaviour
 
     void GUIArmor()
     {
-        if(playerHealth.currentArmor > 0) ArmorUI.SetActive(true);        
+        if (playerHealth.currentArmor > 0) ArmorUI.SetActive(true);
         else ArmorUI.SetActive(false);
 
         TextArmor.text = "x " + playerHealth.currentArmor.ToString();
@@ -102,7 +124,7 @@ public class GuiManager : MonoBehaviour
         else
         {
             TextAmmo.text = weapInfo.GetCurrentAmmo().ToString() + "/" + weapInfo.Ammo.ToString();
-        }   
+        }
     }
     void GUIweapon()
     {
@@ -115,4 +137,65 @@ public class GuiManager : MonoBehaviour
             }
         }
     }
+
+    bool isInfAmmo()
+    {
+        foreach (GameObject weap in WeapList)
+        {
+            if (weap.activeSelf && weap != GameObject.Find("M1911"))
+            {
+                if (weap.GetComponent<Gun>().ammoIsInfinite)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    void GUIBoost()
+    {
+
+        if (playerHealth.invulnerable)
+        {
+            BoostImage[0].enabled = true;
+            BoostImage[0].sprite = BoostSprites[0];
+
+        }
+        else if (playerMover.isDoubleSpeed)
+        {
+            BoostImage[1].enabled = true;
+            BoostImage[1].sprite = BoostSprites[3];
+
+        }
+        else if (playerMover.infiniteStamina)
+        {
+            BoostImage[2].enabled = true;
+            BoostImage[2].sprite = BoostSprites[2];
+
+        }
+        else if (isInfAmmo())
+        {
+            BoostImage[3].enabled = true;
+            BoostImage[3].sprite = BoostSprites[1];
+        }
+        else
+        {
+            foreach (Image image in BoostImage)
+            {
+                image.enabled = false;
+            }
+        }
+    }
+
+    void GUITurret()
+    {
+        if (turretPlacer.isTurretInEQ)
+        {
+            TurretImage.enabled = true;
+        }
+    }
+
+    
 }

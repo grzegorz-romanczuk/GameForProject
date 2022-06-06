@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4902ce46dac45c46a50591b0d415bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pngImage: {fileID: 21300000, guid: bf9018529f30d904c91d2da84c40ca75, type: 3}
 --- !u!54 &6987715604738812879
 Rigidbody:
   m_ObjectHideFlags: 0

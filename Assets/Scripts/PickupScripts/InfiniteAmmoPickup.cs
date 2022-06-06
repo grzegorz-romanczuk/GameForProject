@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InfiniteAmmoPickup : MonoBehaviour
 {
+    public Sprite PngImage;
+
     private GameObject M4;
     private GameObject Uzi;
     private GameObject AK;
@@ -15,6 +17,7 @@ public class InfiniteAmmoPickup : MonoBehaviour
         Uzi = GameObject.Find("Player/root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Weapons/Uzi");
         AK = GameObject.Find("Player/root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Weapons/AK74");
         Destroy(gameObject, 120);
+        Debug.Log("InfAmmo");
     }
 
     private void OnTriggerEnter(Collider other)

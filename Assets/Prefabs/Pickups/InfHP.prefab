@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93ebe5e9a659a84280b7942d666dc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PngImage: {fileID: 21300000, guid: 25331fddf6a2b63408e2cda6deb44212, type: 3}
 --- !u!65 &5790683727773223241
 BoxCollider:
   m_ObjectHideFlags: 0
