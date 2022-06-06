@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23614443034357060, guid: 5a2bf64643e1fb0439ea39c0fc9b00ff, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2bf64643e1fb0439ea39c0fc9b00ff, type: 3}
 --- !u!1 &2581765455476822957 stripped
@@ -118,4 +122,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Delay: 3
   Radius: 120
-  ExplosionEvect: {fileID: 1546409929560646, guid: 83561575068bf2042a4f289885d89d2f, type: 3}
+  ExplosionEvect: {fileID: 8778309524141493609, guid: 585dbde074ccb7b4abe9f1d6b829ad5d, type: 3}

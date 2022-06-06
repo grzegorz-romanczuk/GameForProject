@@ -31,7 +31,8 @@ public class Ahtung_Script : MonoBehaviour
 
     public void Explode()
     {
-        Instantiate(ExplosionEvect,transform.position,transform.rotation);
+
+        Instantiate(ExplosionEvect, transform.position, transform.rotation);
 
         Collider[] coliders = Physics.OverlapSphere(transform.position, Radius);
 
@@ -45,4 +46,5 @@ public class Ahtung_Script : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
 }
