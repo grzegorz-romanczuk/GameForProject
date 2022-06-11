@@ -81,7 +81,7 @@ public class EnemyDrop : MonoBehaviour
             //Magazynek RPG
             else CoinDrop();
         }
-        else if(rand >= 61 && rand <= 60)
+        else if(rand >= 61 && rand <= 70)
         {
             Instantiate(DblSPD, position, Quaternion.identity);
             //2x szybko??

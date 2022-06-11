@@ -7,7 +7,8 @@ public class PlayerHealth : Health
 {
     private float invulnerabilityTime = 0f;
     public GameObject GameOver;
-
+    public AudioClip deathClip;
+    private AudioSource audioSource;
     [Header("Armor")]
     public int startingArmor = 1;
     public int currentArmor = 0;
@@ -16,6 +17,7 @@ public class PlayerHealth : Health
     {
         currentHealth = maxHealth;
         currentArmor = startingArmor;
+        audioSource = GetComponent<AudioSource>();
         if(!GameOver) GameOver = GameObject.Find("GameOverCanvas");
     }
 
@@ -24,13 +26,21 @@ public class PlayerHealth : Health
         if (invulnerabilityTime <= Time.time && !invulnerable)
         {
             invulnerabilityTime = Time.time + hitCooldown;
-            if(currentArmor > 0)
+
+            if (currentArmor > 0)
             {
                 currentArmor--;
+                audioSource.Play();
             }
-            else currentHealth -= damage;
+            else
+            {
+                currentHealth -= damage;
+                audioSource.Play();
+            }
             if (currentHealth <= 0)
-            {               
+            {
+                audioSource.clip = deathClip;
+                audioSource.Play();
                 GetComponent<PlayerAim>().enabled = false;
                 GetComponent<PlayerMover>().enabled = false;
                 GetComponent<Animator>().SetTrigger("Death");

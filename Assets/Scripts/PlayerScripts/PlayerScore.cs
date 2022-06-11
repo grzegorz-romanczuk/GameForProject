@@ -18,6 +18,7 @@ public class PlayerScore : MonoBehaviour
     {
         var dayTime = GetComponent<DayTimeManager>();
         score -= Mathf.RoundToInt((dayTime.getTime() - dayTime.startTime) / dayTime.timeSpeedMultiplier);
+        if (score < 0) score = 0;
         saveHighScore();
     }
 

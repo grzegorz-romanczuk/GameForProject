@@ -66,6 +66,7 @@ public class TurretAI : MonoBehaviour
             rb2.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
             rb2.AddForce(transform.up * 8f, ForceMode.Impulse);
             ammo -= 2;
+            GetComponent<AudioSource>().Play();
             ///End of attack code
 
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

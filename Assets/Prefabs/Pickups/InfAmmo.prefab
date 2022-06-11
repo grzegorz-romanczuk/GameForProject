@@ -361,8 +361,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255611
+  m_fontColor: {r: 0.9843137, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241e302b8cc9cbd40b57757072de00dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pngImage: {fileID: 21300000, guid: 5c08ee38de4a9d04bbec6b0ec908edde, type: 3}
+  PngImage: {fileID: 0}
 --- !u!54 &4836492804201806287
 Rigidbody:
   m_ObjectHideFlags: 0

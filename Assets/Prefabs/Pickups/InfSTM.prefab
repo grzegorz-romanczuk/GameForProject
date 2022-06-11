@@ -107,8 +107,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255611
+  m_fontColor: {r: 0.9843137, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -230,7 +230,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66375c220b716a042a2430e22ccd3578, type: 2}
+  - {fileID: 2100000, guid: 2f92a3ae1910224428a81a804c026ca7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4902ce46dac45c46a50591b0d415bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pngImage: {fileID: 21300000, guid: bf9018529f30d904c91d2da84c40ca75, type: 3}
+  PngImage: {fileID: 0}
 --- !u!54 &6987715604738812879
 Rigidbody:
   m_ObjectHideFlags: 0
