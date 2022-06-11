@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 8937305206681647939, guid: 007b096fda0316242a61f3f216c89830, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8937305206681647941, guid: 007b096fda0316242a61f3f216c89830, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -253,6 +257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a428cb933d0788446b604bd3193f68c0, type: 3}
+--- !u!1 &214594287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 736464737697112645, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
+  m_PrefabInstance: {fileID: 946405012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &296962314 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5894950750802498321, guid: 007b096fda0316242a61f3f216c89830, type: 3}
@@ -289,6 +298,10 @@ PrefabInstance:
       propertyPath: timeValueField
       value: 
       objectReference: {fileID: 1435252274}
+    - target: {fileID: 2941798533203021130, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
+      propertyPath: flashlightObject
+      value: 
+      objectReference: {fileID: 214594287}
     - target: {fileID: 6252762121082336396, guid: 3d5964effc6de8847a88ea3b67eeafc2, type: 3}
       propertyPath: shop
       value: 
@@ -513,11 +526,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 158395390620503731, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: isUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 158395390620503731, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: ammoIsInfinite
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 353610921318936435, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: GameOver
@@ -558,10 +571,6 @@ PrefabInstance:
     - target: {fileID: 1155285910321220799, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: Ammo
       value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155285910321220799, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
-      propertyPath: ammoIsInfinite
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395609528575483929, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: ignoreLayers.m_Bits
@@ -1081,11 +1090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6822513285459924145, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: isUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6822513285459924145, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: ammoIsInfinite
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6902638601221033106, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_Name
@@ -1249,11 +1258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8253600826238962304, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: isUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8253600826238962304, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: ammoIsInfinite
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8344579076327790898, guid: db5d9eb88b27d334fac25ff323cba6c2, type: 3}
       propertyPath: m_Name

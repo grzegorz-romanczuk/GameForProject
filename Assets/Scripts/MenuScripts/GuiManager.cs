@@ -165,29 +165,32 @@ public class GuiManager : MonoBehaviour
             BoostImage[0].sprite = BoostSprites[0];
 
         }
-        else if (playerMover.isDoubleSpeed)
+        else BoostImage[0].enabled = false;
+
+        if (playerMover.isDoubleSpeed)
         {
             BoostImage[1].enabled = true;
             BoostImage[1].sprite = BoostSprites[3];
 
         }
-        else if (playerMover.infiniteStamina)
+        else BoostImage[1].enabled = false;
+
+        if (playerMover.infiniteStamina)
         {
             BoostImage[2].enabled = true;
             BoostImage[2].sprite = BoostSprites[2];
 
         }
-        else if (isInfAmmo())
+        else BoostImage[2].enabled = false;
+
+        if (isInfAmmo())
         {
             BoostImage[3].enabled = true;
             BoostImage[3].sprite = BoostSprites[1];
         }
         else
         {
-            foreach (Image image in BoostImage)
-            {
-                image.enabled = false;
-            }
+            BoostImage[3].enabled = false;
         }
     }
 
