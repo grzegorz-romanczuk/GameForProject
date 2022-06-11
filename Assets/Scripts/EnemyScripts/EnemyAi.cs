@@ -126,6 +126,7 @@ public class EnemyAi : MonoBehaviour
             rb.rotation = transform.rotation;
             rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            GetComponent<AudioSource>().Play();
             ///End of attack code
                                  
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -142,8 +143,8 @@ public class EnemyAi : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            animator.SetTrigger("Attack");                        
-
+            animator.SetTrigger("Attack");
+            GetComponent<AudioSource>().Play();
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             alreadyAttacked = true;
         }

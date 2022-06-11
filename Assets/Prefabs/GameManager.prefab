@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 529630050730711683}
   - component: {fileID: 251780145137771676}
   - component: {fileID: 4454747587304155534}
+  - component: {fileID: 2067870222165621535}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -73,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnDelay: 0.5
   shop: {fileID: 0}
-  waveCountdownTime: 10
+  waveCountdownTime: 3
   easyEnemyPrefabs:
   - {fileID: 4057188656312813988, guid: 2329125117a37774fbf41057bf3ca6bd, type: 3}
   - {fileID: 1000011046516534, guid: b3e2b02d61842914a95186752ad0e34d, type: 3}
@@ -221,10 +222,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1715136770706044874, guid: 89ebfbce693096348b9f473c07b77499, type: 2}
   m_audioClip: {fileID: 8300000, guid: a7a5b10fe11c77844bfcea368e5ec056, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -318,3 +319,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490d1d5e9c1e266429d1271bb8112c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2067870222165621535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252762121082336397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2af341cee72c3409498d74dd4bcbe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicClips:
+  - {fileID: 8300000, guid: 044172f20e8707946a508279ebaec587, type: 3}
+  - {fileID: 8300000, guid: a23b90d6d06b54fca8b639437c3812fd, type: 3}
+  - {fileID: 8300000, guid: ddbffc0ba002d49528b07d6fd2d9a169, type: 3}
+  - {fileID: 8300000, guid: 576b7c71c872e4cc886dd1c9757f4e40, type: 3}

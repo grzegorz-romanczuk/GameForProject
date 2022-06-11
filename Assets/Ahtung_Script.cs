@@ -10,6 +10,7 @@ public class Ahtung_Script : MonoBehaviour
     float odlicznia;
     bool HasExploaded = false;
     public GameObject ExpolsionEffect;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,8 +32,7 @@ public class Ahtung_Script : MonoBehaviour
 
     public void Explode()
     {      
-        Collider[] coliders = Physics.OverlapSphere(transform.position, Radius);
-
+        Collider[] coliders = Physics.OverlapSphere(transform.position, Radius);        
         foreach(Collider col in coliders)
         {
             EnemyHealth es = col.GetComponent<EnemyHealth>();

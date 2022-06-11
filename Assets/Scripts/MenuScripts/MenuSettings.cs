@@ -63,16 +63,16 @@ public class MenuSettings : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        MasterAudio.SetFloat("MasterMixer", volume);
+        MasterAudio.SetFloat("MasterMixer", Mathf.Log(volume) * 20);
     }
 
     public void SetEffectsVolume(float volume)
     {
-        MasterAudio.SetFloat("EffectsMixer", volume);
+        MasterAudio.SetFloat("EffectsMixer", Mathf.Log(volume) * 20);
     }
 
     public void SetMusicVolume(float volume)
     {
-        MasterAudio.SetFloat("MusicMixer", volume);
+        MasterAudio.SetFloat("MusicMixer", Mathf.Log(volume) * 20);
     }
 }

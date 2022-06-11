@@ -14480,6 +14480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifeTime: 5
+  bulletDamage: 1
   destroyEffect: {fileID: 2101976390198621186, guid: 0fc71a7eaa197f34da57f3d7a2683bcb, type: 3}
 --- !u!95 &2881487918470897385
 Animator:

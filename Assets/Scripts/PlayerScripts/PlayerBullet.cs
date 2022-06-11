@@ -6,7 +6,9 @@ public class PlayerBullet : MonoBehaviour
 {
     public float bulletLifeTime = 2f;
     private int bulletDamage = 1;
-    
+    public AudioClip enemyHitClip;
+    public AudioClip terrainHitClip;
+
     void Start()
     {
         Invoke("DestroyBullet", bulletLifeTime);
@@ -15,11 +17,20 @@ public class PlayerBullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //damage Enemy
+        var audio = GetComponent<AudioSource>();
         if (other.gameObject.tag.Contains("Enemy"))
         {
             EnemyHealth health;
             other.gameObject.TryGetComponent<EnemyHealth>(out health);     
-            if(health) health.DoDamage(bulletDamage);
+            if(health) health.DoDamage(bulletDamage);            
+            audio.clip = enemyHitClip;
+            audio.Play();
+        }
+        else
+        {
+            
+            audio.clip = terrainHitClip;
+            audio.Play();
         }
 
         DestroyBullet();
